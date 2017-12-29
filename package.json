@@ -1,6 +1,6 @@
 {
   "name": "dsp.1.0",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -12,20 +12,15 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^5.1.2",
-    "@angular/cdk": "^5.0.2",
     "@angular/common": "^5.1.2",
     "@angular/compiler": "^5.1.2",
     "@angular/core": "^5.1.2",
     "@angular/forms": "^5.1.2",
     "@angular/http": "^5.1.2",
-    "@angular/material": "^5.0.2",
     "@angular/platform-browser": "^5.1.2",
-    "@angular/platform-browser-dynamic": "^5.1.2",
     "@angular/router": "^5.1.2",
     "@ngx-formly/bootstrap": "^2.0.0-rc.5",
     "@ngx-formly/core": "^2.0.0-rc.5",
-    "@ngx-formly/material": "^2.0.0-rc.5",
     "angular2-text-mask": "^8.0.4",
     "core-js": "^2.4.1",
     "ng2-currency-mask": "^4.4.1",
