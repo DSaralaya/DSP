@@ -18,27 +18,19 @@ import { maskService } from 'app/services/masking';
 import { FormlyFieldInput } from 'app/services/input';
 import { FormlyPanelWrapper } from 'app/services/wrapper';
 
-
-
 const appRoutes: Routes = [
   { path: 'get-started', component: GetStartedComponent },
   { path: 'personal-info', component: PersonalInfoComponent },
 ];
 
-
 @NgModule({
   declarations: [
-    AppComponent,
-    GetStartedComponent,
-    PersonalInfoComponent,currencyService,maskService,FormlyFieldInput,FormlyPanelWrapper
+    AppComponent,  GetStartedComponent,PersonalInfoComponent,
+    currencyService,maskService,FormlyFieldInput,FormlyPanelWrapper
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    ReactiveFormsModule, CurrencyMaskModule,TextMaskModule,Configmod,
-    FormlyBootstrapModule,
-    RouterModule.forRoot(appRoutes)
+    BrowserModule, FormsModule,HttpModule, ReactiveFormsModule, FormlyBootstrapModule,RouterModule.forRoot(appRoutes),
+     CurrencyMaskModule,TextMaskModule,Configmod
   ],
   providers: [],
   bootstrap: [AppComponent]

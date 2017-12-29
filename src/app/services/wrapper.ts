@@ -1,8 +1,8 @@
-import { Component, ViewContainerRef, ViewChild,OnInit } from '@angular/core';
-import { FieldType,FieldWrapper } from '@ngx-formly/core';
+import { Component, ViewContainerRef, ViewChild, OnInit } from "@angular/core";
+import { FieldType, FieldWrapper } from "@ngx-formly/core";
 
 @Component({
-  selector: 'formly-wrapper-panel',
+  selector: "formly-wrapper-panel",
   template: `
   <div class="input-wrapper">
   <span class="{{field.templateOptions.className || ''}} help-section-label">
@@ -12,8 +12,9 @@ import { FieldType,FieldWrapper } from '@ngx-formly/core';
       <template #fieldComponent></template>
   </div>
 </div>
-  `,
+  `
 })
 export class FormlyPanelWrapper extends FieldWrapper {
-  @ViewChild('fieldComponent', {read: ViewContainerRef}) fieldComponent: ViewContainerRef;
+  @ViewChild("fieldComponent", { read: ViewContainerRef })
+  fieldComponent: ViewContainerRef;
 }
