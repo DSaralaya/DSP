@@ -1,3 +1,18 @@
-<p>
-  personal-info works!
-</p>
+<div class="container" *ngIf="model">
+  <div class="row">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="card">
+        <div class="card-header">
+          Personal Information
+        </div>
+        <div class="card-block">
+          <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">
+          </formly-form>
+        </div>
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary btn-next pull-right submit-button">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
