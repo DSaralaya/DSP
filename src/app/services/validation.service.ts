@@ -1,9 +1,10 @@
 import { Injectable, transition } from "@angular/core";
 import { FormsModule, FormGroup, FormControl } from "@angular/forms";
 import * as _ from 'underscore';
-export class ValidationService {
-         public static orgModel: any;
+import { FieldType } from "@ngx-formly/core";
 
+export class ValidationService    {
+         public static orgModel: any;
          static getValidatorErrorMessage(code: string) {
            let config = { required: "Required", invalidEmailAddress: "Invalid email address", invalidPassword: "Invalid password. Password must be at least 6 characters long, and contain a number." };
            return config[code];

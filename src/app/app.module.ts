@@ -23,11 +23,15 @@ const appRoutes: Routes = [
   { path: 'cross-sell', component: CrossSellComponent },
   { path: 'personal-info', component: PersonalInfoComponent },
   { path: 'identity', component: IdentityComponent },
+  { path: 'employment', component: EmploymentComponent },
+  { path: 'account-details', component: AccountDetailsComponent },
+  { path: 'review-submit', component: ReviewSubmitComponent },
 ];
 
 @NgModule({
   declarations: [
-    AppComponent, GetStartedComponent, PersonalInfoComponent, IdentityComponent, CrossSellComponent, EmploymentComponent, AccountDetailsComponent, ReviewSubmitComponent
+    AppComponent, GetStartedComponent, PersonalInfoComponent, IdentityComponent, CrossSellComponent,
+     EmploymentComponent, AccountDetailsComponent, ReviewSubmitComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(appRoutes), FormlyControls, HttpModule,BrowserAnimationsModule,

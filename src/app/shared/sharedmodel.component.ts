@@ -4,6 +4,7 @@ import { FormlyFormOptions } from "@ngx-formly/core";
 import { LocalService } from "app/services/localJson.service";
 import { Router } from "@angular/router";
 import { AppConfig } from "app/shared/config";
+import { ValidationService } from "app/services/validation.service";
 
 export class SharedModel  {
   public model: any;
@@ -22,6 +23,7 @@ export class SharedModel  {
       delete this.model.fields;
       this.nextUrl=AppConfig.NextPage(this.model);
       this.prevUrl=AppConfig.PrevPage(this.model);
+      ValidationService.orgModel=this.model;
     }
     );
   }

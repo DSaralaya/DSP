@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 
 export class ReviewSubmitComponent extends SharedModel implements OnInit {
-  public pageTitle="Cross Sell";
+  public pageTitle="Review Submit";
   constructor(public service: LocalService, public router: Router){
     super(service,router);
   }

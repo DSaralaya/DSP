@@ -8,8 +8,6 @@ import { FormlyBootstrapModule } from "@ngx-formly/bootstrap";
 import { FormlyInput } from "modules/controls/input/input";
 import { FormlyInputMask } from "modules/controls/input/masking";
 import { FormlySection } from "modules/wrappers/section";
-import { ModalModule } from 'ngx-modialog';
-import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
 import { FormlySelect } from "modules/controls/select/select";
 import { CommonModule } from "@angular/common";
 import { MatInputModule } from '@angular/material/input';
@@ -32,6 +30,8 @@ import { SaveForLaterModal } from "modules/modal/saveforLaterModal";
 import { SimpleModalModule } from 'ngx-simple-modal';
 import { FormlyHiddenInput } from "modules/controls/input/hidden";
 import { DynamicCrossSell } from "modules/controls/button/dynamic-cross-sell";
+import { FormlyCurrency } from "modules/controls/input/currency";
+import { CurrencyMaskModule } from "ng2-currency-mask";
 
 export function showErrorOption(field) {
 	if (field.to.hidden == true) {
@@ -49,7 +49,7 @@ const formyconfig = FormlyModule.forRoot({
 		{ name: "input", component: FormlyInput },
 		{ name: "select", component: FormlySelect },
 		{ name: "checkbox", component: FormlyCheckBox },
-		{ name: "radio", component: FormlyRadio },
+		{ name: "radio-btn", component: FormlyRadio },
 		{ name: "email", extends: 'input',
 			defaultOptions: {
 				validators: {
@@ -167,7 +167,12 @@ const formyconfig = FormlyModule.forRoot({
 		{ name: "zipcode", component: FormlyZipcode, wrappers: ["fieldset", "label"] },
 		{ name: "joint-checkbox", component: JointApplicant },
 		{ name: "online-cross-sell", component: DynamicCrossSell },
-		{ name: "dynamic-cross-sell", component: DynamicCrossSell }
+		{ name: "dynamic-cross-sell", component: DynamicCrossSell },
+		{ name: "currency", component: FormlyCurrency },
+		{ name: "read-only", extends:"input" },
+		{ name: "output", extends:"input" },
+		{ name: "disclosure-toggle2", extends:"checkbox" }
+	
 	],
 	validationMessages: [
 		{
@@ -203,12 +208,12 @@ const formyconfig = FormlyModule.forRoot({
 @NgModule({
 	declarations: [
 		FormlyInput, FormlySection, FormlyInputMask, FormlySelect, FormlyCheckBox, FormlyRadio, SsnMask, SSNInput,
-		JointApplicant, FormlyZipcode,saveforLater,SaveForLaterModal,FormlyHiddenInput,DynamicCrossSell
+		JointApplicant, FormlyZipcode,saveforLater,SaveForLaterModal,FormlyHiddenInput,DynamicCrossSell,FormlyCurrency
 	],
 	imports: [
 		CommonModule, FormsModule, ReactiveFormsModule, FormlyBootstrapModule, NgxMaskModule.forRoot(),
-		ModalModule.forRoot(), BootstrapModalModule,
-		formyconfig, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule,SimpleModalModule.forRoot({container: "modal-container"})
+		formyconfig, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule,
+		SimpleModalModule.forRoot({container: "modal-container"}),CurrencyMaskModule
 
 	],
 	entryComponents: [
