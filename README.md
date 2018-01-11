@@ -1,4 +1,4 @@
-# Current Version DSP.1.1
+# Current Version DSP.1.2
 
 ## Project SetUp
   Run  `npm install` for install all the node modules.

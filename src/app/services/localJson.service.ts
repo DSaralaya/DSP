@@ -11,16 +11,24 @@ export class LocalService {
 
   get(file) {
     return this.http
-      .get('/assets/json/get-app-fields-' + file + '.json')
+      .get('assets/json/get-app-fields-' + file + '.json')
       .map(x => x.json())
       .map((data) => {
         setTimeout(() => {
           this.progress.done();
-        }, 400);
+        }, 100);
+        data=this.preProcessData(file,data);
         return this._data = data;
+      })
+  }
 
-      }
-
-      )
+  preProcessData(file,data)
+  {
+    if (file === 'cross-sell') {
+      data['crossSell1_offerDeclined'] = false;
+      data['crossSell2_offerDeclined'] = false;
+      data['crossSell3_offerDeclined'] = false;
+    }
+    return data;
   }
 }

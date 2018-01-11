@@ -1,0 +1,151 @@
+{
+  "Application__c": {
+    "First_Name__c": "Robert",
+    "First_Joint_Applicant__c": false,
+    "Device_Orientation__c": "Not Specified",
+    "Support_Phone_Number__c": "CALL: 800.111.3333",
+    "Application_Status__c": "Open",
+    "Number_of_Products__c": 0,
+    "Assisted_Application__c": false,
+    "Last_Name__c": "Mulder",
+    "Email_Address__c": "rmmulder@gmail.com",
+    "Second_Joint_Applicant__c": false,
+    "Product__c": "Checking",
+    "Device_Type__c": "Not Specified",
+    "Third_Joint_Applicant__c": false,
+    "Sub_Product__c": "Checking - Silver",
+    "Application_Page__c": "PersonalInfoPage",
+    "Device_Pixel_Ratio__c": "Not Specified",
+    "Primary_Phone_Number__c": "3452345345",
+    "Save_For_Later__c": false,
+    "Flow_Control__c": "Identity to AccountDetails to ReviewSubmit",
+    "Current_Channel__c": "Online"
+  },
+  "Application_Configuration__c": {
+    "Is_Production_Env__c": false,
+    "Theme__c": "static",
+    "IP_Field_Longitude__c": "Longitude",
+    "Instance_URL__c": "https://cs22.salesforce.com/",
+    "LastModifiedDate": 1432758020000,
+    "IP_Field_City__c": "City",
+    "SetupOwnerId": "00D170000008iVaEAI",
+    "Enable_IP_Lookup__c": true,
+    "SystemModstamp": 1432758020000,
+    "Instance__c": "cs22",
+    "IP_Field_Latitude__c": "Latitude",
+    "Debug_Log_Switch__c": false,
+    "LastModifiedById": "005o0000000RWpMAAW",
+    "App_Fields_Folder__c": "Terafina",
+    "Docusign_Class_OB__c": "Docusign_embeddedSigning",
+    "IP_Lookup_URL__c": "http://freegeoip.net/xml/",
+    "Name": "a0a170000004nxv",
+    "Popup_Seconds__c": 120,
+    "DSP_Application_Code__c": "dspnew",
+    "Application_Code__c": "static",
+    "CreatedById": "005o0000000RWpMAAW",
+    "CreatedDate": 1412713844000,
+    "IsDeleted": false,
+    "IP_Field_State__c": "RegionCode",
+    "Id": "a0a170000004nxvAAA",
+    "app_fields_staticresource__c": "app_fields_collection",
+    "Docusign_Package_Installed__c": true,
+    "Timeout_Seconds__c": 900,
+    "DSP_Custom_Theme__c": "dspnew",
+    "Document_ID__c": "015170000009luU",
+    "Docusign_Class_CC__c": "Docusign",
+    "IP_Lookup_Data_Type__c": "XML"
+  },
+  "labels": [
+    {
+      "PageLabels": {
+        "Save_button": "Save",
+        "Previous_Button": "Previous",
+        "Copyright_Text": "Copyright © 2015 Terafina, Inc",
+        "Secure_Tooltip_Text": "We use the strongest available 128-bit encryption to protect any information sent to or from our servers. The “closed lock” icon in your browser lets you know that your information is being encrypted",
+        "All_Rights_Reserved": "All rights reserved.",
+        "Submit_Button": "Submit",
+        "Schedule_Button": "Schedule",
+        "Schedule_Appointment_Button": "Schedule Appointment",
+        "Continue_Button": "Continue",
+        "SaveForLater_Appointment_Header": "Please complete or confirm the following information to save your application.",
+        "SaveForLater_Appointment_Cancel": "If you select Cancel you will return to your application, but your application will not be saved.",
+        "SaveForLater_Appointment_Msg1": "*Please fill in all fields",
+        "SaveForLater_Appointment_Msg5": "Enter the following information:",
+        "SaveForLater_Appointment_Msg2": "Your Application has been Saved",
+        "SaveForLater_Appointment_Msg3": "Thank you. Please check your email for a confirmation from us. You may now continue with your application or come back later.",
+        "SaveForLater_Appointment_Msg4": "We'll save your application for 60 days. To retrieve it any time, you can:",
+        "SaveForLater_Appointment_Msg6": "Thank you. You may continue with your application or come back later.",
+        "SaveForLater_Appointment_Msg7": "Are You Sure You Want To Cancel?",
+        "SaveForLater_Appointment_Msg8": "If you cancel now, all the information you entered will be lost.",
+        "SaveForLater_Appointment_Bulleting2": "Email Address",
+        "SaveForLater_Appointment_Bulleting3": "Date of Birth",
+        "SaveForLater_Appointment_Bulleting4": "Last 4 digits of SSN",
+        "SaveForLater_Appointment_Bulleting1": "Last Name"
+      }
+    }
+  ],
+  "fields": [
+    
+    {
+      "key": "Application__c.Last_Name__c",
+      "type": "alphabet",
+      "className": "",
+      "data": {
+        "templateOptions": {
+          "fieldClass": "",
+          "maxlength": 20
+        }
+      },
+      "templateOptions": {
+        "focus": true,
+        "label": "Last Name",
+        "placeholder": "Last Name *",
+        "required": true,
+        "objectName": "Application__c",
+        "fieldName": "Last_Name__c"
+      }
+    },
+    {
+      "key": "Application__c.Email_Address__c",
+      "type": "email",
+      "className": "",
+      "data": {
+        "templateOptions": {
+          "fieldClass": ""
+        }
+      },
+      "templateOptions": {
+        "label": "E-mail Address",
+        "placeholder": "E-mail Address *",
+        "type": "email",
+        "required": true,
+        "objectName": "Application__c",
+        "fieldName": "Email_Address__c"
+      }
+    },
+    {
+      "key": "Identity_Information__c.Date_of_Birth__c",
+      "type": "dob",
+      "className": "",
+      "templateOptions": {
+        "label": "Date of Birth (MM/DD/YYYY)",
+        "placeholder": "Date of Birth (MM/DD/YYYY) *",
+        "required": true,
+        "objectName": "Identity_Information__c",
+        "fieldName": "Date_of_Birth__c"
+      }
+    },
+    {
+      "key": "Identity_Information__c.SSN_Prime__c",
+      "type": "ssn",
+      "className": "",
+      "templateOptions": {
+        "label": "Social Security Number",
+        "placeholder": "Social Security Number *",
+        "required": true,
+        "objectName": "Identity_Information__c",
+        "fieldName": "SSN_Prime__c"
+      }
+    }
+  ]
+}

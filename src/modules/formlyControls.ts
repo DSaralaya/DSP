@@ -27,6 +27,11 @@ import { FormGroup } from "@angular/forms/src/model";
 import { NgModel } from "@angular/forms/src/directives/ng_model";
 import { FieldType } from "@ngx-formly/core/src/templates/field.type";
 import { PersonalInfoComponent } from "app/personal-info/personal-info.component";
+import { saveforLater } from "modules/directives/saveforlaterDir";
+import { SaveForLaterModal } from "modules/modal/saveforLaterModal";
+import { SimpleModalModule } from 'ngx-simple-modal';
+import { FormlyHiddenInput } from "modules/controls/input/hidden";
+import { DynamicCrossSell } from "modules/controls/button/dynamic-cross-sell";
 
 export function showErrorOption(field) {
 	if (field.to.hidden == true) {
@@ -34,13 +39,12 @@ export function showErrorOption(field) {
 		field.model[field.to['objectName']][field.to['fieldName']] = '';
 		field.formControl.markAsUntouched();
 	}
-	
- console.log(field);
-	return (field.formControl.touched) || !field.formControl.valid;
+
+	return (field.formControl.touched) || (field.formState.submitted && !field.formControl.valid);
 }
 
 const formyconfig = FormlyModule.forRoot({
-	//extras: { showError: showErrorOption },
+	extras: { showError: showErrorOption },
 	types: [
 		{ name: "input", component: FormlyInput },
 		{ name: "select", component: FormlySelect },
@@ -73,6 +77,15 @@ const formyconfig = FormlyModule.forRoot({
 				}
 			}
 		},
+		{ name: "regex", extends: 'input',
+			defaultOptions: {
+				validators: {
+					invalidRegex: (control: FormControl, field: any) =>
+						ValidationService.regex(control, field)
+				}
+			}
+		},
+		{ name: "alphaNum", extends: 'input'},
 		{ name: "ssn", component: SSNInput, wrappers: ["fieldset", "label"],
 			defaultOptions: {
 				validators: {
@@ -117,6 +130,7 @@ const formyconfig = FormlyModule.forRoot({
 				}
 			}
 		},
+		{ name:"hidden" ,component:FormlyHiddenInput },
 		{ name: "date",extends: "masking",
 			defaultOptions: {
 				templateOptions: {
@@ -141,8 +155,10 @@ const formyconfig = FormlyModule.forRoot({
 		{ name: 'compareFields',
 			defaultOptions: {
 				validators: {
-					InvalidCompareFields: (control: FormControl, field: any) =>
-						ValidationService.compareFields(control, field)
+					invalidCompareFields: (control: FormControl, field: any) =>{
+						return ValidationService.compareFields(control, field);
+					}
+						
 				}
 			}
 		},
@@ -150,11 +166,13 @@ const formyconfig = FormlyModule.forRoot({
 		{ name: "clear-field" },
 		{ name: "zipcode", component: FormlyZipcode, wrappers: ["fieldset", "label"] },
 		{ name: "joint-checkbox", component: JointApplicant },
+		{ name: "online-cross-sell", component: DynamicCrossSell },
+		{ name: "dynamic-cross-sell", component: DynamicCrossSell }
 	],
 	validationMessages: [
 		{
 			name: "required",
-			message: (err, field) => field['data'] && field['data']['validationMessage'] ? `${field['data']['validationMessage']}` : `${field.templateOptions.label} is required.`
+			message: (err, field) => field['data'] && field['data']['validationMessage'] ? `${field['data']['validationMessage']}` : `${field.templateOptions.label.replace('(MM/DD/YYYY)','')} is required.`
 		},
 		{
 			name: "invalidEmailAddress",
@@ -165,8 +183,12 @@ const formyconfig = FormlyModule.forRoot({
 			message: (err, field) => field['data'] && field['data']['validationMessage'] ? `${field['data']['validationMessage']}` : "Invalid Character"
 		},
 		{
-			name: "InvalidCompareFields",
+			name: "invalidCompareFields",
 			message: (err, field) => field['data'] && field['data']['compareFieldsMessage'] ? `${field['data']['compareFieldsMessage']}` : "Must not be zero"
+		},
+		{
+			name: "invalidRegex",
+			message: (err, field) => field['data'] && field['data']['validationMessage'] ? `${field['data']['compareFieldsMessage']}` : "is not valid"
 		},
 		{ name: "minorAge", message: "Must be be 18 years to apply" },
 		{ name: "futuredate", message: "Date cannot be grater than today" },
@@ -181,15 +203,18 @@ const formyconfig = FormlyModule.forRoot({
 @NgModule({
 	declarations: [
 		FormlyInput, FormlySection, FormlyInputMask, FormlySelect, FormlyCheckBox, FormlyRadio, SsnMask, SSNInput,
-		JointApplicant, FormlyZipcode
+		JointApplicant, FormlyZipcode,saveforLater,SaveForLaterModal,FormlyHiddenInput,DynamicCrossSell
 	],
 	imports: [
 		CommonModule, FormsModule, ReactiveFormsModule, FormlyBootstrapModule, NgxMaskModule.forRoot(),
 		ModalModule.forRoot(), BootstrapModalModule,
-		formyconfig, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule
+		formyconfig, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule,SimpleModalModule.forRoot({container: "modal-container"})
 
 	],
-	exports: [ReactiveFormsModule, FormlyBootstrapModule, FormsModule, FormlyModule],
+	entryComponents: [
+        SaveForLaterModal
+      ],
+	exports: [ReactiveFormsModule, FormlyBootstrapModule, FormsModule, FormlyModule,saveforLater,SimpleModalModule],
 
 })
 export class FormlyControls {
