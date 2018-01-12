@@ -32,6 +32,9 @@ import { FormlyHiddenInput } from "modules/controls/input/hidden";
 import { DynamicCrossSell } from "modules/controls/button/dynamic-cross-sell";
 import { FormlyCurrency } from "modules/controls/input/currency";
 import { CurrencyMaskModule } from "ng2-currency-mask";
+import { FormlyOutputText } from "modules/controls/input/output";
+import { FormlyReadOnly } from "modules/controls/input/readonly";
+import { FormlyEmploymentTemplate } from "modules/templates/employmentTemplate";
 
 export function showErrorOption(field) {
 	if (field.to.hidden == true) {
@@ -169,9 +172,10 @@ const formyconfig = FormlyModule.forRoot({
 		{ name: "online-cross-sell", component: DynamicCrossSell },
 		{ name: "dynamic-cross-sell", component: DynamicCrossSell },
 		{ name: "currency", component: FormlyCurrency },
-		{ name: "read-only", extends:"input" },
-		{ name: "output", extends:"input" },
-		{ name: "disclosure-toggle2", extends:"checkbox" }
+		{ name: "read-only",component:FormlyReadOnly },
+		{ name: "output", component:FormlyOutputText },
+		{ name: "disclosure-toggle2", extends:"checkbox" },
+		{ name:"template", 	 component:FormlyEmploymentTemplate}
 	
 	],
 	validationMessages: [
@@ -208,7 +212,8 @@ const formyconfig = FormlyModule.forRoot({
 @NgModule({
 	declarations: [
 		FormlyInput, FormlySection, FormlyInputMask, FormlySelect, FormlyCheckBox, FormlyRadio, SsnMask, SSNInput,
-		JointApplicant, FormlyZipcode,saveforLater,SaveForLaterModal,FormlyHiddenInput,DynamicCrossSell,FormlyCurrency
+		JointApplicant, FormlyZipcode,saveforLater,SaveForLaterModal,FormlyHiddenInput,DynamicCrossSell,FormlyCurrency,
+		FormlyOutputText,FormlyReadOnly,FormlyEmploymentTemplate
 	],
 	imports: [
 		CommonModule, FormsModule, ReactiveFormsModule, FormlyBootstrapModule, NgxMaskModule.forRoot(),

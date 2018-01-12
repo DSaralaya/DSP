@@ -11,7 +11,7 @@ export class LocalService {
 
   get(file) {
     return this.http
-      .get('assets/json/get-app-fields-' + file + '.json')
+      .get('/resource/1515761096000/DSP/dist/assets/json/get-app-fields-' + file + '.json')
       .map(x => x.json())
       .map((data) => {
         setTimeout(() => {

@@ -15,6 +15,7 @@ import { CrossSellComponent } from './cross-sell/cross-sell.component';
 import { EmploymentComponent } from './employment/employment.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { ReviewSubmitComponent } from './review-submit/review-submit.component';
+import { APP_BASE_HREF } from '@angular/common';
 
 
 const appRoutes: Routes = [
@@ -37,7 +38,7 @@ const appRoutes: Routes = [
     BrowserModule, RouterModule.forRoot(appRoutes), FormlyControls, HttpModule,BrowserAnimationsModule,
     NgProgressModule.forRoot()
   ],
-  providers: [LocalService],
+  providers: [LocalService,{provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]
   
 

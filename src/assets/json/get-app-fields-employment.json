@@ -1,5 +1,11 @@
 {
   "Application__c": {
+    "First_Name_J3__c":"Sukesh",
+    "Last_Name_J3__c":"Puttur",
+    "First_Name_J__c":"Athul",
+    "Last_Name_J__c":"Kaka",
+    "First_Name_J2__c":"deepak",
+    "Last_Name_J2__c":"saralaya",
     "Address_Type__c": "Domestic",
     "Address_Type_J1__c": "Domestic",
     "Address_Type_J2__c": "Domestic",
@@ -335,24 +341,13 @@
       ]
     },
     {
-      "template": "<div class=\"panel-inline-divider\"></div><div class=\"\"><div class=\"\" role=\"tab\"><h4 class=\"panel-title\">Employment Information: {{model['Application__c']['First_Name_J__c']}} {{Application__c.Last_Name_J__c}}</h4></div><div class=\"card-block\" role=\"tabpanel\">",
+      "type":"template",
       "className": "input-wrapper inline-section-header",
       "data": {
-        "sectionType": "EP-header_J1"
-      },
-      "hideExpression": "!model['Application__c']['First_Joint_Applicant__c']"
-    },
-    {
-      "wrappers": "section",
-      "fieldGroupClassName": "row",
-      "hideExpression": "!model['Application__c']['First_Joint_Applicant__c']",
-      "fieldGroup": []
-    },
-    {
-      "template": "<h5 class=\"input-group-title\">Employment Information</h5>",
-      "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header",
-      "data": {
-        "sectionType": "EP-Employment_Info_J1"
+        "sectionType": "EP-header_J1",
+         "firstName":"First_Name_J__c",
+         "lastName":"Last_Name_J__c",
+         "objectName":"Application__c"
       },
       "hideExpression": "!model['Application__c']['First_Joint_Applicant__c']"
     },
@@ -461,27 +456,19 @@
       ]
     },
     {
-      "template": "<div class=\"panel-inline-divider\"></div><div class=\"panel panel-custom panel-inline\"><div class=\"panel-heading active clear\" role=\"tab\"><h4 class=\"panel-title\">Employment Information: {{Application__c.First_Name_J2__c}} {{Application__c.Last_Name_J2__c}}</h4></div><div class=\"panel-collapse collapse in\" role=\"tabpanel\">",
+      "key":"fff",
+      "type":"template",
       "className": "input-wrapper inline-section-header",
       "data": {
-        "sectionType": "EP-header_J2"
+        "sectionType": "EP-header_J2",
+        "firstName":"First_Name_J2__c",
+        "lastName":"Last_Name_J2__c",
+        "objectName":"Application__c"
       },
       "hideExpression": "!model['Application__c']['Second_Joint_Applicant__c']"
     },
-    {
-      "wrappers": "section",
-      "fieldGroupClassName": "row",
-      "hideExpression": "!model['Application__c']['Second_Joint_Applicant__c']",
-      "fieldGroup": []
-    },
-    {
-      "template": "<h5 class=\"input-group-title\">Employment Information</h5>",
-      "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header",
-      "data": {
-        "sectionType": "EP-Employment_Info_J2"
-      },
-      "hideExpression": "!model['Application__c']['Second_Joint_Applicant__c']"
-    },
+    
+   
     {
     	"wrappers": "section",
       "fieldGroupClassName": "row",
@@ -546,11 +533,9 @@
       ]
     },
     {
-      "template": "<h5 class=\"input-group-title\">Previous Employment</h5>",
+      
       "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header",
-      "data": {
-        "sectionType": "EP-PreviousEmployment_J2"
-      },
+     
       "hideExpression": "!model['Employment_Information__c']['Years_EmpJ2__c'] || model['Employment_Information__c']['Years_EmpJ2__c'] > 1"
     },
     {
@@ -587,27 +572,18 @@
       ]
     },
     {
-      "template": "<div class=\"panel-inline-divider\"></div><div class=\"panel panel-custom panel-inline\"><div class=\"panel-heading active clear\" role=\"tab\"><h4 class=\"panel-title\">Employment Information: {{Application__c.First_Name_J3__c}} {{Application__c.Last_Name_J3__c}}</h4></div><div class=\"panel-collapse collapse in\" role=\"tabpanel\">",
+      "type":"template",
+      "key":"aaaa",
       "className": "input-wrapper inline-section-header",
       "data": {
-        "sectionType": "EP-header_J3"
+        "firstName":"First_Name_J3__c",
+         "lastName":"Last_Name_J3__c",
+         "objectName":"Application__c"
       },
       "hideExpression": "!model['Application__c']['Third_Joint_Applicant__c']"
     },
-    {
-    	"wrappers": "section",
-      "fieldGroupClassName": "row",
-      "hideExpression": "!model['Application__c']['Third_Joint_Applicant__c']",
-      "fieldGroup": []
-    },
-    {
-      "template": "<h5 class=\"input-group-title\">Employment Information</h5>",
-      "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header",
-      "data": {
-        "sectionType": "EP-Employment_Info_J3"
-      },
-      "hideExpression": "!model['Application__c']['Third_Joint_Applicant__c']"
-    },
+    
+   
     {
     	"wrappers": "section",
       "fieldGroupClassName": "row",

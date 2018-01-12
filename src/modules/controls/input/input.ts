@@ -10,6 +10,7 @@ import { FieldType } from "@ngx-formly/core";
       </mat-form-field>
     `
 })
+
 export class FormlyInput extends FieldType  {
   
 
