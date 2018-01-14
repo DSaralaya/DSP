@@ -28,11 +28,20 @@ export class SharedModel  {
     );
   }
 
+  
+
   submit(url) {
     this.options.formState.submitted= true;
     if (this.form.valid) {
+      console.log(this.model);
       this.router.navigateByUrl('/'+this.nextUrl);
     }
+  }
+
+  CheckDisable()
+  {
+  
+    return AppConfig.CheckDisable(this.model);
   }
 }
   

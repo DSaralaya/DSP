@@ -7,11 +7,14 @@ import { NgProgress } from "@ngx-progressbar/core";
 @Injectable()
 export class LocalService {
   _data: any
-  constructor(private http: Http, private progress: NgProgress) { }
+  private resourceurl:string;
+  constructor(private http: Http, private progress: NgProgress) {
+    this.resourceurl=window['Resourceurl']?window['Resourceurl']+'/dist':'';
+   }
 
   get(file) {
     return this.http
-      .get('/resource/1515761096000/DSP/dist/assets/json/get-app-fields-' + file + '.json')
+      .get(this.resourceurl+'/assets/json/get-app-fields-' + file + '.json')
       .map(x => x.json())
       .map((data) => {
         setTimeout(() => {
@@ -29,6 +32,9 @@ export class LocalService {
       data['crossSell2_offerDeclined'] = false;
       data['crossSell3_offerDeclined'] = false;
     }
+    var str=JSON.stringify(data.fields);
+    str=str.replace('\"className\":\"row\"','\"fieldGroupClassName\":\"row\"');
+    str=str.replace('\"wrapper\":\"section\"','\"wrappers\":\"section\"');
     return data;
   }
 }

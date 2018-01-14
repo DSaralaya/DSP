@@ -9,7 +9,7 @@ import { FormlyFieldInput } from "@ngx-formly/bootstrap/src/types/input";
   template: `
   <mat-form-field>
     <input type="text" [mask]='mask' matInput placeholder="{{to.label}} {{to.required? '*':''}}" 
-      [formControl]="formControl" [formlyAttributes]="field"  (onLoad)="onLoadImage($event)"/>
+      [formControl]="formControl" [formlyAttributes]="field"  />
       </mat-form-field>
     `
 })

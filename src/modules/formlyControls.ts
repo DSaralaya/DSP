@@ -35,6 +35,8 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
 import { FormlyOutputText } from "modules/controls/input/output";
 import { FormlyReadOnly } from "modules/controls/input/readonly";
 import { FormlyEmploymentTemplate } from "modules/templates/employmentTemplate";
+import { CurrencyMask } from "modules/directives/currencymask";
+import { ConfirmationOffer } from "modules/controls/button/confirmation-offer";
 
 export function showErrorOption(field) {
 	if (field.to.hidden == true) {
@@ -175,9 +177,19 @@ const formyconfig = FormlyModule.forRoot({
 		{ name: "read-only",component:FormlyReadOnly },
 		{ name: "output", component:FormlyOutputText },
 		{ name: "disclosure-toggle2", extends:"checkbox" },
-		{ name:"template", 	 component:FormlyEmploymentTemplate}
-	
+		{ name:"template", 	 component:FormlyEmploymentTemplate},
+		//need to add
+		{ name:"confirmation-offer",component:ConfirmationOffer},
+		{ name:"select-card-design",extends:"output"},
+		{ name:"ui-select-single-async",extends:"select"},
+		{ name:"NoPOBox",extends:"input"},
+		{ name:"compareFields-phone",extends:"input"},
+		{ name:"output-text",extends:"input"},
+		{ name:"copy-address-field",extends:"input"},
+		{ name:"copy-address-select",extends:"select"},
+		{ name:"copy-address",extends:"input"}
 	],
+	
 	validationMessages: [
 		{
 			name: "required",
@@ -213,7 +225,7 @@ const formyconfig = FormlyModule.forRoot({
 	declarations: [
 		FormlyInput, FormlySection, FormlyInputMask, FormlySelect, FormlyCheckBox, FormlyRadio, SsnMask, SSNInput,
 		JointApplicant, FormlyZipcode,saveforLater,SaveForLaterModal,FormlyHiddenInput,DynamicCrossSell,FormlyCurrency,
-		FormlyOutputText,FormlyReadOnly,FormlyEmploymentTemplate
+		FormlyOutputText,FormlyReadOnly,FormlyEmploymentTemplate,CurrencyMask,ConfirmationOffer
 	],
 	imports: [
 		CommonModule, FormsModule, ReactiveFormsModule, FormlyBootstrapModule, NgxMaskModule.forRoot(),

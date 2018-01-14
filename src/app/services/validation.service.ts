@@ -1,7 +1,8 @@
 import { Injectable, transition } from "@angular/core";
-import { FormsModule, FormGroup, FormControl } from "@angular/forms";
+import { FormsModule, FormGroup, FormControl,ValidationErrors } from "@angular/forms";
 import * as _ from 'underscore';
-import { FieldType } from "@ngx-formly/core";
+import { FieldType,FormlyFieldConfig } from "@ngx-formly/core";
+
 
 export class ValidationService    {
          public static orgModel: any;
@@ -9,6 +10,7 @@ export class ValidationService    {
            let config = { required: "Required", invalidEmailAddress: "Invalid email address", invalidPassword: "Invalid password. Password must be at least 6 characters long, and contain a number." };
            return config[code];
          }
+
 
          static alphabet(control, field) {
            var regExValue = "^[a-zA-Z-_ ,.']*$";

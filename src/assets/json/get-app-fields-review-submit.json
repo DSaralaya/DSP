@@ -968,10 +968,8 @@
             "label": "State Issued",
             "objectName": "Identity_Information__c",
             "fieldName": "State_Issued__c"
-          },
-          "expressionProperties": {
-            "templateOptions.required": "model['Identity_Information__c']['ID_Type__c'] !='Military ID'"
           }
+         
         },
         {
           "key": "Identity_Information__c.Issue_Date__c",
@@ -1457,10 +1455,8 @@
             "label": "State Issued",
             "objectName": "Identity_Information__c",
             "fieldName": "Custom_Picklist2__c"
-          },
-          "expressionProperties": {
-            "templateOptions.required": "model['Identity_Information__c']['Custom_Picklist1__c'] !='Military ID'"
           }
+          
         },
         {
           "key": "Identity_Information__c.Custom_Picklist3__c",

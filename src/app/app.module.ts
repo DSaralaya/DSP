@@ -15,7 +15,8 @@ import { CrossSellComponent } from './cross-sell/cross-sell.component';
 import { EmploymentComponent } from './employment/employment.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { ReviewSubmitComponent } from './review-submit/review-submit.component';
-import { APP_BASE_HREF } from '@angular/common';
+import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 
 const appRoutes: Routes = [
@@ -27,18 +28,22 @@ const appRoutes: Routes = [
   { path: 'employment', component: EmploymentComponent },
   { path: 'account-details', component: AccountDetailsComponent },
   { path: 'review-submit', component: ReviewSubmitComponent },
+  { path: 'confirmation', component: ConfirmationComponent },
 ];
 
 @NgModule({
   declarations: [
     AppComponent, GetStartedComponent, PersonalInfoComponent, IdentityComponent, CrossSellComponent,
-     EmploymentComponent, AccountDetailsComponent, ReviewSubmitComponent
+     EmploymentComponent, AccountDetailsComponent, ReviewSubmitComponent, ConfirmationComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(appRoutes), FormlyControls, HttpModule,BrowserAnimationsModule,
     NgProgressModule.forRoot()
   ],
-  providers: [LocalService,{provide: APP_BASE_HREF, useValue : '/' }],
+  providers: [LocalService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
+    ,{provide: APP_BASE_HREF, useValue : '/' }
+],
   bootstrap: [AppComponent]
   
 

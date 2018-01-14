@@ -21,7 +21,7 @@ export class AppConfig{
         "SEP": "SessionExpiredPage",
         "SP":"SchedulePage",
         "SFL":"SaveForLaterPage",
-        "ReviewSubmitPage": "RS",
+        "RS":"ReviewSubmitPage",
         "PUD":"PurchaseDetailsPage",
         "PRD":"PropertyDetailsPage",
         "PI":"PersonalInfoPage",
@@ -30,17 +30,17 @@ export class AppConfig{
         "GS":"GetStartedPage",
         "DeclarationsPage": "DP",
         "CSP":"CrossSellPage",
-        "ConfirmationPage": "CP",
+        "CP":"ConfirmationPage",
         "AppStatusPage": "AS",
         "AppRetrievalPage": "AR",
-        "AccountDetailsPage": "AD",
+        "AD":"AccountDetailsPage",
         "DynamicPagesPage": "DPP",
         "VerifyIdentityPage": "VI"
     }
 
    public static GetPageName(model)
    {
-     var pagecode=JSON.parse(model['pageCode']['Body'].replace(/&quot;/g, '\"'));
+     var pagecode=model['pageCode']['Body'].replace(/&quot;/g, '\"');
      return  this.appPageCodes[pagecode];
    }
 
@@ -60,6 +60,15 @@ export class AppConfig{
      }
      return "";
    }
+
+   public static CheckDisable(model) {
+     if(model && model['pageCode'])
+     {
+      var pagecode=model['pageCode']['Body'].replace(/&quot;/g, '\"');
+      return pagecode!='CSP'?true:false;
+     }
+     return false;
+  }
 
    
 }
