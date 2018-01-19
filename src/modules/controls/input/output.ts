@@ -1,8 +1,8 @@
-import { FieldType } from "@ngx-formly/core";
-import { Component, OnInit } from "@angular/core";
+import { FieldType } from '@ngx-formly/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: "outputtext",
+    selector: 'app-outputtext',
     template: `
     <div class="form-group">
     <label for="{{id}}">{{to.label}}</label>
@@ -10,6 +10,6 @@ import { Component, OnInit } from "@angular/core";
     </div>
       `
   })
-  export class FormlyOutputText extends FieldType implements OnInit {
+  export class OutputTextComponent extends FieldType implements OnInit {
     ngOnInit() {}
   }

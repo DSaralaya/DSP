@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./account-details.component.less']
 })
 export class AccountDetailsComponent extends SharedModel implements OnInit {
-  public pageTitle="Account Details";
-  constructor(public service: LocalService, public router: Router){
-    super(service,router);
+  public pageTitle = 'Account Details';
+  constructor(public service: LocalService, public router: Router) {
+    super(service, router);
   }
 
   ngOnInit() {

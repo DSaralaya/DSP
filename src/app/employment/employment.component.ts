@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./employment.component.less']
 })
 export class EmploymentComponent extends SharedModel implements OnInit {
-  public pageTitle="Employment";
-  constructor(public service: LocalService, public router: Router){
-    super(service,router);
+  public pageTitle = 'Employment';
+  constructor(public service: LocalService, public router: Router) {
+    super(service, router);
   }
 
   ngOnInit() {

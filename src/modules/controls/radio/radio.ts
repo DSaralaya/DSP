@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { FieldType } from "@ngx-formly/core";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FieldType } from '@ngx-formly/core';
 
 @Component({
-  selector: "formly-field-radio",
+  selector: 'app-radio',
   template: `
   <div class="form-check form-check-inline" *ngFor="let item of items">
   <label class="form-check-label"  >
@@ -13,10 +13,10 @@ import { FieldType } from "@ngx-formly/core";
 
     `
 })
-export class FormlyRadio extends FieldType implements OnInit  {
+export class RadioComponent extends FieldType implements OnInit  {
     public items: any;
     ngOnInit() {
-        this.items=this.to.options;
+        this.items = this.to.options;
     }
-  
+
 }

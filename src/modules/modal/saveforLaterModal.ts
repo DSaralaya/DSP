@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-import { SimpleModalComponent, SimpleModalOptions } from "ngx-simple-modal";
+import { SimpleModalComponent, SimpleModalOptions } from 'ngx-simple-modal';
 import { FormGroup } from '@angular/forms';
 import { LocalService } from 'app/services/localJson.service';
 import { FormlyFormOptions } from '@ngx-formly/core';
+import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 export interface ConfirmModel {
-  title:string;
-  message:string;
+  title: string;
+  message: string;
 }
 
 @Component({
-  selector: "saveconfirm",
+  selector: 'app-saveconfirm',
   template: `
     <div class="modal-dialog">
     <form [formGroup]="form" (ngSubmit)="confirm()">
@@ -32,22 +33,25 @@ export interface ConfirmModel {
     </div>
     </form>
   </div>
-  
+
     `
 })
-export class SaveForLaterModal extends SimpleModalComponent<ConfirmModel,boolean> 
-{
-    public model: any;
-    public fields: any;
-    form = new FormGroup({});  
-    public pageTitle="Save Your Application";
-    public options: any = {formState: {submitted: false}};
-    
-    constructor(private service: LocalService) { 
-     super();
-   }
- 
-   ngOnInit() {
+export class SaveForLaterModalComponent extends SimpleModalComponent <ConfirmModel, boolean> implements OnInit {
+  public model: any;
+  public fields: any;
+  form = new FormGroup({});
+  public pageTitle = 'Save Your Application';
+  public options: any = {
+    formState: {
+      submitted: false
+    }
+  };
+
+  constructor(private service: LocalService) {
+    super();
+  }
+
+  ngOnInit() {
     this.getAppFields();
   }
   getAppFields() {
@@ -61,8 +65,9 @@ export class SaveForLaterModal extends SimpleModalComponent<ConfirmModel,boolean
   confirm() {
     this.options.formState.submitted = true;
     if (this.form.valid) {
-        this.result = true;
-        this.close();
+      this.result = true;
+      this.close();
     }
   }
 }
+

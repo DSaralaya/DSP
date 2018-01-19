@@ -1,6 +1,7 @@
 import { browser, by, element } from 'protractor';
 
-export class DSP.1.0Page {
+export class DSP {
+
   navigateTo() {
     return browser.get('/');
   }

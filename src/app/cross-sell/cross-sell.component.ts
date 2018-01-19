@@ -10,9 +10,9 @@ import { SharedModel } from 'app/shared/sharedmodel.component';
 })
 
 export class CrossSellComponent extends SharedModel implements OnInit {
-  public pageTitle="Cross Sell";
-  constructor(public service: LocalService, public router: Router){
-    super(service,router);
+  public pageTitle = 'Cross Sell';
+  constructor(public service: LocalService, public router: Router) {
+    super(service, router);
   }
 
   ngOnInit() {

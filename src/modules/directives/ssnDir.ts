@@ -4,25 +4,23 @@ import { FieldType } from '@ngx-formly/core';
 
 
 @Directive({
-    selector: '[ssn]',
-    host: {
-        '(focus)': 'onFocus($event)',
-        '(blur)': 'onBlur($event)'
-    }
+    selector: '[appSsn]'
 })
 
-export class SsnMask implements OnInit {
+export class SsnMaskDirective implements OnInit {
     private temp;
-    
+
     constructor(private el: ElementRef) { }
 
+    @HostListener('focus', ['$event'])
     onFocus($event) {
         if (this.temp != null) { this.el.nativeElement.value = this.temp; }
     }
 
+    @HostListener('blur', ['$event'])
     onBlur(tar) {
         this.temp = this.el.nativeElement.value;
-        var regxa = /^(\d{3}-?\d{2}-?\d{4})$/;
+        const regxa = /^(\d{3}-?\d{2}-?\d{4})$/;
         if (regxa.test(this.el.nativeElement.value)) { this.el.nativeElement.value = 'XXX-XX' + this.temp.slice(6); }
 
     }

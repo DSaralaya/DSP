@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { FieldType } from "@ngx-formly/core";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FieldType } from '@ngx-formly/core';
 
 @Component({
-  selector: "formly-field-select",
+  selector: 'app-select',
   template: `
         <mat-form-field>
         <mat-select placeholder="{{to.label}} {{to.required? '*':''}}" [formControl]="formControl" [formlyAttributes]="field">
@@ -13,15 +13,12 @@ import { FieldType } from "@ngx-formly/core";
       </mat-form-field>
     `
 })
-export class FormlySelect extends FieldType implements OnInit {
-  
+export class SelectComponent extends FieldType implements OnInit {
+
   public items: any;
 
   ngOnInit() {
     this.items = this.to.options;
   }
-
-
-
 
 }

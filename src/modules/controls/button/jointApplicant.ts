@@ -1,10 +1,9 @@
-
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { FieldType } from "@ngx-formly/core";
-import { error } from "selenium-webdriver";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FieldType } from '@ngx-formly/core';
+import { error } from 'selenium-webdriver';
 
 @Component({
-  selector: "formly-field-jointApplicant",
+  selector: 'app-jointapplicant',
   template: `
   <div class="input-wrapper">
   <div class="form-group material">
@@ -24,13 +23,10 @@ import { error } from "selenium-webdriver";
     </button>
   </div>
   </div>
-
-
     `
 })
-export class JointApplicant extends FieldType implements OnInit  {
-    JointApplicant($event)
-    {
+export class JointApplicantComponent extends FieldType {
+    JointApplicant($event) {
         this.model[this.to.objectName][this.to.fieldName] = !this.model[this.to.objectName][this.to.fieldName];
     }
 }

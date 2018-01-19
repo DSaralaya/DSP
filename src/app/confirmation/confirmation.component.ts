@@ -10,11 +10,11 @@ import { Router } from '@angular/router';
 })
 export class ConfirmationComponent extends SharedModel implements OnInit {
 
-  public pageTitle="Confirmation";
+  public pageTitle = 'Confirmation';
 
 
-  constructor(public service: LocalService, public router: Router){
-    super(service,router);
+  constructor(public service: LocalService, public router: Router) {
+    super(service, router);
   }
 
   ngOnInit() {

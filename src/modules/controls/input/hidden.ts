@@ -1,9 +1,9 @@
 
-import { Component, OnDestroy, ChangeDetectorRef } from "@angular/core";
-import { FieldType } from "@ngx-formly/core";
+import { Component, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { FieldType } from '@ngx-formly/core';
 
 @Component({
-  selector: "formly-field-hidden",
+  selector: 'app-hidden',
   template: `
   <input type="{{to.type || 'text'}}"
         style="display:none;"
@@ -12,8 +12,8 @@ import { FieldType } from "@ngx-formly/core";
 
     `
 })
-export class FormlyHiddenInput extends FieldType  {
+export class HiddenInputComponent extends FieldType  {
   get type(): string {
-    return this.to.type || "text";
+    return this.to.type || 'text';
   }
 }

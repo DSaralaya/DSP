@@ -1,10 +1,10 @@
 
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { FieldType } from "@ngx-formly/core";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FieldType } from '@ngx-formly/core';
 
 
 @Component({
-  selector: "formly-field-dynamicCrossSell",
+  selector: 'app-dynamic-cross-sell',
   template: `
   <div *ngIf="model[to.objectName][field.data.crossSellField]" class="col-sm-12">
     <div class="card">
@@ -22,24 +22,24 @@ import { FieldType } from "@ngx-formly/core";
         <div class="card-footer">
         <div class="row">
             <div class="col-sm-6">
-                <button type="button" class="btn btn-outline-danger pull-right " 
+                <button type="button" class="btn btn-outline-danger pull-right "
                 (click)="addCrossSell()">Yes</button>
             </div>
             <div class="col-sm-6 text-center">
-            <button type="button" class="btn btn-outline-danger pull-left"  
+            <button type="button" class="btn btn-outline-danger pull-left"
              (click)="declineCrossSell()">No</button>
         </div>
         </div>
         <div class="overlay" *ngIf="model[to.objectName][to.fieldName]" >
              <i class="fa fa-check" aria-hidden="true"></i>
                     <h3>ADDED</h3>
-            <a class="btn-remove-addon" 
+            <a class="btn-remove-addon"
             *ngIf="model[to.objectName][to.fieldName]" (click)="removeCrossSell()"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
         </div>
         <div class="overlay" *ngIf="getAssginedDeclain()">
         <i class="fa fa-check" aria-hidden="true"></i>
             <h3>Not Interested</h3>
-            <a class="btn-remove-addon" 
+            <a class="btn-remove-addon"
                     (click)="removeDeclined()"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
          </div>
     </div>
@@ -47,36 +47,27 @@ import { FieldType } from "@ngx-formly/core";
 
     `
 })
-export class DynamicCrossSell extends FieldType implements OnInit   {
+export class DynamicCrossSellComponent extends FieldType  {
 
-
-    ngOnInit() {
-           
-     }
-
-    removeDeclined()
-    {
+    removeDeclined() {
         this.assginDeclain(false);
     }
-    removeCrossSell()                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-    {
-        var offerObject = this.field['data']['offerObject'];
-        var offerField = this.field['data']['offerField'];
+    removeCrossSell() {
+        const offerObject = this.field['data']['offerObject'];
+        const offerField = this.field['data']['offerField'];
         this.model[this.to.objectName][this.to.fieldName] = false;
         this.model[offerObject][offerField] = ' ';
     }
-    declineCrossSell()
-    {
-        var offerObject = this.field['data']['offerObject'];
-        var offerField = this.field['data']['offerField'];
+    declineCrossSell() {
+        const offerObject = this.field['data']['offerObject'];
+        const offerField = this.field['data']['offerField'];
         this.model[this.to.objectName][this.to.fieldName] = false;
         this.model[offerObject][offerField] = ' ';
         this.assginDeclain(true);
     }
-    addCrossSell()
-    {
-        var offerObject = this.field['data']['offerObject'];
-        var offerField = this.field['data']['offerField'];
+    addCrossSell() {
+        const offerObject = this.field['data']['offerObject'];
+        const offerField = this.field['data']['offerField'];
         this.model[this.to.objectName][this.to.fieldName] = true;
         this.model[offerObject][offerField] =
         this.model[this.to.objectName][this.field['data']['crossSellField']];
@@ -105,11 +96,8 @@ export class DynamicCrossSell extends FieldType implements OnInit   {
             return this.model['crossSell3_offerDeclined'];
         }
       }
-  
 
-
-    learnMore()
-    {
+    learnMore() {
 
     }
 }

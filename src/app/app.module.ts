@@ -7,7 +7,7 @@ import { PersonalInfoComponent } from './personal-info/personal-info.component';
 import { IdentityComponent } from './identity/identity.component';
 import { FormlyControls } from '../modules/formlyControls';
 import { LocalService } from 'app/services/localJson.service';
-import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,8 +19,9 @@ import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 
+
 const appRoutes: Routes = [
-  { path: '', redirectTo: "get-started", pathMatch: 'full' },
+  { path: '', redirectTo: 'get-started', pathMatch: 'full' },
   { path: 'get-started', component: GetStartedComponent },
   { path: 'cross-sell', component: CrossSellComponent },
   { path: 'personal-info', component: PersonalInfoComponent },
@@ -37,15 +38,15 @@ const appRoutes: Routes = [
      EmploymentComponent, AccountDetailsComponent, ReviewSubmitComponent, ConfirmationComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(appRoutes), FormlyControls, HttpModule,BrowserAnimationsModule,
+    BrowserModule, RouterModule.forRoot(appRoutes), FormlyControls, HttpModule, BrowserAnimationsModule,
     NgProgressModule.forRoot()
   ],
   providers: [LocalService,
     {provide: LocationStrategy, useClass: HashLocationStrategy}
-    ,{provide: APP_BASE_HREF, useValue : '/' }
+    , {provide: APP_BASE_HREF, useValue : '/' }
 ],
   bootstrap: [AppComponent]
-  
+
 
 })
 export class AppModule { }
