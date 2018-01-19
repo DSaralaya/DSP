@@ -6,7 +6,7 @@ import { FieldType } from '@ngx-formly/core';
   selector: 'app-currency',
   template: `
   <mat-form-field>
-    <input  matInput placeholder="{{to.label}} {{to.required? '*':''}}"  currencymask [formControl]="formControl" [formlyAttributes]="field" type="tel" class="form-control"   />
+    <input  matInput placeholder="{{to.label}} {{to.required? '*':''}}"  appCurrencyMask [formControl]="formControl" [formlyAttributes]="field" type="tel" class="form-control"   />
     </mat-form-field>
     `
 })

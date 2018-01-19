@@ -6,9 +6,8 @@ import { FormlyFormOptions } from '@ngx-formly/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
-export interface ConfirmModel {
-  title: string;
-  message: string;
+export interface Idisclousremodel {
+  disclosureUrl: string;
 }
 
 @Component({
@@ -23,7 +22,7 @@ export interface ConfirmModel {
         </button>
       </div>
       <div class="modal-body">
-      <iframe id="disclosure-frame" width="100%" height="600" frameborder="0" src="{{disclosureUrl}}">
+      <iframe id="disclosure-frame" width="100%" height="600" frameborder="0" [src]="getUrl()">
     </iframe>
       </div>
       <div class="modal-footer">
@@ -35,16 +34,16 @@ export interface ConfirmModel {
     `
 })
 
-export class DisclousureModalComponent extends SimpleModalComponent <ConfirmModel, boolean> implements OnInit {
+export class DisclousureModalComponent extends SimpleModalComponent <Idisclousremodel, boolean>  {
   public fields: any;
-  private disclosureUrl: any;
+  disclosureUrl: any;
   public pageTitle = 'Disclousre';
   constructor(private sanitizer: DomSanitizer) {
     super();
   }
 
-  ngOnInit() {
-    this.disclosureUrl = this.sanitizer.bypassSecurityTrustUrl(this.fields.data.disclosureUrl);
+  getUrl() {
+     return  this.sanitizer.bypassSecurityTrustResourceUrl(this.disclosureUrl);
   }
 
   confirm() {

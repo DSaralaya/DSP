@@ -7,20 +7,24 @@ import { DisclousureModalComponent } from 'modules/modal/disclosureModal';
 @Component({
   selector: 'app-disclousrecheckbox',
   template: `
- <div class="col-sm-12">
- <div class='col-sm-8'>
- <p>{{options.data.textBeforeDisclosure}}</p>
- <a class="btn btn-primary"  (click)="disclosureModal()">{{field.data.disclosureLinkName}}</a>
+  <div class="card">
+  <div class="card-block">
+  <div class="row">
+
+            <div class='col-sm-10'>
+            <p>{{to.label}}  <small>  <a class=""  (click)="disclosureModal()">{{field.data.disclosureLinkName}}</a></small></p>
+            </div>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-primary" ngClass="{active : !!model[to.objectName][to.fieldName]}"
+                (click)="model[to.objectName][to.fieldName] = !model[to.objectName][to.fieldName]">
+                <span *ngIf="model[to.objectName][to.fieldName]"><i class="icon-check-sm"></i>Accepted</span>
+                <span *ngIf="!model[to.objectName][to.fieldName]"><i class="icon-check-sm"></i>Accept</span>
+                </button>
+
+            </div>
+
  </div>
- <div class="col-sm-4">
-    <button type="button" class="btn-toggle-active check-box smooth-hover" ngClass="{active : !!model[to.objectName][to.fieldName]}"
-    [(ngModel)]="model[to.objectName][to.fieldName]" (click)="model[to.objectName][to.fieldName] = !model[to.objectName][to.fieldName]">
-    <span *ngIf="model[to.objectName][to.fieldName]"><i class="icon-check-sm"></i>Accepted</span>
-    <span *ngIf="!model[to.objectName][to.fieldName]"><i class="icon-check-sm"></i>Accept</span>
-    </button>
-    <input type="checkbox"  [formControl]="formControl" [id]="id" [formlyAttributes]="field"  class="hidden">
- </div>
- </div>
+ </div></div>
     `
 })
 export class DisclousreComponent extends FieldType implements OnInit  {
@@ -30,6 +34,8 @@ export class DisclousreComponent extends FieldType implements OnInit  {
     }
 
     disclosureModal() {
-        this.SimpleModalService.addModal(DisclousureModalComponent, {}, { closeOnEscape: false, closeOnClickOutside: false});
+        this.SimpleModalService.addModal(DisclousureModalComponent,
+            { disclosureUrl: this.field['data']['disclosureUrl'] },
+            { closeOnEscape: false, closeOnClickOutside: false});
     }
 }

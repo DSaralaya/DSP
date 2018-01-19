@@ -40,6 +40,7 @@ import { ConfirmationOfferComponent } from 'modules/controls/button/confirmation
 import { CardDesginComponent } from 'modules/controls/button/card-design';
 import { DisclousreComponent } from 'modules/controls/checkbox/disclosure';
 import { Component } from '@angular/core/src/metadata/directives';
+import { DisclousureModalComponent } from 'modules/modal/disclosureModal';
 
 export function showErrorOption(field) {
     if (field.to.hidden === true) {
@@ -196,7 +197,7 @@ const formyconfig = FormlyModule.forRoot({
         { name: 'copy-address-field', extends: 'input'},
         { name: 'copy-address-select', extends: 'select'},
         { name: 'copy-address', extends: 'input'},
-        { name: 'disclosure-toggle2', component: DisclousreComponent },
+        { name: 'disclosure-toggle', component: DisclousreComponent },
     ],
 
     validationMessages: [
@@ -237,7 +238,7 @@ const formyconfig = FormlyModule.forRoot({
         InputComponent, SectionComponent, InputMaskComponent, SelectComponent, CheckBoxComponent, RadioComponent, SsnMaskDirective, SSNInputComponent,
         JointApplicantComponent, ZipcodeComponent, SaveforLaterDirective, SaveForLaterModalComponent, HiddenInputComponent, DynamicCrossSellComponent, CurrencyComponent,
         OutputTextComponent, ReadOnlyComponent, EmploymentTemplateComponent, CurrencyMaskDirective, ConfirmationOfferComponent,
-        CardDesginComponent, DisclousreComponent
+        CardDesginComponent, DisclousreComponent, DisclousureModalComponent
     ],
     imports: [
         CommonModule, FormsModule, ReactiveFormsModule, FormlyBootstrapModule, NgxMaskModule.forRoot(),
@@ -246,7 +247,7 @@ const formyconfig = FormlyModule.forRoot({
 
     ],
     entryComponents: [
-        SaveForLaterModalComponent
+        SaveForLaterModalComponent, DisclousureModalComponent
       ],
     exports: [ReactiveFormsModule, FormlyBootstrapModule, FormsModule, FormlyModule, SaveforLaterDirective, SimpleModalModule],
 
