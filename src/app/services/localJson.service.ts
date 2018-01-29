@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { NgProgress } from '@ngx-progressbar/core';
+import * as _ from 'underscore';
 
 @Injectable()
 export class LocalService {
@@ -31,9 +32,9 @@ export class LocalService {
       data['crossSell2_offerDeclined'] = false;
       data['crossSell3_offerDeclined'] = false;
     }
-    let str = JSON.stringify(data.fields);
-    str = str.replace('\"className\":\"row\"', '\"fieldGroupClassName\":\"row\"');
-    str = str.replace('\"wrapper\":\"section\"', '\"wrappers\":\"section\"');
-    return data;
+    let str = JSON.stringify(data);
+    str = str.replace(/\"className\":\"row\"/g, '\"fieldGroupClassName\":\"row\"');
+    str = str.replace(/\"wrapper\":\"section\"/g, '\"wrappers\":\"section\"');
+    return JSON.parse(str);
   }
 }

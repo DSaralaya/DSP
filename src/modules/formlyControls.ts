@@ -49,7 +49,7 @@ export function showErrorOption(field) {
         field.formControl.markAsUntouched();
     }
 
-    return (field.formControl.touched) || (field.formState.submitted && !field.formControl.valid);
+    return (field.formControl && field.formControl.touched) || (field.formState.submitted && !field.formControl.valid);
 }
 
 const formyconfig = FormlyModule.forRoot({
@@ -196,7 +196,9 @@ const formyconfig = FormlyModule.forRoot({
         { name: 'output-text', extends: 'input'},
         { name: 'copy-address-field', extends: 'input'},
         { name: 'copy-address-select', extends: 'select'},
-        { name: 'copy-address', extends: 'input'},
+        { name: 'copy-address', extends: 'checkbox'},
+        { name: 'promo', extends: 'input'},
+        { name: 'city', extends: 'input'},
         { name: 'disclosure-toggle', component: DisclousreComponent },
     ],
 
