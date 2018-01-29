@@ -17,6 +17,7 @@ import { AccountDetailsComponent } from './account-details/account-details.compo
 import { ReviewSubmitComponent } from './review-submit/review-submit.component';
 import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { ProgressComponent } from './shared/progress.component';
 
 
 
@@ -35,7 +36,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent, GetStartedComponent, PersonalInfoComponent, IdentityComponent, CrossSellComponent,
-     EmploymentComponent, AccountDetailsComponent, ReviewSubmitComponent, ConfirmationComponent
+     EmploymentComponent, AccountDetailsComponent, ReviewSubmitComponent, ConfirmationComponent, ProgressComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(appRoutes), FormlyControls, HttpModule, BrowserAnimationsModule,

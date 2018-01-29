@@ -14,7 +14,7 @@ export class AppConfig {
     ConfirmationPage: 'confirmation',
    };
 
-    public static appPageCodes: {
+    public static appPageCodes: any = {
         'ELG': 'EligibilityPage',
         'EP': 'EmploymentPage',
         'SPP': 'StatusPortalPage',
@@ -39,8 +39,11 @@ export class AppConfig {
     };
 
    public static GetPageName(model) {
-    const pagecode = model['pageCode']['Body'].replace(/&quot;/g, '\"');
+    if (model && model['pageCode']) {
+     const pagecode = model['pageCode']['Body'].replace(/&quot;/g, '\"');
      return  this.appPageCodes[pagecode];
+    }
+    return '';
    }
 
    public static NextPage(model) {
