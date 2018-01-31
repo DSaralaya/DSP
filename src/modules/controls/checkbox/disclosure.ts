@@ -5,8 +5,8 @@ import { SimpleModalService } from 'ngx-simple-modal';
 import { DisclousureModalComponent } from 'modules/modal/disclosureModal';
 
 @Component({
-  selector: 'app-disclousrecheckbox',
-  template: `
+	selector: 'app-disclousrecheckbox',
+	template: `
   <div class="card">
   <div class="card-block">
   <div class="row">
@@ -27,15 +27,12 @@ import { DisclousureModalComponent } from 'modules/modal/disclosureModal';
  </div></div>
     `
 })
-export class DisclousreComponent extends FieldType implements OnInit  {
+export class DisclousreComponent extends FieldType implements OnInit {
+	constructor(private SimpleModalService: SimpleModalService) {
+		super();
+	}
 
-    constructor(private SimpleModalService: SimpleModalService) {
-        super();
-    }
-
-    disclosureModal() {
-        this.SimpleModalService.addModal(DisclousureModalComponent,
-            { disclosureUrl: this.field['data']['disclosureUrl'] },
-            { closeOnEscape: false, closeOnClickOutside: false});
-    }
+	disclosureModal() {
+		this.SimpleModalService.addModal(DisclousureModalComponent, { disclosureUrl: this.field['data']['disclosureUrl'] }, { closeOnEscape: false, closeOnClickOutside: false });
+	}
 }

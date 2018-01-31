@@ -3,8 +3,8 @@ import { FieldType } from '@ngx-formly/core';
 import { error } from 'selenium-webdriver';
 
 @Component({
-  selector: 'app-checkbox',
-  template: `
+	selector: 'app-checkbox',
+	template: `
 
   <mat-checkbox [formControl]="formControl" [id]="id" [formlyAttributes]="field">
   {{ to.label }}
@@ -13,5 +13,4 @@ import { error } from 'selenium-webdriver';
 
     `
 })
-export class CheckBoxComponent extends FieldType {
-}
+export class CheckBoxComponent extends FieldType {}

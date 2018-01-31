@@ -414,10 +414,21 @@
 	},
 	"wrappers": "section",
 	"fieldGroupClassName": "row",
-	"fieldGroup": [{
+	"fieldGroup": [
+    {
+			"key": "Application__c.DLSCAN",
+			"type": "dlscan",
+			"className": "material col-xs-12 col-sm-12 col-md-12 col-lg-12",
+			"templateOptions": {
+				"label": "First Name",
+				"objectName": "Application__c",
+				"fieldName": "DLSCAN",
+				"labelClass": "label-front"
+			}
+		},
+    {
 			"key": "Application__c.First_Name__c",
 			"type": "currency",
-			
 			"className": "material col-xs-12 col-sm-12 col-md-12 col-lg-12",
 			"templateOptions": {
 				"label": "First Name",

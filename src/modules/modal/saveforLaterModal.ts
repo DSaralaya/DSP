@@ -6,13 +6,13 @@ import { FormlyFormOptions } from '@ngx-formly/core';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 export interface ConfirmModel {
-  title: string;
-  message: string;
+	title: string;
+	message: string;
 }
 
 @Component({
-  selector: 'app-saveconfirm',
-  template: `
+	selector: 'app-saveconfirm',
+	template: `
     <div class="modal-dialog">
     <form [formGroup]="form" (ngSubmit)="confirm()">
     <div class="modal-content">
@@ -36,38 +36,37 @@ export interface ConfirmModel {
 
     `
 })
-export class SaveForLaterModalComponent extends SimpleModalComponent <ConfirmModel, boolean> implements OnInit {
-  public model: any;
-  public fields: any;
-  form = new FormGroup({});
-  public pageTitle = 'Save Your Application';
-  public options: any = {
-    formState: {
-      submitted: false
-    }
-  };
+export class SaveForLaterModalComponent extends SimpleModalComponent<ConfirmModel, boolean> implements OnInit {
+	public model: any;
+	public fields: any;
+	form = new FormGroup({});
+	public pageTitle = 'Save Your Application';
+	public options: any = {
+		formState: {
+			submitted: false
+		}
+	};
 
-  constructor(private service: LocalService) {
-    super();
-  }
+	constructor(private service: LocalService) {
+		super();
+	}
 
-  ngOnInit() {
-    this.getAppFields();
-  }
-  getAppFields() {
-    this.service.get('save-for-later').subscribe(result => {
-      this.fields = result.fields;
-      this.model = result;
-      delete this.model['fields'];
-    });
-  }
+	ngOnInit() {
+		this.getAppFields();
+	}
+	getAppFields() {
+		this.service.get('save-for-later').subscribe((result) => {
+			this.fields = result.fields;
+			this.model = result;
+			delete this.model['fields'];
+		});
+	}
 
-  confirm() {
-    this.options.formState.submitted = true;
-    if (this.form.valid) {
-      this.result = true;
-      this.close();
-    }
-  }
+	confirm() {
+		this.options.formState.submitted = true;
+		if (this.form.valid) {
+			this.result = true;
+			this.close();
+		}
+	}
 }
-

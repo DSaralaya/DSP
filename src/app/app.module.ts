@@ -20,7 +20,6 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { ProgressComponent } from './shared/progress.component';
 
 
-
 const appRoutes: Routes = [
   { path: '', redirectTo: 'get-started', pathMatch: 'full' },
   { path: 'get-started', component: GetStartedComponent },
@@ -35,19 +34,16 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent, GetStartedComponent, PersonalInfoComponent, IdentityComponent, CrossSellComponent,
-     EmploymentComponent, AccountDetailsComponent, ReviewSubmitComponent, ConfirmationComponent, ProgressComponent
+	AppComponent, GetStartedComponent, PersonalInfoComponent, IdentityComponent, CrossSellComponent,
+		EmploymentComponent, AccountDetailsComponent, ReviewSubmitComponent, ConfirmationComponent, ProgressComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(appRoutes), FormlyControls, HttpModule, BrowserAnimationsModule,
-    NgProgressModule.forRoot()
+	BrowserModule, RouterModule.forRoot(appRoutes), FormlyControls, HttpModule, BrowserAnimationsModule,
+	NgProgressModule.forRoot()
   ],
   providers: [LocalService,
-    {provide: LocationStrategy, useClass: HashLocationStrategy}
-    , {provide: APP_BASE_HREF, useValue : '/' }
+	{provide: LocationStrategy, useClass: HashLocationStrategy}, {provide: APP_BASE_HREF, useValue : '/' }
 ],
   bootstrap: [AppComponent]
-
-
 })
 export class AppModule { }

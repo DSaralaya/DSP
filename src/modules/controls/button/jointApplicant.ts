@@ -3,8 +3,8 @@ import { FieldType } from '@ngx-formly/core';
 import { error } from 'selenium-webdriver';
 
 @Component({
-  selector: 'app-jointapplicant',
-  template: `
+	selector: 'app-jointapplicant',
+	template: `
   <div class="input-wrapper">
   <div class="form-group material">
               <button type="button" class="btn-add-panel smooth-hover"  ngClass="{'disabled': to.disabled}"
@@ -26,8 +26,7 @@ import { error } from 'selenium-webdriver';
     `
 })
 export class JointApplicantComponent extends FieldType {
-    JointApplicant($event) {
-        this.model[this.to.objectName][this.to.fieldName] = !this.model[this.to.objectName][this.to.fieldName];
-    }
+	JointApplicant($event) {
+		this.model[this.to.objectName][this.to.fieldName] = !this.model[this.to.objectName][this.to.fieldName];
+	}
 }
-

@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FieldType } from '@ngx-formly/core';
 
 @Component({
-  selector: 'app-card-confirmation',
-  template: `
+	selector: 'app-card-confirmation',
+	template: `
     <div class="card confirmation-card">
         <div class="card-block">
         <div class="row">
@@ -34,13 +34,11 @@ import { FieldType } from '@ngx-formly/core';
     `
 })
 export class ConfirmationOfferComponent extends FieldType {
+	addConfirmationOffer() {
+		this.model[this.to.objectName][this.to.fieldName] = this.to.maxlength ? 'true' : true;
+	}
 
-    addConfirmationOffer() {
-        this.model[this.to.objectName][this.to.fieldName] = (this.to.maxlength) ? 'true' : true;
-    }
-
-    removeConfirmationOffer() {
-        this.model[this.to.objectName][this.to.fieldName] = (this.to.maxlength) ? 'false' : false;
-    }
+	removeConfirmationOffer() {
+		this.model[this.to.objectName][this.to.fieldName] = this.to.maxlength ? 'false' : false;
+	}
 }
-

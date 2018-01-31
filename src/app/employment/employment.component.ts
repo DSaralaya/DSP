@@ -11,11 +11,11 @@ import { Router } from '@angular/router';
 export class EmploymentComponent extends SharedModel implements OnInit {
   public pageTitle = 'Employment';
   constructor(public service: LocalService, public router: Router) {
-    super(service, router);
+	super(service, router);
   }
 
   ngOnInit() {
-    this.getAppFields('employment');
+	this.getAppFields('employment');
   }
 
 }

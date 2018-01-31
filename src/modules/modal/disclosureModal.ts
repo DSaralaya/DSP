@@ -7,12 +7,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 export interface Idisclousremodel {
-  disclosureUrl: string;
+	disclosureUrl: string;
 }
 
 @Component({
-  selector: 'app-disclousremodal',
-  template: `
+	selector: 'app-disclousremodal',
+	template: `
     <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -33,22 +33,20 @@ export interface Idisclousremodel {
   </div>
     `
 })
+export class DisclousureModalComponent extends SimpleModalComponent<Idisclousremodel, boolean> {
+	public fields: any;
+	disclosureUrl: any;
+	public pageTitle = 'Disclousre';
+	constructor(private sanitizer: DomSanitizer) {
+		super();
+	}
 
-export class DisclousureModalComponent extends SimpleModalComponent <Idisclousremodel, boolean>  {
-  public fields: any;
-  disclosureUrl: any;
-  public pageTitle = 'Disclousre';
-  constructor(private sanitizer: DomSanitizer) {
-    super();
-  }
+	getUrl() {
+		return this.sanitizer.bypassSecurityTrustResourceUrl(this.disclosureUrl);
+	}
 
-  getUrl() {
-     return  this.sanitizer.bypassSecurityTrustResourceUrl(this.disclosureUrl);
-  }
-
-  confirm() {
-    this.result = true;
-    this.close();
-  }
+	confirm() {
+		this.result = true;
+		this.close();
+	}
 }
-

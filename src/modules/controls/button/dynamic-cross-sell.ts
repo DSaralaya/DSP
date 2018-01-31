@@ -1,11 +1,9 @@
-
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FieldType } from '@ngx-formly/core';
 
-
 @Component({
-  selector: 'app-dynamic-cross-sell',
-  template: `
+	selector: 'app-dynamic-cross-sell',
+	template: `
   <div *ngIf="model[to.objectName][field.data.crossSellField]" class="col-sm-12">
     <div class="card">
         <div class="card-block cross-sell-block">
@@ -47,58 +45,53 @@ import { FieldType } from '@ngx-formly/core';
 
     `
 })
-export class DynamicCrossSellComponent extends FieldType  {
+export class DynamicCrossSellComponent extends FieldType {
+	removeDeclined() {
+		this.assginDeclain(false);
+	}
+	removeCrossSell() {
+		const offerObject = this.field['data']['offerObject'];
+		const offerField = this.field['data']['offerField'];
+		this.model[this.to.objectName][this.to.fieldName] = false;
+		this.model[offerObject][offerField] = ' ';
+	}
+	declineCrossSell() {
+		const offerObject = this.field['data']['offerObject'];
+		const offerField = this.field['data']['offerField'];
+		this.model[this.to.objectName][this.to.fieldName] = false;
+		this.model[offerObject][offerField] = ' ';
+		this.assginDeclain(true);
+	}
+	addCrossSell() {
+		const offerObject = this.field['data']['offerObject'];
+		const offerField = this.field['data']['offerField'];
+		this.model[this.to.objectName][this.to.fieldName] = true;
+		this.model[offerObject][offerField] = this.model[this.to.objectName][this.field['data']['crossSellField']];
+	}
 
-    removeDeclined() {
-        this.assginDeclain(false);
-    }
-    removeCrossSell() {
-        const offerObject = this.field['data']['offerObject'];
-        const offerField = this.field['data']['offerField'];
-        this.model[this.to.objectName][this.to.fieldName] = false;
-        this.model[offerObject][offerField] = ' ';
-    }
-    declineCrossSell() {
-        const offerObject = this.field['data']['offerObject'];
-        const offerField = this.field['data']['offerField'];
-        this.model[this.to.objectName][this.to.fieldName] = false;
-        this.model[offerObject][offerField] = ' ';
-        this.assginDeclain(true);
-    }
-    addCrossSell() {
-        const offerObject = this.field['data']['offerObject'];
-        const offerField = this.field['data']['offerField'];
-        this.model[this.to.objectName][this.to.fieldName] = true;
-        this.model[offerObject][offerField] =
-        this.model[this.to.objectName][this.field['data']['crossSellField']];
-    }
+	assginDeclain(status: boolean) {
+		if (this.to.fieldName === 'crossSell1') {
+			this.model['crossSell1_offerDeclined'] = status;
+		}
+		if (this.to.fieldName === 'crossSell2') {
+			this.model['crossSell2_offerDeclined'] = status;
+		}
+		if (this.to.fieldName === 'crossSell3') {
+			this.model['crossSell3_offerDeclined'] = status;
+		}
+	}
 
-    assginDeclain(status: boolean) {
-      if (this.to.fieldName === 'crossSell1') {
-        this.model['crossSell1_offerDeclined'] = status;
-      }
-      if (this.to.fieldName === 'crossSell2') {
-        this.model['crossSell2_offerDeclined'] = status;
-      }
-      if (this.to.fieldName === 'crossSell3') {
-        this.model['crossSell3_offerDeclined'] = status;
-      }
-    }
+	getAssginedDeclain() {
+		if (this.to.fieldName === 'crossSell1') {
+			return this.model['crossSell1_offerDeclined'];
+		}
+		if (this.to.fieldName === 'crossSell2') {
+			return this.model['crossSell2_offerDeclined'];
+		}
+		if (this.to.fieldName === 'crossSell3') {
+			return this.model['crossSell3_offerDeclined'];
+		}
+	}
 
-     getAssginedDeclain() {
-        if (this.to.fieldName === 'crossSell1') {
-          return this.model['crossSell1_offerDeclined'];
-        }
-        if (this.to.fieldName === 'crossSell2') {
-            return this.model['crossSell2_offerDeclined'];
-        }
-        if (this.to.fieldName === 'crossSell3') {
-            return this.model['crossSell3_offerDeclined'];
-        }
-      }
-
-    learnMore() {
-
-    }
+	learnMore() {}
 }
-

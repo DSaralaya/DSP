@@ -7,21 +7,18 @@ import { SharedModel } from 'app/shared/sharedmodel.component';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-identity',
-  templateUrl: '../shared/sharedmodel.component.html'
-
+	selector: 'app-identity',
+	templateUrl: '../shared/sharedmodel.component.html'
 })
-
 export class IdentityComponent extends SharedModel implements OnInit {
-  public pageTitle = 'Identity';
-  private navigateUrl = 'employement';
+	public pageTitle = 'Identity';
+	private navigateUrl = 'employement';
 
-  constructor(public service: LocalService, public router: Router) {
-    super(service, router);
-  }
+	constructor(public service: LocalService, public router: Router) {
+		super(service, router);
+	}
 
-  ngOnInit() {
-    this.getAppFields('identity');
-  }
-
+	ngOnInit() {
+		this.getAppFields('identity');
+	}
 }

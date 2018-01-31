@@ -1,11 +1,9 @@
-
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FieldType } from '@ngx-formly/core';
 
-
 @Component({
-  selector: 'app-carddesgin',
-  template: `
+	selector: 'app-carddesgin',
+	template: `
     <div class="card confirmation-card">
         <div class="card-block">
         <div class="row">
@@ -28,8 +26,7 @@ import { FieldType } from '@ngx-formly/core';
     `
 })
 export class CardDesginComponent extends FieldType {
-    selectCardDesign() {
-       // this.model[this.to.objectName][this.to.fieldName] = (this.to.maxlength) ? 'true' : true; ;
-    }
+	selectCardDesign() {
+		// this.model[this.to.objectName][this.to.fieldName] = (this.to.maxlength) ? 'true' : true; ;
+	}
 }
-

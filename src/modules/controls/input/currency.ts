@@ -3,15 +3,13 @@ import { FormsModule, FormGroup } from '@angular/forms';
 import { FieldType } from '@ngx-formly/core';
 
 @Component({
-  selector: 'app-currency',
-  template: `
+	selector: 'app-currency',
+	template: `
   <mat-form-field>
     <input  matInput placeholder="{{to.label}} {{to.required? '*':''}}"  appCurrencyMask [formControl]="formControl" [formlyAttributes]="field" type="tel" class="form-control"   />
     </mat-form-field>
     `
 })
 export class CurrencyComponent extends FieldType implements OnInit {
-  ngOnInit() {}
+	ngOnInit() {}
 }
-// <input  matInput placeholder="{{to.label}} {{to.required? '*':''}}" currencyMask  [formControl]="formControl" [formlyAttributes]="field" type="tel" class="form-control" [options]="{ align:'left', prefix: '$', thousands: ',', decimal: '.',precision: 2}" />
-// </mat-form-field>

@@ -2,23 +2,24 @@ import { Directive, HostListener, ElementRef, Renderer, Output, EventEmitter, Vi
 import { SimpleModalService } from 'ngx-simple-modal';
 import { SaveForLaterModalComponent } from 'modules/modal/saveforLaterModal';
 
-
 @Directive({
-  selector: '[appSaveforLaterClick]'
+	selector: '[appSaveforLaterClick]'
 })
-
 export class SaveforLaterDirective {
-  @Output() saveforLaterClick = new EventEmitter();
-  promptMessage: any;
+	@Output() saveforLaterClick = new EventEmitter();
+	promptMessage: any;
 
-  constructor(private SimpleModalService: SimpleModalService) {}
+	constructor(private SimpleModalService: SimpleModalService) {}
 
-  @HostListener('click', ['$event'])
-  onClick() {
-    this.SimpleModalService.addModal(SaveForLaterModalComponent, {}, {
-      closeOnEscape: false,
-      closeOnClickOutside: false
-    });
-  }
+	@HostListener('click', [ '$event' ])
+	onClick() {
+		this.SimpleModalService.addModal(
+			SaveForLaterModalComponent,
+			{},
+			{
+				closeOnEscape: false,
+				closeOnClickOutside: false
+			}
+		);
+	}
 }
-
