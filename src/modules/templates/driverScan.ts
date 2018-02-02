@@ -7,27 +7,28 @@ import { Component } from '@angular/core';
 	template: `
 		<div class='row'>
 		<div class='col-sm-12'>
-		   <span class="dlupload">Front Image</span>
-			<label class="drop-container">
-			<input type="file" class='hidden' ngFileSelect [options]="options" (uploadOutput)="uploadAttachment($event,'front')">
-			    Click here to Upload
-			<div  *ngIf="frontFile">
-			  <img [src]="frontFile[0]">
+		   <div class="drop-container">
+				<label>
+					<input type="file" class='hidden' ngFileSelect [options]="options" (uploadOutput)="uploadAttachment($event,'front')">
+						Click here to Upload
+				</label>
+				<div  *ngIf="frontFile" >
+					<img [src]="frontFile[0]">
+				</div>
 			</div>
-			</label>
 		</div>
 		<div class='col-sm-12'>
-	    	<span class="dlupload">Back Image</span>
-			<label class="drop-container">
-			<input type="file" class='hidden'  ngFileSelect [options]="options" (uploadOutput)="uploadAttachment($event,'back')" >
-			   Click here to Upload
-			<div  *ngIf="backFile">
+			<div class="drop-container">
+				<label>
+					<input type="file" class='hidden' ngFileSelect [options]="options" (uploadOutput)="uploadAttachment($event,'back')">
+						Click here to Upload
+				</label>
+				<div  *ngIf="backFile">
 					<img [src]="backFile[0]">
-		 	 </div>
-			</label>
+				</div>
+	     	</div>
 		</div>
-
-		</div>
+</div>
     `
 })
 export class DriverLicesenceScanComponent extends FieldType {

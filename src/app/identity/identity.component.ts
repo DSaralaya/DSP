@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { LocalService } from 'app/services/localJson.service';
 import { FormlyConfig } from '@ngx-formly/core/src/services/formly.config';
 import { FormlyFormOptions } from '@ngx-formly/core';
-import { SharedModel } from 'app/shared/sharedmodel.component';
 import { Router } from '@angular/router';
+import { SharedModel } from '../shared/components/sharedmodel.component';
+import { LocalService } from '../shared/services/localJson.service';
 
 @Component({
 	selector: 'app-identity',
-	templateUrl: '../shared/sharedmodel.component.html'
+	templateUrl: '../shared/components/sharedmodel.component.html',
 })
 export class IdentityComponent extends SharedModel implements OnInit {
 	public pageTitle = 'Identity';

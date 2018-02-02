@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { SimpleModalComponent, SimpleModalOptions } from 'ngx-simple-modal';
 import { FormGroup } from '@angular/forms';
-import { LocalService } from 'app/services/localJson.service';
 import { FormlyFormOptions } from '@ngx-formly/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';

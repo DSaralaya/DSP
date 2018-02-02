@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators } from '@angular/forms';
-import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
-import { ValidationService } from '../services/validation.service';
-import { LocalService } from 'app/services/localJson.service';
 import { Router } from '@angular/router';
-import { SharedModel } from 'app/shared/sharedmodel.component';
+
+import { SharedModel } from '../shared/components/sharedmodel.component';
+import { LocalService } from '../shared/services/localJson.service';
 
 @Component({
 	selector: 'app-get-started',

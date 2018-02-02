@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalService } from 'app/services/localJson.service';
 import { Router } from '@angular/router';
-import { SharedModel } from 'app/shared/sharedmodel.component';
+import { SharedModel } from '../shared/components/sharedmodel.component';
+import { LocalService } from '../shared/services/localJson.service';
 
 @Component({
 	selector: 'app-cross-sell',
-	templateUrl: '../shared/sharedmodel.component.html',
+	templateUrl: '../shared/components/sharedmodel.component.html',
 	styleUrls: [ 'cross-sell.component.less' ]
 })
 export class CrossSellComponent extends SharedModel implements OnInit {

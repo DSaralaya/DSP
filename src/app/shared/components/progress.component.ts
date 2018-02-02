@@ -1,6 +1,6 @@
 import { Component, ViewContainerRef } from '@angular/core';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
-import { AppConfig } from './config';
+import { AppConfig } from '../common/config';
 
 @Component({
 	selector: 'app-progress',

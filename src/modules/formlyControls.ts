@@ -1,7 +1,7 @@
 import { FormlyModule } from '@ngx-formly/core';
 import { NgModule } from '@angular/core';
 import { NgxMaskModule } from 'ngx-mask';
-import { ValidationService } from 'app/services/validation.service';
+
 import { FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { InputComponent } from 'modules/controls/input/input';
@@ -30,7 +30,6 @@ import { SimpleModalModule } from 'ngx-simple-modal';
 import { HiddenInputComponent } from 'modules/controls/input/hidden';
 import { DynamicCrossSellComponent } from 'modules/controls/button/dynamic-cross-sell';
 import { CurrencyComponent } from 'modules/controls/input/currency';
-import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { OutputTextComponent } from 'modules/controls/input/output';
 import { ReadOnlyComponent } from 'modules/controls/input/readonly';
 import { EmploymentTemplateComponent } from 'modules/templates/employmentTemplate';
@@ -42,6 +41,7 @@ import { Component } from '@angular/core/src/metadata/directives';
 import { DisclousureModalComponent } from 'modules/modal/disclosureModal';
 import { NgUploaderModule } from 'ngx-uploader';
 import { DriverLicesenceScanComponent } from './templates/driverScan';
+import { ValidationService } from '../app/shared/services/validation.service';
 
 export function showErrorOption(field) {
 	if (field.to.hidden === true) {
@@ -273,7 +273,7 @@ const formyconfig = FormlyModule.forRoot({
 		DisclousureModalComponent,
 		DriverLicesenceScanComponent
 	],
-	imports: [ CommonModule, FormsModule, ReactiveFormsModule, FormlyBootstrapModule, NgxMaskModule.forRoot(), formyconfig, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, SimpleModalModule.forRoot({ container: 'modal-container' }), CurrencyMaskModule, NgUploaderModule ],
+	imports: [ CommonModule, FormsModule, ReactiveFormsModule, FormlyBootstrapModule, NgxMaskModule.forRoot(), formyconfig, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, SimpleModalModule.forRoot({ container: 'modal-container' }), NgUploaderModule ],
 	entryComponents: [ SaveForLaterModalComponent, DisclousureModalComponent ],
 	exports: [ ReactiveFormsModule, FormlyBootstrapModule, FormsModule, FormlyModule, SaveforLaterDirective, SimpleModalModule ]
 })

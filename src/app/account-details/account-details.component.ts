@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedModel } from 'app/shared/sharedmodel.component';
-import { LocalService } from 'app/services/localJson.service';
+import { SharedModel } from '../shared/components/sharedmodel.component';
+import { LocalService } from '../shared/services/localJson.service';
 import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-account-details',
-	templateUrl: '../shared/sharedmodel.component.html',
+	templateUrl: '../shared/components/sharedmodel.component.html',
 	styleUrls: [ './account-details.component.less' ]
 })
 export class AccountDetailsComponent extends SharedModel implements OnInit {

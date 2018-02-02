@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { SimpleModalComponent, SimpleModalOptions } from 'ngx-simple-modal';
 import { FormGroup } from '@angular/forms';
-import { LocalService } from 'app/services/localJson.service';
 import { FormlyFormOptions } from '@ngx-formly/core';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { LocalService } from '../../app/shared/services/localJson.service';
 
 export interface ConfirmModel {
 	title: string;

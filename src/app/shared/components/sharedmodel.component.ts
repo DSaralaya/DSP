@@ -1,10 +1,10 @@
 import { OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions } from '@ngx-formly/core';
-import { LocalService } from 'app/services/localJson.service';
 import { Router } from '@angular/router';
-import { AppConfig } from 'app/shared/config';
-import { ValidationService } from 'app/services/validation.service';
+import { LocalService } from '../services/localJson.service';
+import { AppConfig } from '../common/config';
+import { ValidationService } from '../services/validation.service';
 
 export class SharedModel {
 	public model: any;
