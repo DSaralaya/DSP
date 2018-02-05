@@ -20,7 +20,8 @@
       "prefix": "app",
       "styles": [
         "less/app.less",
-        "less/progress.less"
+        "less/progress.less",
+        "less/ui-form.less"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

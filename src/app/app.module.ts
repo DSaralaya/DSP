@@ -18,6 +18,9 @@ import { PersonalInfoComponent } from './personal-info/personal-info.component';
 import { ReviewSubmitComponent } from './review-submit/review-submit.component';
 import { ProgressComponent } from './shared/components/progress.component';
 import { LocalService } from './shared/services/localJson.service';
+import { UiFormComponent } from './ui-form/ui-form.component';
+import { SortablejsModule } from 'angular-sortablejs';
+import { NgDragDropModule } from 'ng-drag-drop';
 
 const appRoutes: Routes = [
 	{ path: '', redirectTo: 'get-started', pathMatch: 'full' },
@@ -28,12 +31,13 @@ const appRoutes: Routes = [
 	{ path: 'employment', component: EmploymentComponent },
 	{ path: 'account-details', component: AccountDetailsComponent },
 	{ path: 'review-submit', component: ReviewSubmitComponent },
-	{ path: 'confirmation', component: ConfirmationComponent }
+	{ path: 'confirmation', component: ConfirmationComponent },
+	{ path: 'ui-form', component: UiFormComponent }
 ];
 
 @NgModule({
-	declarations: [ AppComponent, GetStartedComponent, PersonalInfoComponent, IdentityComponent, CrossSellComponent, EmploymentComponent, AccountDetailsComponent, ReviewSubmitComponent, ConfirmationComponent, ProgressComponent ],
-	imports: [ BrowserModule, RouterModule.forRoot(appRoutes), FormlyControls, HttpModule, BrowserAnimationsModule, NgProgressModule.forRoot() ],
+	declarations: [ AppComponent, GetStartedComponent, PersonalInfoComponent, IdentityComponent, CrossSellComponent, EmploymentComponent, AccountDetailsComponent, ReviewSubmitComponent, ConfirmationComponent, ProgressComponent, UiFormComponent ],
+	imports: [ BrowserModule, RouterModule.forRoot(appRoutes), FormlyControls, HttpModule, BrowserAnimationsModule, NgProgressModule.forRoot(), SortablejsModule, NgDragDropModule.forRoot() ],
 	providers: [ LocalService, { provide: LocationStrategy, useClass: HashLocationStrategy }, { provide: APP_BASE_HREF, useValue: '/' } ],
 	bootstrap: [ AppComponent ]
 })
