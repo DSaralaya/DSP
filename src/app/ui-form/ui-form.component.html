@@ -19,7 +19,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-7">
+    <div class="col-sm-10">
         <div class="card card-outline-primary mb-3 card-root" droppable [dragOverClass]="'drag-target-border'" [dropScope]="'section'"
             [dragHintClass]="'drag-hint'" (onDrop)="onControlDrop($event)" [dropEnabled]="true">
             <div class="card-header card-inverse card-primary">
@@ -58,60 +58,7 @@
         </div>
     </div>
 
-    <div class="col-sm-3">
-        <div class="card card-outline-primary mb-3 properties">
-            <div class="card-header card-inverse card-primary">
-                Properties
-            </div>
-            <div class="card-block">
-                <div class="row" *ngIf="properties">
-                    <div class="col-sm-12">
-                        <div class="form-group" *ngIf="properties.type=='section'">
-                            <label>Template</label>
-                            <textarea [(ngModel)]="properties.template" name="template{{properties.id}}" class="form-control" placeholder="Enter template"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>DSP Label</label>
-                            <input type="text" [(ngModel)]="properties.dspname" name="dspname{{properties.id}}" class="form-control" placeholder="Enter DSP Name">
-                        </div>
-                        <div class="form-group">
-                            <label> Label</label>
-                            <input type="text" [(ngModel)]="properties.label" name="label{{properties.id}}" class="form-control" placeholder="Enter Label">
-                        </div>
-                        <div class="form-group">
-                            <label>Application Object</label>
-                            <input type="text" [(ngModel)]="properties.applicationObject" name="applicationObject{{properties.id}}" class="form-control"
-                                placeholder="Enter Application Object">
-                        </div>
-                        <div class="form-group">
-                            <label>DataType </label>
-                            <input type="text" [(ngModel)]="properties.dataType" name="properties.dataType" class="form-control" placeholder="Enter DataType">
-                        </div>
-                        <div class="form-group">
-                            <label>Class </label>
-                            <input type="text" [(ngModel)]="properties.className" name="properties.className" class="form-control" placeholder="Enter DataType">
-                        </div>
-                        <div class="form-group">
-                            <label>Is Required </label>
-                            <input type="checkbox" [(ngModel)]="properties.required" name="properties.required" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>hideExpression </label>
-                            <textarea [(ngModel)]="properties.hideExpression" name="properties.hideExpression" class="form-control" placeholder="Enter DataType"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>expressionProperties </label>
-                            <textarea [(ngModel)]="properties.expressionProperties" name="properties.expressionProperties" class="form-control" placeholder="Enter DataType"></textarea>
-                        </div>
-                        <div class="form-group" *ngIf="properties.dataType=='select'">
-                            <label>Pick List </label>
-                            <textarea [(ngModel)]="properties.picklist" name="properties.picklist" class="form-control" placeholder="Enter picklist"></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  
 </div>
 
 <div *ngIf="tabs && tabs[1].class=='active'">

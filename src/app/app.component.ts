@@ -10,7 +10,7 @@ export class AppComponent {
 	constructor(router: Router, progress: NgProgress) {
 		router.events.subscribe((event) => {
 			if (event instanceof NavigationStart) {
-				progress.start();
+				//progress.start();
 			}
 			if (event instanceof NavigationEnd) {
 			}

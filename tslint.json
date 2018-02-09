@@ -10,7 +10,7 @@
 			"severity": "none"
 		},
 		"eofline": true,
-		"forin": true,
+		"forin": false,
 		"import-blacklist": [ true, "rxjs", "rxjs/Rx" ],
 		"import-spacing": true,
 		"indent": [ true, "tabs", 4 ],
@@ -38,7 +38,7 @@
 		"no-non-null-assertion": true,
 		"no-shadowed-variable": false,
 		"no-string-literal": false,
-		"no-string-throw": true,
+		"no-string-throw": false,
 		"no-switch-case-fall-through": true,
 		"no-trailing-whitespace": true,
 		"no-unnecessary-initializer": true,

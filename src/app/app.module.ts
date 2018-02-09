@@ -21,6 +21,8 @@ import { LocalService } from './shared/services/localJson.service';
 import { UiFormComponent } from './ui-form/ui-form.component';
 import { SortablejsModule } from 'angular-sortablejs';
 import { NgDragDropModule } from 'ng-drag-drop';
+import { VfRemoteService } from '../modules/vfremote/vf-remote.service';
+import { UiStartComponent } from './ui-form/ui-start.component';
 
 const appRoutes: Routes = [
 	{ path: '', redirectTo: 'get-started', pathMatch: 'full' },
@@ -32,13 +34,14 @@ const appRoutes: Routes = [
 	{ path: 'account-details', component: AccountDetailsComponent },
 	{ path: 'review-submit', component: ReviewSubmitComponent },
 	{ path: 'confirmation', component: ConfirmationComponent },
-	{ path: 'ui-form', component: UiFormComponent }
+	{ path: 'ui-form', component: UiFormComponent },
+	{ path: 'ui-start', component: UiStartComponent }
 ];
 
 @NgModule({
-	declarations: [ AppComponent, GetStartedComponent, PersonalInfoComponent, IdentityComponent, CrossSellComponent, EmploymentComponent, AccountDetailsComponent, ReviewSubmitComponent, ConfirmationComponent, ProgressComponent, UiFormComponent ],
+	declarations: [ AppComponent, GetStartedComponent, PersonalInfoComponent, IdentityComponent, CrossSellComponent, EmploymentComponent, AccountDetailsComponent, ReviewSubmitComponent, ConfirmationComponent, ProgressComponent, UiFormComponent, UiStartComponent ],
 	imports: [ BrowserModule, RouterModule.forRoot(appRoutes), FormlyControls, HttpModule, BrowserAnimationsModule, NgProgressModule.forRoot(), SortablejsModule, NgDragDropModule.forRoot() ],
-	providers: [ LocalService, { provide: LocationStrategy, useClass: HashLocationStrategy }, { provide: APP_BASE_HREF, useValue: '/' } ],
+	providers: [ VfRemoteService, LocalService, { provide: LocationStrategy, useClass: HashLocationStrategy }, { provide: APP_BASE_HREF, useValue: '/' } ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule {}

@@ -288,13 +288,13 @@
     "TF4SF__app_fields_staticresource__c": "app_fields_collection"
   },
   "pageCodesMap": {
-    "Body": "{&quot;EligibilityPage&quot;:&quot;ELG&quot;,&quot;EmploymentPage&quot;:&quot;EP&quot;,&quot;StatusPortalPage&quot;:&quot;SPP&quot;,&quot;SessionExpiredPage&quot;:&quot;SEP&quot;,&quot;SchedulePage&quot;:&quot;SP&quot;,&quot;SaveForLaterPage&quot;:&quot;SFL&quot;,&quot;ReviewSubmitPage&quot;:&quot;RS&quot;,&quot;PurchaseDetailsPage&quot;:&quot;PUD&quot;,&quot;PropertyDetailsPage&quot;:&quot;PRD&quot;,&quot;PersonalInfoPage&quot;:&quot;PI&quot;,&quot;IndexPage&quot;:&quot;Index&quot;,&quot;IdentityPage&quot;:&quot;IP&quot;,&quot;GetStartedPage&quot;:&quot;GS&quot;,&quot;DeclarationsPage&quot;:&quot;DP&quot;,&quot;CrossSellPage&quot;:&quot;CSP&quot;,&quot;ConfirmationPage&quot;:&quot;CP&quot;,&quot;AppStatusPage&quot;:&quot;AS&quot;,&quot;AppRetrievalPage&quot;:&quot;AR&quot;,&quot;AccountDetailsPage&quot;:&quot;AD&quot;,&quot;DynamicPagesPage&quot;:&quot;DPP&quot;,&quot;VerifyIdentityPage&quot;:&quot;VI&quot;}"
+    "Body": {"EligibilityPage":"ELG","EmploymentPage":"EP","StatusPortalPage":"SPP","SessionExpiredPage":"SEP","SchedulePage":"SP","SaveForLaterPage":"SFL","ReviewSubmitPage":"RS","PurchaseDetailsPage":"PUD","PropertyDetailsPage":"PRD","PersonalInfoPage":"PI","IndexPage":"Index","IdentityPage":"IP","GetStartedPage":"GS","DeclarationsPage":"DP","CrossSellPage":"CSP","ConfirmationPage":"CP","AppStatusPage":"AS","AppRetrievalPage":"AR","AccountDetailsPage":"AD","DynamicPagesPage":"DPP","VerifyIdentityPage":"VI"}
   },
   "pageFlowsMap": {
-    "Body": "{&quot;STATUS&quot;:{&quot;skipPrevPage&quot;:null,&quot;skipNextPage&quot;:null,&quot;nextPage&quot;:null,&quot;prevPage&quot;:null},&quot;RETRIEVAL&quot;:{&quot;skipPrevPage&quot;:null,&quot;skipNextPage&quot;:null,&quot;nextPage&quot;:null,&quot;prevPage&quot;:null},&quot;COMBINED&quot;:{&quot;skipPrevPage&quot;:&quot;CrossSellPage&quot;,&quot;skipNextPage&quot;:&quot;AccountDetailsPage&quot;,&quot;nextPage&quot;:&quot;EmploymentPage&quot;,&quot;prevPage&quot;:&quot;PersonalInfoPage&quot;},&quot;DEFAULT&quot;:{&quot;skipPrevPage&quot;:&quot;CrossSellPage&quot;,&quot;skipNextPage&quot;:&quot;AccountDetailsPage&quot;,&quot;nextPage&quot;:&quot;EmploymentPage&quot;,&quot;prevPage&quot;:&quot;PersonalInfoPage&quot;}}"
+    "Body": {"STATUS":{"skipPrevPage":null,"skipNextPage":null,"nextPage":null,"prevPage":null},"RETRIEVAL":{"skipPrevPage":null,"skipNextPage":null,"nextPage":null,"prevPage":null},"COMBINED":{"skipPrevPage":"CrossSellPage","skipNextPage":"AccountDetailsPage","nextPage":"EmploymentPage","prevPage":"PersonalInfoPage"},"DEFAULT":{"skipPrevPage":"CrossSellPage","skipNextPage":"AccountDetailsPage","nextPage":"EmploymentPage","prevPage":"PersonalInfoPage"}}
   },
   "pageFlowMap": {
-    "Body": "{&quot;skipPrevPage&quot;:&quot;CrossSellPage&quot;,&quot;skipNextPage&quot;:&quot;AccountDetailsPage&quot;,&quot;nextPage&quot;:&quot;EmploymentPage&quot;,&quot;prevPage&quot;:&quot;PersonalInfoPage&quot;}"
+    "Body": { "skipPrevPage":"CrossSellPage","skipNextPage":"AccountDetailsPage","nextPage":"EmploymentPage","prevPage":"PersonalInfoPage"}
   },
   "pageCode": {
     "Body": "IP"

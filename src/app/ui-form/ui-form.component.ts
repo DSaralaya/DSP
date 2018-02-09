@@ -4,6 +4,8 @@ import { FormGroup } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { FieldLogicList } from './fieldLogic';
 import { NgProgress } from '@ngx-progressbar/core';
+import { SimpleModalService } from 'ngx-simple-modal';
+import { UiPropertiesModalComponent } from './ui-properties.component';
 
 @Component({
 	selector: 'app-ui-form',
@@ -36,7 +38,7 @@ export class UiFormComponent implements OnInit {
 	pastedJSON: any;
 	fileName: any;
 	formlyJson: any;
-	constructor(private sanitizer: DomSanitizer, private progress: NgProgress) {}
+	constructor(private sanitizer: DomSanitizer, private progress: NgProgress, private SimpleModalService: SimpleModalService) {}
 	ngOnInit() {
 		setTimeout(() => {
 			this.progress.done();
@@ -61,9 +63,17 @@ export class UiFormComponent implements OnInit {
 	}
 
 	getProperty(item, $event) {
-		this.removeClassNames('.activeElement');
-		$event.target.classList.add('activeElement');
-		this.properties = item;
+		// this.removeClassNames('.activeElement');
+		// $event.target.classList.add('activeElement');
+		// this.properties = item;
+		this.SimpleModalService.addModal(
+			UiPropertiesModalComponent,
+			{ properties: item },
+			{
+				closeOnEscape: false,
+				closeOnClickOutside: false
+			}
+		);
 	}
 
 	makeActive(index) {

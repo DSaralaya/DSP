@@ -42,6 +42,8 @@ import { DisclousureModalComponent } from 'modules/modal/disclosureModal';
 import { NgUploaderModule } from 'ngx-uploader';
 import { DriverLicesenceScanComponent } from './templates/driverScan';
 import { ValidationService } from '../app/shared/services/validation.service';
+import { UiPropertiesModalComponent } from '../app/ui-form/ui-properties.component';
+
 
 export function showErrorOption(field) {
 	if (field.to.hidden === true) {
@@ -271,10 +273,11 @@ const formyconfig = FormlyModule.forRoot({
 		CardDesginComponent,
 		DisclousreComponent,
 		DisclousureModalComponent,
-		DriverLicesenceScanComponent
+		DriverLicesenceScanComponent,
+		UiPropertiesModalComponent 
 	],
-	imports: [ CommonModule, FormsModule, ReactiveFormsModule, FormlyBootstrapModule, NgxMaskModule.forRoot(), formyconfig, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, SimpleModalModule.forRoot({ container: 'modal-container' }), NgUploaderModule ],
-	entryComponents: [ SaveForLaterModalComponent, DisclousureModalComponent ],
+	imports: [ CommonModule, FormsModule, ReactiveFormsModule, FormlyBootstrapModule, NgxMaskModule.forRoot(), formyconfig, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, SimpleModalModule.forRoot({ container: 'modal-container' }), NgUploaderModule  ],
+	entryComponents: [ SaveForLaterModalComponent, DisclousureModalComponent , UiPropertiesModalComponent ],
 	exports: [ ReactiveFormsModule, FormlyBootstrapModule, FormsModule, FormlyModule, SaveforLaterDirective, SimpleModalModule ]
 })
 export class FormlyControls {}
