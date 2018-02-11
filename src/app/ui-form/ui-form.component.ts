@@ -6,6 +6,8 @@ import { FieldLogicList } from './fieldLogic';
 import { NgProgress } from '@ngx-progressbar/core';
 import { SimpleModalService } from 'ngx-simple-modal';
 import { UiPropertiesModalComponent } from './ui-properties.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LocalService } from '../shared/services/localJson.service';
 
 @Component({
 	selector: 'app-ui-form',
@@ -15,10 +17,10 @@ import { UiPropertiesModalComponent } from './ui-properties.component';
 export class UiFormComponent implements OnInit {
 	controls = [
 		{ name: 'section', type: 'section', dspname: 'section', template: '<h4>section</h4>', id: 0, controls: [], className: 'col-xs-8 col-sm-8 col-md-10 col-lg-10 inline-section-header' },
-		{ name: 'input', type: 'htmlcontrol', dataType: 'input', className: 'col-sm-6', dspname: 'input', id: 0 },
-		{ name: 'select', type: 'htmlcontrol', dataType: 'select', className: 'col-sm-6', dspname: 'select', id: 0 },
-		{ name: 'checkbox', type: 'htmlcontrol', dataType: 'checkbox', className: 'col-sm-6', dspname: 'checkbox', id: 0 },
-		{ name: 'radio button', type: 'htmlcontrol', dataType: 'radio', className: 'col-sm-6', dspname: 'radio', id: 0 }
+		{ name: 'input', type: 'htmlcontrol', dataType: 'input', className: 'col-sm-6', dspname: 'input', id: 0, label: 'input' },
+		{ name: 'select', type: 'htmlcontrol', dataType: 'select', className: 'col-sm-6', dspname: 'select', id: 0, label: 'select' },
+		{ name: 'checkbox', type: 'htmlcontrol', dataType: 'checkbox', className: 'col-sm-6', dspname: 'checkbox', id: 0, label: 'checkbox' },
+		{ name: 'radio button', type: 'htmlcontrol', dataType: 'radio', className: 'col-sm-6', dspname: 'radio', id: 0, label: 'radio' }
 	];
 	tabs = [ { name: 'Code', class: 'active' }, { name: 'Preview Code', class: '' }, { name: 'Paste Json', class: '' } ];
 	count = 1;
@@ -32,14 +34,22 @@ export class UiFormComponent implements OnInit {
 		Identity_Information__c: {},
 		About_Account__c: {}
 	};
-	pageTitle: any = 'Display';
+	pageTitle: any = '';
 	form = new FormGroup({});
 	downLoadUrl: any;
 	pastedJSON: any;
 	fileName: any;
 	formlyJson: any;
-	constructor(private sanitizer: DomSanitizer, private progress: NgProgress, private SimpleModalService: SimpleModalService) {}
+	subProdCode: any;
+	constructor(private sanitizer: DomSanitizer, private progress: NgProgress, private SimpleModalService: SimpleModalService, private route: ActivatedRoute, public service: LocalService, private router: Router) {}
 	ngOnInit() {
+		this.pageTitle = this.route.snapshot.queryParams['page'];
+		this.subProdCode = this.route.snapshot.queryParams['subProd'];
+		if (!this.subProdCode || this.subProdCode.length === 0) {
+			this.router.navigate([ '/ui-start' ]);
+		} else {
+			this.onPageLoadGetJson();
+		}
 		setTimeout(() => {
 			this.progress.done();
 		}, 100);
@@ -75,9 +85,7 @@ export class UiFormComponent implements OnInit {
 			}
 		);
 	}
-
 	makeActive(index) {
-		this.formlyField = [];
 		for (let i = 0; i < this.tabs.length; i++) {
 			if (index === i) {
 				this.tabs[i]['class'] = 'active';
@@ -85,6 +93,12 @@ export class UiFormComponent implements OnInit {
 				this.tabs[i]['class'] = '';
 			}
 		}
+		this.ConvertToFormly(index);
+	}
+
+	ConvertToFormly(index) {
+		this.formlyField = [];
+
 		if (index === 1) {
 			this.droppedControls.forEach((item) => {
 				const header = {
@@ -145,7 +159,8 @@ export class UiFormComponent implements OnInit {
 		}
 	}
 	saveWork() {
-		this.saveToFileSystem(JSON.stringify(this.droppedControls, null, 2));
+		this.ConvertToFormly(1);
+		this.saveToFileSystem(JSON.stringify(this.formlyField, null, 2));
 	}
 	finish() {
 		const sales = new FieldLogicList();
@@ -164,15 +179,43 @@ export class UiFormComponent implements OnInit {
 	}
 
 	private saveToFileSystem(response) {
-		this.fileName = this.pageTitle.toLowerCase().replace(' ', '-') + '.json';
-		const blob = new Blob([ response ], { type: 'application/json' });
-		const url = window.URL.createObjectURL(blob);
-		const uri = this.sanitizer.bypassSecurityTrustUrl(url);
-		this.downLoadUrl = uri;
-		setTimeout(function() {
-			document.getElementById('down').click();
-			window.URL.revokeObjectURL(url);
-		}, 200);
+		// this.fileName = this.pageTitle.toLowerCase().replace(' ', '-') + '.json';
+		// const blob = new Blob([ response ], { type: 'application/json' });
+		// const url = window.URL.createObjectURL(blob);
+		// const uri = this.sanitizer.bypassSecurityTrustUrl(url);
+		// this.downLoadUrl = uri;
+		// setTimeout(function() {
+		// 	document.getElementById('down').click();
+		// 	window.URL.revokeObjectURL(url);
+		// }, 200);
+		if (response !== '[]' && this.pageTitle.length > 0) {
+			const parms = {};
+			parms['json'] = response;
+			parms['subProductCode'] = this.subProdCode;
+			parms['pageName'] = this.pageTitle;
+			console.log(parms);
+			const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
+			if (domain !== 'local') {
+				this.service.callExternalMethod('saveAppFields', parms).subscribe((result) => {
+					this.goBack();
+				});
+			} else {
+				this.goBack();
+			}
+		}
+	}
+
+	onPageLoadGetJson() {
+		const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
+		if (domain !== 'local') {
+			const parms = {};
+			parms['subProductCode'] = this.subProdCode;
+			parms['pageName'] = this.pageTitle;
+			this.service.callExternalMethod('getAppFields', parms).subscribe((result) => {
+				this.formlyJson = result['fields'];
+				this.convertFormlyJsonToDrop();
+			});
+		}
 	}
 
 	convertFormlyJsonToDrop() {
@@ -220,5 +263,8 @@ export class UiFormComponent implements OnInit {
 		elements.forEach((ele) => {
 			ele.classList.remove(cls.replace('.', ''));
 		});
+	}
+	goBack() {
+		this.router.navigateByUrl('/ui-start/' + this.subProdCode);
 	}
 }

@@ -52,13 +52,11 @@
             </div>
         </div>
         <div class="col-sm-12">
-            <button class="btn btn-primary" (click)="saveWork()">Save Work for Later</button>
+          <button class="btn btn-success" (click)="goBack()()">Go Back</button>
+            <button class="btn btn-primary" (click)="saveWork()">Save Form</button>
             <a class="hidden" download="{{fileName}}" target="_blank" [href]="downLoadUrl" id="down">Save </a>
-            <button class="btn btn-success" (click)="finish()">Finish</button>
         </div>
     </div>
-
-  
 </div>
 
 <div *ngIf="tabs && tabs[1].class=='active'">
@@ -91,16 +89,7 @@
 <div *ngIf="tabs && tabs[2].class=='active'">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>Paste Saved JSON</label>
-                    <textarea [(ngModel)]="pastedJSON" class="form-control paste"></textarea>
-                </div>
-                <div class="col-sm-12 text-center">
-                    <button class="btn btn-primary" (click)="loadPastedJson()">Load JSON</button>
-                </div>
-            </div>
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <div class="form-group">
                     <label>Formly JSON</label>
                     <textarea [(ngModel)]="formlyJson" class="form-control paste"></textarea>

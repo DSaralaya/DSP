@@ -18,7 +18,6 @@ export class LocalService {
 	}
 
 	private getRemote(file) {
-		debugger;
 		return this.vfRemote['DSPController']
 			['getAppFieldsdelete'](file)
 			.then((result) => {
@@ -33,27 +32,26 @@ export class LocalService {
 		return Observable.fromPromise(this.callExternalRemote(method, params));
 	}
 
-	private callExternalRemote(method: string, params: any[]) {
-		debugger;
-		if (params.length > 0) {
-			const fn = this.vfRemote['DSPController'][method];
-			return fn(params)
+	private callExternalRemote(method: string, params: any) {
+		if (!_.isEmpty(params)) {
+			return this.vfRemote['DSPController']
+				[method](params)
 				.then((result) => {
 					if (result.body) {
-						return JSON.parse(result.body.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/\\n/g, '').replace(/&#39;/g, "'"));
+						return JSON.parse(result.body.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\\n/g, ''));
 					} else if (result) {
-						return JSON.parse(result.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/\\n/g, '').replace(/&#39;/g, "'"));
+						return JSON.parse(result.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\\n/g, ''));
 					}
 				})
 				.catch((reason) => console.log(reason));
 		} else {
-			const fn = this.vfRemote['DSPController'][method];
-			return fn()
+			return this.vfRemote['DSPController']
+				[method]()
 				.then((result) => {
 					if (result.body) {
-						return JSON.parse(result.body.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/\\n/g, '').replace(/&#39;/g, "'"));
+						return JSON.parse(result.body.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\\n/g, ''));
 					} else if (result) {
-						return JSON.parse(result.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/\\n/g, '').replace(/&#39;/g, "'"));
+						return JSON.parse(result.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\\n/g, ''));
 					}
 				})
 				.catch((reason) => console.log(reason));
@@ -61,7 +59,6 @@ export class LocalService {
 	}
 
 	get(file) {
-		debugger;
 		const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
 		if (domain === 'local') {
 			return this.http.get(this.resourceurl + '/assets/json/get-app-fields-' + file + '.json').map((x) => x.json()).map((data) => {

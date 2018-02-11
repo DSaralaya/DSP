@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { LocalService } from '../shared/services/localJson.service';
+import { NgProgress } from '@ngx-progressbar/core';
 
 @Component({
 	selector: 'app-ui-start',
@@ -9,38 +10,79 @@ import { LocalService } from '../shared/services/localJson.service';
 })
 export class UiStartComponent implements OnInit {
 	subProductList: any = [];
+	sortoptions: any;
 	pageList: any = [];
 	newPageName: any;
 	selectedSubProduct: any;
-	constructor(public service: LocalService, public router: Router) {}
+	isupdate = 'hidden';
+	constructor(public service: LocalService, private progress: NgProgress, public router: Router, private route: ActivatedRoute) {}
 	ngOnInit() {
 		this.getProductList();
+		this.initSort();
+		setTimeout(() => {
+			this.progress.done();
+		}, 100);
 	}
 
 	getProductList() {
-		this.service.callExternalMethod('getAllSubProducts', []).subscribe((result) => {
-			this.subProductList = result;
-		});
-		// this.subProductList = [ { name: 'Credit Card Gold', value: 'CCG' }, { name: 'Credit Card Silver', value: 'CCS' } ];
-	}
-
-	setFlowPage() {
-		var parms = [];
-		parms.push({ json: '{ "skipPrevPage":"CrossSellPage","skipNextPage":"AccountDetailsPage" }' });
-		parms.push({ subProductCode: 'CCS' });
-		parms.push({ pageName: 'CCS-pageflow' });
-		this.service.callExternalMethod('saveAppFields', parms).subscribe((result) => {
-			alert('success');
-		});
-		// this.subProductList = [ { name: 'Credit Card Gold', value: 'CCG' }, { name: 'Credit Card Silver', value: 'CCS' } ];
+		const subpProd = this.route.snapshot.params['id'];
+		const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
+		if (domain === 'local') {
+			this.subProductList = [ { Sub_Product__c: 'Credit Card Gold', Sub_Product_Code__c: 'CCG' }, { Sub_Product__c: 'Credit Card Silver', Sub_Product_Code__c: 'CCS' } ];
+			if (subpProd) {
+				this.selectedSubProduct = subpProd;
+				this.getPages(this.selectedSubProduct);
+			}
+		} else {
+			this.service.callExternalMethod('getAllSubProducts', {}).subscribe((result) => {
+				this.subProductList = result;
+				if (subpProd) {
+					this.selectedSubProduct = subpProd;
+					this.getPages(this.selectedSubProduct);
+				}
+			});
+		}
 	}
 
 	getPages(select) {
-		// this.pageList = [ 'get-started', 'cross-sell', 'identity' ];
-		this.service.callExternalMethod('getPageNamesBySubProduct', [ select.value ]).subscribe((result) => {
-			this.pageList = result;
-			this.setFlowPage();
+		const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
+		if (domain === 'local') {
+			this.pageList = [ { name: 'get-started' }, { name: 'cross-sell' }, { name: 'identity' } ];
+		} else {
+			const params = {};
+			params['subProductCode'] = select;
+			this.service.callExternalMethod('getPageNamesBySubProduct', params).subscribe((result) => {
+				this.pageList = result;
+			});
+		}
+	}
+	initSort() {
+		this.sortoptions = {
+			onUpdate: (event: any) => {
+				this.isupdate = '';
+			}
+		};
+	}
+
+	setFlowPage(): void {
+		this.isupdate = 'hidden';
+		const pageflow = [];
+		this.pageList.forEach((element, index) => {
+			const prev = this.pageList[index - 1] ? this.pageList[index - 1]['name'] : '';
+			const next = this.pageList[index + 1] ? this.pageList[index + 1]['name'] : '';
+			pageflow.push({ path: element['name'], prevPage: prev, nextPage: next });
 		});
+		const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
+		if (domain !== 'local') {
+			const parms = {};
+			parms['json'] = JSON.stringify(pageflow);
+			parms['subProductCode'] = this.selectedSubProduct;
+			parms['pageName'] = 'pageflow';
+			this.service.callExternalMethod('saveAppFields', parms).subscribe((result) => {
+				// alert('success');
+			});
+		}
+		console.log(JSON.stringify(pageflow));
 	}
 
 	add(input) {
@@ -49,12 +91,10 @@ export class UiStartComponent implements OnInit {
 		}
 	}
 
-	edit(index) {
-		console.log(index);
-	}
-
 	delete(index) {
-		debugger;
-		this.pageList.splice(index, 1);
+		const r = confirm('Are you sure to delete?!');
+		if (r) {
+			this.pageList.splice(index, 1);
+		}
 	}
 }

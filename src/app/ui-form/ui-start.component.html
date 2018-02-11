@@ -1,43 +1,45 @@
 <div class="container-fluid">
-<div class="row">
-    <div class="col-lg-6">
-        <div class="input-group">
-            <label>Sub Product</label>
-            <select #selectedSubProduct name="selectedSubProduct" class="form-control" (change)="getPages(selectedSubProduct)" >
-                <option>--Select--</option>
-                <option *ngFor="let item of subProductList" value={{item.Sub_Product_Code__c}}>{{item.Sub_Product__c}}</option>
-            </select>
+    <div class="card">
+        <div class="card-header">
+            <h5>Configure Forms</h5>
+        </div>
+        <div class="card-block">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="">
+                        <label>Sub Product</label>
+                        <select  [(ngModel)]="selectedSubProduct" name="selectedSubProduct" class="form-control" (change)="getPages(selectedSubProduct)">
+                            <option>--Select--</option>
+                            <option *ngFor="let item of subProductList" value={{item.Sub_Product_Code__c}}>{{item.Sub_Product__c}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row"  *ngIf="selectedSubProduct">
+                <h5 class="m-t">Page Flows  <a class="btn btn-danger pull-right" [routerLink]="['/ui-form']" [queryParams]="{ subProd: selectedSubProduct}">Add New Page</a></h5>
+                <div class="col-sm-12">
+                    <table class="table" *ngIf="pageList.length>0">
+                        <thead>
+                            <tr>
+                                <th>Page Name</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody [sortablejs]="pageList" [sortablejsOptions]="sortoptions">
+                            <tr *ngFor="let item of pageList;let x = index">
+                                <td>{{item.name}} </td>
+                                <td>
+                                    <a [routerLink]="['/ui-form']" [queryParams]="{ page: item.name,subProd: selectedSubProduct}">edit</a> |  
+                                    <a href="javascript:void(0);" (click)="delete(x)">delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot  class="text-center {{isupdate}}"> 
+                            <button type="button" class="btn btn-primary" (click)="setFlowPage()">Update</button>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<div class="row" *ngIf="pageList">
-    <div class="col-sm-12">
-      <div class="col-sm-3">
-        <label>Page Name</label>
-        <input type="text" name="newPageName" class="form-control" #newPageName > 
-      </div>
-      <div class="col-sm-9">
-      <button type="button" (click)="add(newPageName)">Add Page</button>
-      </div>
-    </div>
-    <div class="col-sm-12">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Page Name</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of pageList;let x = index">
-                    <td>{{item.name}} </td>
-                    <td>
-                        <a href="javascript:void(0);" (click)="edit(x)" >edit</a>
-                        <a href="javascript:void(0);"  (click)="delete(x)">delete</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
 </div>

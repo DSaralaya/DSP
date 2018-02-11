@@ -1,0 +1,13 @@
+{
+	"routes": [ { "path": "cross-sell", "component": "DynamicComponent" }, { "path": "personal-info", "component": "DynamicComponent" }, { "path": "identity", "component": "DynamicComponent" }, { "path": "employment", "component": "DynamicComponent" }, { "path": "account-details", "component": "DynamicComponent" }, { "path": "review-submit", "component": "DynamicComponent" }, { "path": "confirmation", "component": "ConfirmationComponent" } ],
+	"flows": [
+		{ "page": "get-started", "nextUrl": "cross-sell", "PreviouesUrl": "" },
+		{ "page": "cross-sell", "nextUrl": "personal-info", "PreviouesUrl": "" },
+		{ "page": "personal-info", "nextUrl": "identity", "PreviouesUrl": "cross-sell" },
+		{ "page": "identity", "nextUrl": "employment", "PreviouesUrl": "personal-info" },
+		{ "page": "employment", "nextUrl": "account-details", "PreviouesUrl": "identity" },
+		{ "page": "account-details", "nextUrl": "review-submit", "PreviouesUrl": "employment" },
+		{ "page": "review-submit", "nextUrl": "confirmation", "PreviouesUrl": "account-details" },
+		{ "page": "confirmation", "nextUrl": "", "PreviouesUrl": "" }
+	]
+}

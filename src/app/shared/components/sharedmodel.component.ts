@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { LocalService } from '../services/localJson.service';
 import { AppConfig } from '../common/config';
 import { ValidationService } from '../services/validation.service';
+import { PersonalInfoComponent } from '../../personal-info/personal-info.component';
 
 export class SharedModel {
 	public model: any;

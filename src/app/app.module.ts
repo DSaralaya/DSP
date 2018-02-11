@@ -23,23 +23,19 @@ import { SortablejsModule } from 'angular-sortablejs';
 import { NgDragDropModule } from 'ng-drag-drop';
 import { VfRemoteService } from '../modules/vfremote/vf-remote.service';
 import { UiStartComponent } from './ui-form/ui-start.component';
+import { DynamicComponent } from './dynamic/dynamic.component';
 
 const appRoutes: Routes = [
 	{ path: '', redirectTo: 'get-started', pathMatch: 'full' },
 	{ path: 'get-started', component: GetStartedComponent },
-	{ path: 'cross-sell', component: CrossSellComponent },
-	{ path: 'personal-info', component: PersonalInfoComponent },
-	{ path: 'identity', component: IdentityComponent },
-	{ path: 'employment', component: EmploymentComponent },
-	{ path: 'account-details', component: AccountDetailsComponent },
-	{ path: 'review-submit', component: ReviewSubmitComponent },
-	{ path: 'confirmation', component: ConfirmationComponent },
+	{ path: 'form/:id', component: DynamicComponent },
+	{ path: 'ui-start/:id', component: UiStartComponent },
 	{ path: 'ui-form', component: UiFormComponent },
 	{ path: 'ui-start', component: UiStartComponent }
 ];
 
 @NgModule({
-	declarations: [ AppComponent, GetStartedComponent, PersonalInfoComponent, IdentityComponent, CrossSellComponent, EmploymentComponent, AccountDetailsComponent, ReviewSubmitComponent, ConfirmationComponent, ProgressComponent, UiFormComponent, UiStartComponent ],
+	declarations: [ AppComponent, GetStartedComponent, PersonalInfoComponent, IdentityComponent, CrossSellComponent, EmploymentComponent, AccountDetailsComponent, ReviewSubmitComponent, ConfirmationComponent, ProgressComponent, UiFormComponent, UiStartComponent, DynamicComponent ],
 	imports: [ BrowserModule, RouterModule.forRoot(appRoutes), FormlyControls, HttpModule, BrowserAnimationsModule, NgProgressModule.forRoot(), SortablejsModule, NgDragDropModule.forRoot() ],
 	providers: [ VfRemoteService, LocalService, { provide: LocationStrategy, useClass: HashLocationStrategy }, { provide: APP_BASE_HREF, useValue: '/' } ],
 	bootstrap: [ AppComponent ]
