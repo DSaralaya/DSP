@@ -194,9 +194,10 @@ export class UiFormComponent implements OnInit {
 			parms['subProductCode'] = this.subProdCode;
 			parms['pageName'] = this.pageTitle;
 			console.log(parms);
+			debugger;
 			const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
 			if (domain !== 'local') {
-				this.service.callExternalMethod('saveAppFields', parms).subscribe((result) => {
+				this.service.callExternalMethod('saveFormFields', parms).subscribe((result) => {
 					this.goBack();
 				});
 			} else {
@@ -219,6 +220,7 @@ export class UiFormComponent implements OnInit {
 	}
 
 	convertFormlyJsonToDrop() {
+		debugger;
 		const jsonData = JSON.parse(this.formlyJson);
 		this.droppedControls = [];
 		let section: ControlProperties;
@@ -249,6 +251,20 @@ export class UiFormComponent implements OnInit {
 						defaultValue: child.defaultValue,
 						expressionProperties: child.expressionProperties
 					};
+					if (child.templateOptions['options']) {
+						let str = '';
+						let count = 0;
+						child.templateOptions['options'].forEach((element) => {
+							if (element.value !== '' && count !== 0) {
+								str += ';' + element.value;
+								count++;
+							} else if (element.value !== '') {
+								str += element.value;
+								count++;
+							}
+						});
+						field.picklist = str;
+					}
 					section.controls.push(field);
 				});
 			}

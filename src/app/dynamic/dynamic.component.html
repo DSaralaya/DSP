@@ -1,4 +1,4 @@
-<app-progress *ngIf="model" ></app-progress>
+<!-- <app-progress *ngIf="model" ></app-progress> -->
 <div class="container" *ngIf="model">
         <div class="row">
           <form [formGroup]="form" (ngSubmit)="submit(navigateUrl)">
@@ -11,12 +11,12 @@
                 </formly-form>
               </div>
               <div class="card-footer">
-                  <div class="btn-group mr-4" *ngIf="CheckDisable()">
-                      <a class="btn btn-warning btn-next" href="/#{{prevUrl}}">
+                  <div class="btn-group mr-4" *ngIf="prevUrl!=''">
+                      <a class="btn btn-warning btn-next" href="/#/form/{{prevUrl}}">
                         <i class="fa fa-chevron-left" aria-hidden="true"></i><span>  Previoues </span>
                       </a>
                   </div>
-                  <div class="btn-group mr-4"   *ngIf="CheckDisable()">
+                  <div class="btn-group mr-4"   *ngIf="prevUrl!=''">
                       <button type="button" class="btn btn-info btn-next" (appSaveforLaterClick)="onClick()"   >
                         <i class="fa fa-floppy-o" aria-hidden="true"></i><span> Save For Later</span>
                       </button>

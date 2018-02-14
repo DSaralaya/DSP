@@ -37,10 +37,13 @@ export class LocalService {
 			return this.vfRemote['DSPController']
 				[method](params)
 				.then((result) => {
+					setTimeout(() => {
+						this.progress.done();
+					}, 100);
 					if (result.body) {
-						return JSON.parse(result.body.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\\n/g, ''));
+						return JSON.parse(result.body.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\\n/g, '').replace(/&#39;/g, "'"));
 					} else if (result) {
-						return JSON.parse(result.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\\n/g, ''));
+						return JSON.parse(result.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\\n/g, '').replace(/&#39;/g, "'"));
 					}
 				})
 				.catch((reason) => console.log(reason));
@@ -48,10 +51,13 @@ export class LocalService {
 			return this.vfRemote['DSPController']
 				[method]()
 				.then((result) => {
+					setTimeout(() => {
+						this.progress.done();
+					}, 100);
 					if (result.body) {
-						return JSON.parse(result.body.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\\n/g, ''));
+						return JSON.parse(result.body.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\\n/g, '').replace(/&#39;/g, "'"));
 					} else if (result) {
-						return JSON.parse(result.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\\n/g, ''));
+						return JSON.parse(result.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\\n/g, '').replace(/&#39;/g, "'"));
 					}
 				})
 				.catch((reason) => console.log(reason));

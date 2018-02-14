@@ -45,18 +45,26 @@ export class AppConfig {
 		return '';
 	}
 
-	public static NextPage(model) {
-		if (model['pageFlowMap']) {
-			const pageFlow = JSON.parse(model['pageFlowMap']['Body'].replace(/&quot;/g, '"'));
-			return this.appPagesRoutes[pageFlow['nextPage']];
+	public static NextPage(model, pagename) {
+		if (model) {
+			const pageFlow = model.filter(function(t) {
+				return t['path'] === pagename;
+			});
+			if (pageFlow.length > 0) {
+				return pageFlow[0]['nextPage'];
+			}
 		}
 		return '';
 	}
 
-	public static PrevPage(model) {
-		if (model['pageFlowMap']) {
-			const pageFlow = JSON.parse(model['pageFlowMap']['Body'].replace(/&quot;/g, '"'));
-			return this.appPagesRoutes[pageFlow['prevPage']];
+	public static PrevPage(model, pagename) {
+		if (model) {
+			const pageFlow = model.filter(function(t) {
+				return t['path'] === pagename;
+			});
+			if (pageFlow.length > 0) {
+				return pageFlow[0]['prevPage'];
+			}
 		}
 		return '';
 	}

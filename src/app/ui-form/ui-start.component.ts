@@ -47,12 +47,17 @@ export class UiStartComponent implements OnInit {
 	getPages(select) {
 		const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
 		if (domain === 'local') {
-			this.pageList = [ { name: 'get-started' }, { name: 'cross-sell' }, { name: 'identity' } ];
+			this.pageList = [ { name: 'cross-sell' }, { name: 'identity' } ];
 		} else {
 			const params = {};
 			params['subProductCode'] = select;
-			this.service.callExternalMethod('getPageNamesBySubProduct', params).subscribe((result) => {
-				this.pageList = result;
+			this.service.callExternalMethod('getPageNamesBySubProduct', params).subscribe((result: any[]) => {
+				debugger;
+				if (result.length > 0) {
+					result.forEach((element) => {
+						this.pageList.push({ name: element['path'] });
+					});
+				}
 			});
 		}
 	}
@@ -78,7 +83,7 @@ export class UiStartComponent implements OnInit {
 			parms['json'] = JSON.stringify(pageflow);
 			parms['subProductCode'] = this.selectedSubProduct;
 			parms['pageName'] = 'pageflow';
-			this.service.callExternalMethod('saveAppFields', parms).subscribe((result) => {
+			this.service.callExternalMethod('saveFormFields', parms).subscribe((result) => {
 				// alert('success');
 			});
 		}
@@ -94,7 +99,18 @@ export class UiStartComponent implements OnInit {
 	delete(index) {
 		const r = confirm('Are you sure to delete?!');
 		if (r) {
-			this.pageList.splice(index, 1);
+			const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
+			if (domain !== 'local') {
+				const parms = {};
+				parms['subProductCode'] = this.selectedSubProduct;
+				parms['pageName'] = this.pageList[index]['name'];
+				this.service.callExternalMethod('DeletePage', parms).subscribe((result) => {
+					this.pageList = [];
+					this.getPages(this.selectedSubProduct);
+				});
+			} else {
+				this.pageList.splice(index, 1);
+			}
 		}
 	}
 }

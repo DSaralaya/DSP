@@ -8,9 +8,7 @@ import { SharedModel } from '../shared/components/sharedmodel.component';
 	templateUrl: './dynamic.component.html'
 })
 export class DynamicComponent extends SharedModel implements OnInit {
-	public pageTitle = 'Personal Information';
-
-	constructor(public service: LocalService, public router: Router, private route: ActivatedRoute) {
+constructor(public service: LocalService, public router: Router, private route: ActivatedRoute) {
 		super(service, router);
 		this.router.routeReuseStrategy.shouldReuseRoute = function() {
 			return false;

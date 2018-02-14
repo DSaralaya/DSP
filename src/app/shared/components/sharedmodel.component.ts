@@ -8,6 +8,7 @@ import { ValidationService } from '../services/validation.service';
 import { PersonalInfoComponent } from '../../personal-info/personal-info.component';
 
 export class SharedModel {
+	public pageTitle = '';
 	public model: any;
 	public fields: any;
 	form = new FormGroup({});
@@ -18,12 +19,16 @@ export class SharedModel {
 	constructor(public service: LocalService, public router: Router) {}
 
 	getAppFields(pagename) {
-		this.service.get(pagename).subscribe((result) => {
-			(this.fields = result.fields), (this.model = result);
-			delete this.model.fields;
-			this.nextUrl = AppConfig.NextPage(this.model);
-			this.prevUrl = AppConfig.PrevPage(this.model);
-			ValidationService.orgModel = this.model;
+		this.pageTitle = this.toTitleCase(pagename.replace('-', ' '));
+		const parms = {};
+		parms['id'] = window['DSP']['id']; // this.subProdCode;
+		parms['pageName'] = pagename;
+		this.service.callExternalMethod('getAppFields', parms).subscribe((result: any[]) => {
+			this.fields = JSON.parse(result['fields']);
+			this.model = result['model'];
+			this.nextUrl = AppConfig.NextPage(JSON.parse(result['pageflow']), pagename);
+			this.prevUrl = AppConfig.PrevPage(JSON.parse(result['pageflow']), pagename);
+			// ValidationService.orgModel = this.model;
 		});
 	}
 
@@ -31,11 +36,27 @@ export class SharedModel {
 		this.options.formState.submitted = true;
 		if (this.form.valid) {
 			console.log(this.model);
-			this.router.navigateByUrl('/' + this.nextUrl);
+			const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
+			if (domain !== 'local') {
+				const parms = {};
+				parms['id'] = window['DSP']['id'];
+				parms['Identity_Information__c'] = JSON.stringify(this.model['Identity_Information__c']);
+				parms['Employment_Information__c'] = JSON.stringify(this.model['Employment_Information__c']);
+				parms['Application__c'] = JSON.stringify(this.model['Application__c']);
+				parms['About_Account__c'] = JSON.stringify(this.model['About_Account__c']);
+				debugger;
+				this.service.callExternalMethod('saveAppFields', parms).subscribe((result) => {
+					this.router.navigateByUrl('/form/' + this.nextUrl);
+				});
+			} else {
+				this.router.navigateByUrl('/form/' + this.nextUrl);
+			}
 		}
 	}
 
-	CheckDisable() {
-		return AppConfig.CheckDisable(this.model);
+	toTitleCase(str) {
+		return str.replace(/\w\S*/g, function(txt) {
+			return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+		});
 	}
 }

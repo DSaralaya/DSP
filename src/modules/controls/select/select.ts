@@ -7,7 +7,7 @@ import { FieldType } from '@ngx-formly/core';
         <mat-form-field>
         <mat-select placeholder="{{to.label}} {{to.required? '*':''}}" [formControl]="formControl" [formlyAttributes]="field">
           <mat-option *ngFor="let item of items" [value]="item.value">
-            {{ item.name }}
+            {{ item.label }}
           </mat-option>
         </mat-select>
       </mat-form-field>
