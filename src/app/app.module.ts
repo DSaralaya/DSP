@@ -24,6 +24,9 @@ import { NgDragDropModule } from 'ng-drag-drop';
 import { VfRemoteService } from '../modules/vfremote/vf-remote.service';
 import { UiStartComponent } from './ui-form/ui-start.component';
 import { DynamicComponent } from './dynamic/dynamic.component';
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
+import { SessionExpireComponent } from './session-expire/session-expire.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
 	{ path: '', redirectTo: 'get-started', pathMatch: 'full' },
@@ -31,12 +34,13 @@ const appRoutes: Routes = [
 	{ path: 'form/:id', component: DynamicComponent },
 	{ path: 'ui-start/:id', component: UiStartComponent },
 	{ path: 'ui-form', component: UiFormComponent },
-	{ path: 'ui-start', component: UiStartComponent }
+	{ path: 'ui-start', component: UiStartComponent },
+	{ path: 'session-expire', component: SessionExpireComponent }
 ];
 
 @NgModule({
-	declarations: [ AppComponent, GetStartedComponent, PersonalInfoComponent, IdentityComponent, CrossSellComponent, EmploymentComponent, AccountDetailsComponent, ReviewSubmitComponent, ConfirmationComponent, ProgressComponent, UiFormComponent, UiStartComponent, DynamicComponent ],
-	imports: [ BrowserModule, RouterModule.forRoot(appRoutes), FormlyControls, HttpModule, BrowserAnimationsModule, NgProgressModule.forRoot(), SortablejsModule, NgDragDropModule.forRoot() ],
+	declarations: [ AppComponent, GetStartedComponent, PersonalInfoComponent, IdentityComponent, CrossSellComponent, EmploymentComponent, AccountDetailsComponent, ReviewSubmitComponent, ConfirmationComponent, ProgressComponent, UiFormComponent, UiStartComponent, DynamicComponent, SessionExpireComponent ],
+	imports: [ BrowserModule, RouterModule.forRoot(appRoutes), FormlyControls, HttpModule, BrowserAnimationsModule, NgProgressModule.forRoot(), SortablejsModule, NgDragDropModule.forRoot(), HttpClientModule, NgIdleKeepaliveModule.forRoot() ],
 	providers: [ VfRemoteService, LocalService, { provide: LocationStrategy, useClass: HashLocationStrategy }, { provide: APP_BASE_HREF, useValue: '/' } ],
 	bootstrap: [ AppComponent ]
 })

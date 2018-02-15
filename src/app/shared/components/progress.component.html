@@ -12,49 +12,14 @@
 		<div class="row">
 			<div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
 				<ul class="progress-step-wrapper">
-					<li  class="{{getCurrent('PersonalInfoPage')}}">
-						<span >1</span>
-						<p >Personal
+					
+					<li *ngFor="let item of pageFlow;let k = index"  class="{{getCurrent(item['path'])}}">
+						<span >{{k+1}}</span>
+						<p >{{item['path']}}
 							<i class="progress-step"></i>
 						</p>
 					</li>
-					<li  class="{{getCurrent('EmploymentPage')}}">
-						<span >2</span>
-						<p >Employment
-							<i class="progress-step"></i>
-						</p>
-					</li>
-					<li  class="{{getCurrent('IdentityPage')}}">
-						<span >3</span>
-						<p >Identity
-							<i class="progress-step"></i>
-						</p>
-
-					</li>
-					<li class="{{getCurrent('AccountDetailsPage')}}" >
-
-						<span >4</span>
-						<p >Details
-							<i class="progress-step"></i>
-						</p>
-
-					</li>
-					<li  class="{{getCurrent('ReviewSubmitPage')}}">
-
-						<span >5</span>
-						<p >Review
-							<i class="progress-step"></i>
-						</p>
-
-					</li>
-					<li  class="{{getCurrent('ConfirmationPage')}}">
-
-						<span >6</span>
-						<p >Confirmation
-							<i class="progress-step"></i>
-						</p>
-
-					</li>
+				
 				</ul>
 			</div>
 		</div>

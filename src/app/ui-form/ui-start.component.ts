@@ -45,6 +45,7 @@ export class UiStartComponent implements OnInit {
 	}
 
 	getPages(select) {
+		this.pageList = [];
 		const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
 		if (domain === 'local') {
 			this.pageList = [ { name: 'cross-sell' }, { name: 'identity' } ];
@@ -61,6 +62,7 @@ export class UiStartComponent implements OnInit {
 			});
 		}
 	}
+
 	initSort() {
 		this.sortoptions = {
 			onUpdate: (event: any) => {
@@ -86,13 +88,6 @@ export class UiStartComponent implements OnInit {
 			this.service.callExternalMethod('saveFormFields', parms).subscribe((result) => {
 				// alert('success');
 			});
-		}
-		console.log(JSON.stringify(pageflow));
-	}
-
-	add(input) {
-		if (input.value.length > 0) {
-			this.pageList.push({ name: input.value });
 		}
 	}
 

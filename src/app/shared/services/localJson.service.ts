@@ -17,19 +17,19 @@ export class LocalService {
 		this.resourceurl = window['Dsp.Resourceurl'] ? window['Dsp.Resourceurl'] : '';
 	}
 
-	private getRemote(file) {
-		return this.vfRemote['DSPController']
-			['getAppFieldsdelete'](file)
-			.then((result) => {
-				let data = JSON.parse(result.body.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/\\n/g, '').replace(/&#39;/g, "'"));
-				data = this.preProcessData(file, data);
-				return (this._data = data);
-			})
-			.catch((reason) => console.log(reason));
-	}
-
 	callExternalMethod(method: string, params?: any) {
-		return Observable.fromPromise(this.callExternalRemote(method, params));
+		const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
+		if (domain === 'local') {
+			return this.http.get(this.resourceurl + '/assets/json/get-app-fields-' + params['pageName'] + '.json').map((x) => x.json()).map((data) => {
+				setTimeout(() => {
+					this.progress.done();
+				}, 100);
+				data = this.preProcessData('', data);
+				return (this._data = data);
+			});
+		} else {
+			return Observable.fromPromise(this.callExternalRemote(method, params));
+		}
 	}
 
 	private callExternalRemote(method: string, params: any) {
@@ -61,21 +61,6 @@ export class LocalService {
 					}
 				})
 				.catch((reason) => console.log(reason));
-		}
-	}
-
-	get(file) {
-		const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
-		if (domain === 'local') {
-			return this.http.get(this.resourceurl + '/assets/json/get-app-fields-' + file + '.json').map((x) => x.json()).map((data) => {
-				setTimeout(() => {
-					this.progress.done();
-				}, 100);
-				data = this.preProcessData(file, data);
-				return (this._data = data);
-			});
-		} else {
-			return Observable.fromPromise(this.getRemote(file));
 		}
 	}
 

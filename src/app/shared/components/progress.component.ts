@@ -9,15 +9,16 @@ import { AppConfig } from '../common/config';
 export class ProgressComponent implements OnInit {
 	public pageName: any;
 	component: any;
-	model: any;
+	pageFlow: any;
 	constructor(private vcRef: ViewContainerRef) {}
+
 	ngOnInit() {
 		this.component = this.vcRef['_view']['component'];
-		this.model = this.component['model'];
+		this.pageFlow = this.component['pageFlow'];
+		this.pageName = this.component['pageName'];
 	}
 
 	getCurrent(page) {
-		this.pageName = AppConfig.GetPageName(this.model);
 		return page === this.pageName ? 'current' : '';
 	}
 }

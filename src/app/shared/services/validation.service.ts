@@ -12,7 +12,7 @@ export class ValidationService {
 	}
 
 	static alphabet(control, field) {
-		const regExValue = '^[a-zA-Z-_ ,.\']*$';
+		const regExValue = "^[a-zA-Z-_ ,.']*$";
 		if (control.value) {
 			const regex = new RegExp(regExValue);
 			if (!regex.test(control.value)) {

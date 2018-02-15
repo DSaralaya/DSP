@@ -11,6 +11,8 @@ export class SharedModel {
 	public pageTitle = '';
 	public model: any;
 	public fields: any;
+	pageFlow: any;
+	pageName: any;
 	form = new FormGroup({});
 	public nextUrl = '';
 	public prevUrl = '';
@@ -21,13 +23,16 @@ export class SharedModel {
 	getAppFields(pagename) {
 		this.pageTitle = this.toTitleCase(pagename.replace('-', ' '));
 		const parms = {};
-		parms['id'] = window['DSP']['id']; // this.subProdCode;
+		parms['id'] = window['DSP'] ? window['DSP']['id'] : ''; // this.subProdCode;
 		parms['pageName'] = pagename;
+		this.pageName = pagename;
 		this.service.callExternalMethod('getAppFields', parms).subscribe((result: any[]) => {
-			this.fields = JSON.parse(result['fields']);
+			this.fields = typeof result['fields'] === 'object' ? result['fields'] : JSON.parse(result['fields']);
+			this.pageFlow = typeof result['pageflow'] === 'object' ? result['pageflow'] : JSON.parse(result['pageflow']);
 			this.model = result['model'];
-			this.nextUrl = AppConfig.NextPage(JSON.parse(result['pageflow']), pagename);
-			this.prevUrl = AppConfig.PrevPage(JSON.parse(result['pageflow']), pagename);
+			console.log(this.nextUrl);
+			this.nextUrl = AppConfig.NextPage(this.pageFlow, pagename);
+			this.prevUrl = AppConfig.PrevPage(this.pageFlow, pagename);
 			// ValidationService.orgModel = this.model;
 		});
 	}

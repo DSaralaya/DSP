@@ -44,7 +44,6 @@ import { DriverLicesenceScanComponent } from './templates/driverScan';
 import { ValidationService } from '../app/shared/services/validation.service';
 import { UiPropertiesModalComponent } from '../app/ui-form/ui-properties.component';
 
-
 export function showErrorOption(field) {
 	if (field.to.hidden === true) {
 		field.formControl.setValue(null);
@@ -86,12 +85,7 @@ const formyconfig = FormlyModule.forRoot({
 		},
 		{
 			name: 'month',
-			extends: 'masking',
-			defaultOptions: {
-				templateOptions: {
-					mask: '99'
-				}
-			}
+			extends: 'input'
 		},
 		{
 			name: 'regex',
@@ -274,10 +268,10 @@ const formyconfig = FormlyModule.forRoot({
 		DisclousreComponent,
 		DisclousureModalComponent,
 		DriverLicesenceScanComponent,
-		UiPropertiesModalComponent 
+		UiPropertiesModalComponent
 	],
-	imports: [ CommonModule, FormsModule, ReactiveFormsModule, FormlyBootstrapModule, NgxMaskModule.forRoot(), formyconfig, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, SimpleModalModule.forRoot({ container: 'modal-container' }), NgUploaderModule  ],
-	entryComponents: [ SaveForLaterModalComponent, DisclousureModalComponent , UiPropertiesModalComponent ],
+	imports: [ CommonModule, FormsModule, ReactiveFormsModule, FormlyBootstrapModule, NgxMaskModule.forRoot(), formyconfig, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, SimpleModalModule.forRoot({ container: 'modal-container' }), NgUploaderModule ],
+	entryComponents: [ SaveForLaterModalComponent, DisclousureModalComponent, UiPropertiesModalComponent ],
 	exports: [ ReactiveFormsModule, FormlyBootstrapModule, FormsModule, FormlyModule, SaveforLaterDirective, SimpleModalModule ]
 })
 export class FormlyControls {}

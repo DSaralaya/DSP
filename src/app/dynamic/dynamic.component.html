@@ -1,4 +1,4 @@
-<!-- <app-progress *ngIf="model" ></app-progress> -->
+<app-progress *ngIf="pageFlow" ></app-progress>
 <div class="container" *ngIf="model">
         <div class="row">
           <form [formGroup]="form" (ngSubmit)="submit(navigateUrl)">
@@ -11,7 +11,8 @@
                 </formly-form>
               </div>
               <div class="card-footer">
-                  <div class="btn-group mr-4" *ngIf="prevUrl!=''">
+                <div *ngIf="nextUrl!=''" >
+                  <div class="btn-group mr-4" *ngIf="prevUrl!='' && nextUrl!=''">
                       <a class="btn btn-warning btn-next" href="/#/form/{{prevUrl}}">
                         <i class="fa fa-chevron-left" aria-hidden="true"></i><span>  Previoues </span>
                       </a>
@@ -22,9 +23,12 @@
                       </button>
                   </div>
                   <div class="btn-group mr-2 pull-right" >
-                      <button type="submit" class="btn btn-primary btn-next  submit-button">Submit <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                      <button   type="submit" class="btn btn-primary btn-next  submit-button">Submit <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
                     </div>
-
+                  </div>
+              </div>
+              <div *ngIf="nextUrl==''" class="text-center">
+                  <button   type="submit" class="btn btn-success btn-next  submit-button">Finish <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
               </div>
             </div>
           </form>

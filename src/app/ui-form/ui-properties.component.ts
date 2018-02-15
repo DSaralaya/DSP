@@ -36,7 +36,7 @@ export interface Iuipropertiesmodel {
       </div>
       <div class="form-group col-sm-4">
           <label>Application Object</label>
-          <input type="text" [(ngModel)]="properties.applicationObject" name="applicationObject{{properties.id}}" class="form-control"
+          <input type="text" [(ngModel)]="properties.objectName" name="applicationObject{{properties.id}}" class="form-control"
               placeholder="Enter Application Object">
       </div>
       <div class="form-group col-sm-3">

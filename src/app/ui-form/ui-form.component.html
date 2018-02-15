@@ -52,9 +52,14 @@
             </div>
         </div>
         <div class="col-sm-12">
+             <label>
+                 <input type="checkbox"  #isCheckedAll name="isCheckedAll" > Apply to All Sub Product
+             </label>
+        </div>
+        <div class="col-sm-12">
           <button class="btn btn-success" (click)="goBack()()">Go Back</button>
-            <button class="btn btn-primary" (click)="saveWork()">Save Form</button>
-            <a class="hidden" download="{{fileName}}" target="_blank" [href]="downLoadUrl" id="down">Save </a>
+          <button class="btn btn-primary" (click)="saveWork(isCheckedAll.checked)">Save Form</button>
+        
         </div>
     </div>
 </div>

@@ -8,7 +8,7 @@ import { SharedModel } from '../shared/components/sharedmodel.component';
 	templateUrl: './dynamic.component.html'
 })
 export class DynamicComponent extends SharedModel implements OnInit {
-constructor(public service: LocalService, public router: Router, private route: ActivatedRoute) {
+	constructor(public service: LocalService, public router: Router, private route: ActivatedRoute) {
 		super(service, router);
 		this.router.routeReuseStrategy.shouldReuseRoute = function() {
 			return false;
@@ -16,7 +16,6 @@ constructor(public service: LocalService, public router: Router, private route: 
 	}
 
 	ngOnInit() {
-		debugger;
 		const page = this.route.snapshot.params['id'];
 		this.getAppFields(page);
 	}

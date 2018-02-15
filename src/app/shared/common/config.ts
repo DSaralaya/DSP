@@ -51,7 +51,7 @@ export class AppConfig {
 				return t['path'] === pagename;
 			});
 			if (pageFlow.length > 0) {
-				return pageFlow[0]['nextPage'];
+				return pageFlow[0]['nextPage'] === null ? '' : pageFlow[0]['nextPage'];
 			}
 		}
 		return '';

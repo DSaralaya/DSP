@@ -98,7 +98,6 @@ export class UiFormComponent implements OnInit {
 
 	ConvertToFormly(index) {
 		this.formlyField = [];
-
 		if (index === 1) {
 			this.droppedControls.forEach((item) => {
 				const header = {
@@ -158,9 +157,9 @@ export class UiFormComponent implements OnInit {
 			this.pastedJSON = JSON.stringify(this.droppedControls, null, 2);
 		}
 	}
-	saveWork() {
+	saveWork(checked) {
 		this.ConvertToFormly(1);
-		this.saveToFileSystem(JSON.stringify(this.formlyField, null, 2));
+		this.saveToFileSystem(JSON.stringify(this.formlyField, null, 2), checked);
 	}
 	finish() {
 		const sales = new FieldLogicList();
@@ -178,28 +177,26 @@ export class UiFormComponent implements OnInit {
 		this.droppedControls = JSON.parse(this.pastedJSON);
 	}
 
-	private saveToFileSystem(response) {
-		// this.fileName = this.pageTitle.toLowerCase().replace(' ', '-') + '.json';
-		// const blob = new Blob([ response ], { type: 'application/json' });
-		// const url = window.URL.createObjectURL(blob);
-		// const uri = this.sanitizer.bypassSecurityTrustUrl(url);
-		// this.downLoadUrl = uri;
-		// setTimeout(function() {
-		// 	document.getElementById('down').click();
-		// 	window.URL.revokeObjectURL(url);
-		// }, 200);
+	private saveToFileSystem(response, checked) {
 		if (response !== '[]' && this.pageTitle.length > 0) {
 			const parms = {};
 			parms['json'] = response;
 			parms['subProductCode'] = this.subProdCode;
 			parms['pageName'] = this.pageTitle;
-			console.log(parms);
-			debugger;
 			const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
 			if (domain !== 'local') {
-				this.service.callExternalMethod('saveFormFields', parms).subscribe((result) => {
-					this.goBack();
-				});
+				if (!checked) {
+					this.service.callExternalMethod('saveFormFields', parms).subscribe((result) => {
+						this.goBack();
+					});
+				} else {
+					const r = confirm('Are you sure to update or insert into all subproduct?');
+					if (r) {
+						this.service.callExternalMethod('applyToAllSubProducts', parms).subscribe((result) => {
+							this.goBack();
+						});
+					}
+				}
 			} else {
 				this.goBack();
 			}
@@ -220,7 +217,6 @@ export class UiFormComponent implements OnInit {
 	}
 
 	convertFormlyJsonToDrop() {
-		debugger;
 		const jsonData = JSON.parse(this.formlyJson);
 		this.droppedControls = [];
 		let section: ControlProperties;
