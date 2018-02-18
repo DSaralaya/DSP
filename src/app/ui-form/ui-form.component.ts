@@ -8,6 +8,7 @@ import { SimpleModalService } from 'ngx-simple-modal';
 import { UiPropertiesModalComponent } from './ui-properties.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LocalService } from '../shared/services/localJson.service';
+import { AppConfig } from '../shared/common/config';
 
 @Component({
 	selector: 'app-ui-form',
@@ -17,10 +18,16 @@ import { LocalService } from '../shared/services/localJson.service';
 export class UiFormComponent implements OnInit {
 	controls = [
 		{ name: 'section', type: 'section', dspname: 'section', template: '<h4>section</h4>', id: 0, controls: [], className: 'col-xs-8 col-sm-8 col-md-10 col-lg-10 inline-section-header' },
-		{ name: 'input', type: 'htmlcontrol', dataType: 'input', className: 'col-sm-6', dspname: 'input', id: 0, label: 'input' },
-		{ name: 'select', type: 'htmlcontrol', dataType: 'select', className: 'col-sm-6', dspname: 'select', id: 0, label: 'select' },
-		{ name: 'checkbox', type: 'htmlcontrol', dataType: 'checkbox', className: 'col-sm-6', dspname: 'checkbox', id: 0, label: 'checkbox' },
-		{ name: 'radio button', type: 'htmlcontrol', dataType: 'radio', className: 'col-sm-6', dspname: 'radio', id: 0, label: 'radio' }
+		{ name: 'input', type: 'htmlcontrol', dataType: 'input', className: 'col-sm-6', dspname: 'input', id: 0, label: 'input', channel: 'online' },
+		{ name: 'select', type: 'htmlcontrol', dataType: 'select', className: 'col-sm-6', dspname: 'select', id: 0, label: 'select', channel: 'online' },
+		{ name: 'checkbox', type: 'htmlcontrol', dataType: 'checkbox', className: 'col-sm-6', dspname: 'checkbox', id: 0, label: 'checkbox', channel: 'online' },
+		{ name: 'radio button', type: 'htmlcontrol', dataType: 'ssn', className: 'col-sm-6', dspname: 'ssn', id: 0, label: 'ssn', channel: 'online' },
+		{ name: 'phone', type: 'htmlcontrol', dataType: 'phone', className: 'col-sm-6', dspname: 'phone', id: 0, label: 'phone', channel: 'online' },
+		{ name: 'zipcode', type: 'htmlcontrol', dataType: 'zipcode', className: 'col-sm-6', dspname: 'zipcode', id: 0, label: 'zipcode', channel: 'online' },
+		{ name: 'currency', type: 'htmlcontrol', dataType: 'currency', className: 'col-sm-6', dspname: 'currency', id: 0, label: 'currency', channel: 'online' },
+		{ name: 'output', type: 'htmlcontrol', dataType: 'output', className: 'col-sm-6', dspname: 'output', id: 0, label: 'output', channel: 'online' },
+		{ name: 'read-only', type: 'htmlcontrol', dataType: 'read-only', className: 'col-sm-6', dspname: 'read-only', id: 0, label: 'read-only', channel: 'online' },
+		{ name: 'DL Scan', type: 'htmlcontrol', dataType: 'dlscan', className: 'col-sm-6', dspname: 'dlscan', id: 0, label: 'dlscan', channel: 'online' }
 	];
 	tabs = [ { name: 'Code', class: 'active' }, { name: 'Preview Code', class: '' }, { name: 'Paste Json', class: '' } ];
 	count = 1;
@@ -41,10 +48,13 @@ export class UiFormComponent implements OnInit {
 	fileName: any;
 	formlyJson: any;
 	subProdCode: any;
+	domain: any;
 	constructor(private sanitizer: DomSanitizer, private progress: NgProgress, private SimpleModalService: SimpleModalService, private route: ActivatedRoute, public service: LocalService, private router: Router) {}
+
 	ngOnInit() {
 		this.pageTitle = this.route.snapshot.queryParams['page'];
 		this.subProdCode = this.route.snapshot.queryParams['subProd'];
+		this.domain = AppConfig.getDomain();
 		if (!this.subProdCode || this.subProdCode.length === 0) {
 			this.router.navigate([ '/ui-start' ]);
 		} else {
@@ -73,9 +83,6 @@ export class UiFormComponent implements OnInit {
 	}
 
 	getProperty(item, $event) {
-		// this.removeClassNames('.activeElement');
-		// $event.target.classList.add('activeElement');
-		// this.properties = item;
 		this.SimpleModalService.addModal(
 			UiPropertiesModalComponent,
 			{ properties: item },
@@ -119,6 +126,7 @@ export class UiFormComponent implements OnInit {
 						key: child.dspname,
 						type: child.dataType,
 						className: child.className,
+						channel: child.channel,
 						templateOptions: {
 							label: child.label,
 							required: child.required,
@@ -183,8 +191,8 @@ export class UiFormComponent implements OnInit {
 			parms['json'] = response;
 			parms['subProductCode'] = this.subProdCode;
 			parms['pageName'] = this.pageTitle;
-			const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
-			if (domain !== 'local') {
+
+			if (this.domain !== 'local') {
 				if (!checked) {
 					this.service.callExternalMethod('saveFormFields', parms).subscribe((result) => {
 						this.goBack();
@@ -204,8 +212,7 @@ export class UiFormComponent implements OnInit {
 	}
 
 	onPageLoadGetJson() {
-		const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
-		if (domain !== 'local') {
+		if (this.domain !== 'local') {
 			const parms = {};
 			parms['subProductCode'] = this.subProdCode;
 			parms['pageName'] = this.pageTitle;
@@ -245,7 +252,8 @@ export class UiFormComponent implements OnInit {
 						hideExpression: child.hideExpression,
 						data: child.data,
 						defaultValue: child.defaultValue,
-						expressionProperties: child.expressionProperties
+						expressionProperties: child.expressionProperties,
+						channel: child.channel ? child.channel : 'online'
 					};
 					if (child.templateOptions['options']) {
 						let str = '';

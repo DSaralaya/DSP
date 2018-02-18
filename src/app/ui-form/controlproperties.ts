@@ -34,4 +34,5 @@ export interface ChildControls {
 	objectName?: string;
 	fieldName?: string;
 	defaultValue?: string;
+	channel?: string;
 }

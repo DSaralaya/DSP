@@ -45,7 +45,7 @@ export interface Iuipropertiesmodel {
       </div>
       <div class="form-group col-sm-5">
           <label>Class </label>
-          <input type="text" [(ngModel)]="properties.className" name="properties.className" class="form-control" placeholder="Enter DataType">
+          <input type="text" [(ngModel)]="properties.className" name="properties.className" class="form-control" placeholder="Enter className">
       </div>
       <div class="form-group col-sm-3">
         <label>Option Types </label>
@@ -57,16 +57,28 @@ export interface Iuipropertiesmodel {
       </div>
       <div class="form-group col-sm-6">
           <label>hideExpression </label>
-          <textarea [(ngModel)]="properties.hideExpression" name="properties.hideExpression" class="form-control" placeholder="Enter DataType"></textarea>
+          <textarea [(ngModel)]="properties.hideExpression" name="properties.hideExpression" class="form-control" placeholder="Enter hideExpression"></textarea>
       </div>
       <div class="form-group col-sm-6">
           <label>expressionProperties </label>
-          <textarea [(ngModel)]="properties.expressionProperties" name="properties.expressionProperties" class="form-control" placeholder="Enter DataType"></textarea>
+          <textarea [(ngModel)]="properties.expressionProperties" name="properties.expressionProperties" class="form-control" placeholder="Enter expressionProperties"></textarea>
       </div>
+      <div class="form-group col-sm-6" >
+        <label>Data </label>
+        <textarea [(ngModel)]="properties.data" name="properties.data" class="form-control" placeholder="Enter extra data"></textarea>
+     </div>
       <div class="form-group col-sm-6" *ngIf="properties.dataType=='select'">
           <label>Pick List </label>
           <textarea [(ngModel)]="properties.picklist" name="properties.picklist" class="form-control" placeholder="Enter picklist"></textarea>
       </div>
+      <div class="form-group col-sm-3">
+      <label>DefaultValue </label>
+      <input type="text" [(ngModel)]="properties.defaultValue" name="properties.defaultValue" class="form-control" placeholder="Enter defaultValue">
+    </div>
+    <div class="form-group col-sm-3">
+    <label>Channel </label>
+    <input type="text" [(ngModel)]="properties.channel" name="properties.channel" class="form-control" placeholder="Enter channel">
+  </div>
   </div>
       </div>
       <div class="modal-footer">

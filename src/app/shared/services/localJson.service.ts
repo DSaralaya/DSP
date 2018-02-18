@@ -8,6 +8,7 @@ import { VfRemoteService } from '../../../modules/vfremote/vf-remote.service';
 import { DOCUMENT } from '@angular/platform-browser';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromPromise';
+import { AppConfig } from '../common/config';
 
 @Injectable()
 export class LocalService {
@@ -18,7 +19,7 @@ export class LocalService {
 	}
 
 	callExternalMethod(method: string, params?: any) {
-		const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
+		const domain = AppConfig.getDomain();
 		if (domain === 'local') {
 			return this.http.get(this.resourceurl + '/assets/json/get-app-fields-' + params['pageName'] + '.json').map((x) => x.json()).map((data) => {
 				setTimeout(() => {

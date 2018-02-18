@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LocalService } from '../shared/services/localJson.service';
 import { NgProgress } from '@ngx-progressbar/core';
+import { AppConfig } from '../shared/common/config';
 
 @Component({
 	selector: 'app-ui-start',
@@ -15,8 +16,10 @@ export class UiStartComponent implements OnInit {
 	newPageName: any;
 	selectedSubProduct: any;
 	isupdate = 'hidden';
+	domain: any;
 	constructor(public service: LocalService, private progress: NgProgress, public router: Router, private route: ActivatedRoute) {}
 	ngOnInit() {
+		this.domain = AppConfig.getDomain();
 		this.getProductList();
 		this.initSort();
 		setTimeout(() => {
@@ -26,8 +29,7 @@ export class UiStartComponent implements OnInit {
 
 	getProductList() {
 		const subpProd = this.route.snapshot.params['id'];
-		const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
-		if (domain === 'local') {
+		if (this.domain === 'local') {
 			this.subProductList = [ { Sub_Product__c: 'Credit Card Gold', Sub_Product_Code__c: 'CCG' }, { Sub_Product__c: 'Credit Card Silver', Sub_Product_Code__c: 'CCS' } ];
 			if (subpProd) {
 				this.selectedSubProduct = subpProd;
@@ -46,8 +48,7 @@ export class UiStartComponent implements OnInit {
 
 	getPages(select) {
 		this.pageList = [];
-		const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
-		if (domain === 'local') {
+		if (this.domain === 'local') {
 			this.pageList = [ { name: 'cross-sell' }, { name: 'identity' } ];
 		} else {
 			const params = {};
@@ -79,8 +80,7 @@ export class UiStartComponent implements OnInit {
 			const next = this.pageList[index + 1] ? this.pageList[index + 1]['name'] : '';
 			pageflow.push({ path: element['name'], prevPage: prev, nextPage: next });
 		});
-		const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
-		if (domain !== 'local') {
+		if (this.domain !== 'local') {
 			const parms = {};
 			parms['json'] = JSON.stringify(pageflow);
 			parms['subProductCode'] = this.selectedSubProduct;
@@ -94,8 +94,7 @@ export class UiStartComponent implements OnInit {
 	delete(index) {
 		const r = confirm('Are you sure to delete?!');
 		if (r) {
-			const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
-			if (domain !== 'local') {
+			if (this.domain !== 'local') {
 				const parms = {};
 				parms['subProductCode'] = this.selectedSubProduct;
 				parms['pageName'] = this.pageList[index]['name'];
