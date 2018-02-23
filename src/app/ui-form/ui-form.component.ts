@@ -17,7 +17,7 @@ import { AppConfig } from '../shared/common/config';
 })
 export class UiFormComponent implements OnInit {
 	controls = [
-		{ name: 'section', type: 'section', dspname: 'section', template: '<h4>section</h4>', id: 0, controls: [], className: 'col-xs-8 col-sm-8 col-md-10 col-lg-10 inline-section-header' },
+		{ name: 'section', type: 'section', dspname: 'section', template: '<h4>section</h4>', id: 0, controls: [], className: 'col-sm-12 inline-section-header' },
 		{ name: 'input', type: 'htmlcontrol', dataType: 'input', className: 'col-sm-6', dspname: 'input', id: 0, label: 'input', channel: 'online' },
 		{ name: 'select', type: 'htmlcontrol', dataType: 'select', className: 'col-sm-6', dspname: 'select', id: 0, label: 'select', channel: 'online' },
 		{ name: 'checkbox', type: 'htmlcontrol', dataType: 'checkbox', className: 'col-sm-6', dspname: 'checkbox', id: 0, label: 'checkbox', channel: 'online' },

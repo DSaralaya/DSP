@@ -23,7 +23,6 @@ import { ZipcodeComponent } from 'modules/controls/input/zipcode';
 import { FormGroup } from '@angular/forms/src/model';
 import { NgModel } from '@angular/forms/src/directives/ng_model';
 import { FieldType } from '@ngx-formly/core/src/templates/field.type';
-import { PersonalInfoComponent } from 'app/personal-info/personal-info.component';
 import { SaveforLaterDirective } from 'modules/directives/saveforlaterDir';
 import { SaveForLaterModalComponent } from 'modules/modal/saveforLaterModal';
 import { SimpleModalModule } from 'ngx-simple-modal';
@@ -43,6 +42,8 @@ import { NgUploaderModule } from 'ngx-uploader';
 import { DriverLicesenceScanComponent } from './templates/driverScan';
 import { ValidationService } from '../app/shared/services/validation.service';
 import { UiPropertiesModalComponent } from '../app/ui-form/ui-properties.component';
+import { PanelWrapperComponent } from './wrappers/panel';
+
 
 export function showErrorOption(field) {
 	if (field.to.hidden === true) {

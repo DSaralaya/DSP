@@ -1,6 +1,6 @@
 {
 	"model": [],
-	"pageflow": [ { "prevPage": "", "path": "get-started", "nextPage": "personal-info" }, { "prevPage": "identity", "path": "personal-info", "nextPage": "owewewe" }, { "prevPage": "personal-info", "path": "identity", "nextPage": null } ],
+	"pageflow": [ { "prevPage": "", "path": "get-started", "nextPage": "personal-info" },{ "prevPage": "get-started", "path": "personal-info", "nextPage": "identity" },  { "prevPage": "personal-info", "path": "identity", "nextPage": null } ],
 	"fields": [
 		{
 			"template": "<h5 class=\"input-group-title\">Name and Address</h5>",

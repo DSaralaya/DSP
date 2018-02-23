@@ -1,4 +1,4 @@
-<section class="progress-wrapper steps-7 text-center">
+<section class="progress-wrapper steps-{{pageFlow.length-2}} text-center">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
@@ -12,14 +12,16 @@
 		<div class="row">
 			<div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
 				<ul class="progress-step-wrapper">
-					
-					<li *ngFor="let item of pageFlow;let k = index"  class="{{getCurrent(item['path'])}}">
-						<span >{{k+1}}</span>
-						<p >{{item['path']}}
-							<i class="progress-step"></i>
-						</p>
+
+					<li *ngFor="let item of pageFlow;let k = index" class="{{getCurrent(item['path'])}}">
+						<div *ngIf="k>0">
+							<span>{{k}}</span>
+							<p>{{toTitleCase(item['path'].split('-')[0])}}
+								<i class="progress-step"></i>
+							</p>
+						</div>
 					</li>
-				
+
 				</ul>
 			</div>
 		</div>

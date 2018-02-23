@@ -1,6 +1,6 @@
 export class AppConfig {
 	public static getDomain() {
-		const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
+		const domain = document.location.hostname.indexOf('localhost') >= 0 || document.location.hostname.indexOf('192') >= 0   ? 'local' : 'remote';
 		return domain;
 	}
 	public static GetPageName(model) {

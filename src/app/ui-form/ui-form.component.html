@@ -27,7 +27,7 @@
                 </div>
                 <div class="card-block">
                     <div class="row" [sortablejs]="droppedControls">
-                        <div *ngFor="let item of droppedControls;let k = index" class="col-sm-12 inline-header" droppable [dropScope]="'htmlcontrol'"
+                        <div *ngFor="let item of droppedControls;let k = index" class="{{item.className}} inline-header" droppable [dropScope]="'htmlcontrol'"
                             [dragOverClass]="'drag-target-border'" [dragHintClass]="'drag-hint'" [dropEnabled]="true" (onDrop)="onChildDrop($event,k)">
                             <span (click)="remove(k)" class="closeX">X</span>
                             <div class="droppable-header" (click)="getProperty(item,$event)" [innerHTML]="item.template || item.name"> </div>

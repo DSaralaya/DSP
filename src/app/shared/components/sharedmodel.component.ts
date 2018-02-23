@@ -29,7 +29,6 @@ export class SharedModel {
 			this.fields = typeof result['fields'] === 'object' ? result['fields'] : JSON.parse(result['fields']);
 			this.pageFlow = typeof result['pageflow'] === 'object' ? result['pageflow'] : JSON.parse(result['pageflow']);
 			this.model = result['model'];
-			console.log(this.nextUrl);
 			this.nextUrl = AppConfig.NextPage(this.pageFlow, pagename);
 			this.prevUrl = AppConfig.PrevPage(this.pageFlow, pagename);
 			// ValidationService.orgModel = this.model;
@@ -37,6 +36,7 @@ export class SharedModel {
 	}
 
 	submit(url) {
+		debugger;
 		this.options.formState.submitted = true;
 		if (this.form.valid) {
 			console.log(this.model);

@@ -5,52 +5,37 @@ import { Component } from '@angular/core';
 @Component({
 	selector: 'app-dlscantemplate',
 	template: `
-		<div class='row'>
-		<div class='col-sm-12'>
+
 		   <div class="drop-container">
 				<label>
-					<input type="file" class='hidden' ngFileSelect [options]="options" (uploadOutput)="uploadAttachment($event,'front')">
+					<input type="file" class='hidden' ngFileSelect [options]="options" (uploadOutput)="uploadAttachment($event,'front')" [formlyAttributes]="field">
 						Click here to Upload
 				</label>
 				<div  *ngIf="frontFile" >
 					<img [src]="frontFile[0]">
 				</div>
-			</div>
-		</div>
-		<div class='col-sm-12'>
-			<div class="drop-container">
-				<label>
-					<input type="file" class='hidden' ngFileSelect [options]="options" (uploadOutput)="uploadAttachment($event,'back')">
-						Click here to Upload
-				</label>
-				<div  *ngIf="backFile">
-					<img [src]="backFile[0]">
-				</div>
-	     	</div>
-		</div>
-</div>
+		 	</div>
+
     `
 })
 export class DriverLicesenceScanComponent extends FieldType {
 	frontFile: any;
-	backFile: any;
+	//backFile: any;
 
 	constructor() {
 		super();
 	}
 
 	uploadAttachment(output: UploadOutput, whichImage: string): void {
-		if (whichImage === 'front' && output.file) {
+		debugger;
+		if (output.file) {
 			this.frontFile = [];
 			this.previewImage(output.file).then((response) => {
 				this.frontFile.push(response);
-			});
-		} else if (output.file) {
-			this.backFile = [];
-			this.previewImage(output.file).then((response) => {
-				this.backFile.push(response);
+				this.formControl.setValue(output.file.name);
 			});
 		}
+		
 	}
 
 	previewImage(file: any) {
