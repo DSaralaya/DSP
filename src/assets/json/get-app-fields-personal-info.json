@@ -3,7 +3,7 @@
 	"pageflow": [ { "prevPage": "", "path": "get-started", "nextPage": "personal-info" },{ "prevPage": "get-started", "path": "personal-info", "nextPage": "identity" },  { "prevPage": "personal-info", "path": "identity", "nextPage": null } ],
 	"fields": [
 		{
-			"template": "<h5 class=\"input-group-title\">Name and Address</h5>",
+			"template": "<h5 class=\"input-group-title\"><span class=\"title-bullet\"><i class='fa fa-pencil'></i></span> Name and Address</h5>",
 			"className": "col-xs-8 col-sm-8 col-md-10 col-lg-10 inline-section-header",
 			"data": {
 				"sectionType": "PI-NameAddress_PA"
@@ -742,7 +742,7 @@
 			]
 		},
 		{
-			"template": "<h5 class=\"input-group-title\">Housing Type</h5>",
+			"template": "<h5 class=\"input-group-title\"><span class=\"title-bullet\"><i class='fa fa-pencil'></i></span> Housing Type</h5>",
 			"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header",
 			"data": {
 				"sectionType": "PI-HousingStatus_PA"
@@ -788,7 +788,7 @@
 			]
 		},
 		{
-			"template": "<h5 class=\"input-group-title\">Monthly Payment</h5>",
+			"template": "<h5 class=\"input-group-title\"><span class=\"title-bullet\"><i class='fa fa-pencil'></i></span> Monthly Payment</h5>",
 			"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header",
 			"data": {
 				"sectionType": "PI-MonthlyPayment_PA"
@@ -816,7 +816,7 @@
 			]
 		},
 		{
-			"template": "<h5 class=\"input-group-title\">How long have you lived at your address?</h5>",
+			"template": "<h5 class=\"input-group-title\"><span class=\"title-bullet\"><i class='fa fa-pencil'></i></span>  How long have you lived at your address?</h5>",
 			"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header",
 			"data": {
 				"sectionType": "PI-AddressDuration_PA"
@@ -856,7 +856,7 @@
 			]
 		},
 		{
-			"template": "<h5 class=\"input-group-title\">Previous Address</h5>",
+			"template": "<h5 class=\"input-group-title\"><span class=\"title-bullet\"><i class='fa fa-pencil'></i></span> Previous Address</h5>",
 			"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header",
 			"data": {
 				"sectionType": "PI-PrevAdd_PA"
@@ -1176,7 +1176,7 @@
 			]
 		},
 		{
-			"template": "<h5 class=\"input-group-title\">Contact Information</h5>",
+			"template": "<h5 class=\"input-group-title\"><span class=\"title-bullet\"><i class='fa fa-pencil'></i></span> Contact Information</h5>",
 			"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header",
 			"data": {
 				"sectionType": "PI-ContactInformation_J3"

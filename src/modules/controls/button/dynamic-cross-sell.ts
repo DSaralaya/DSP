@@ -4,45 +4,37 @@ import { FieldType } from '@ngx-formly/core';
 @Component({
 	selector: 'app-dynamic-cross-sell',
 	template: `
-  <div *ngIf="model[to.objectName][field.data.crossSellField]" class="col-sm-12">
-    <div class="card">
-        <div class="card-block cross-sell-block">
-        <div class="row">
-        <div class="col-sm-3">
-            <i class="fa fa-check-square fa-cross" aria-hidden="true"></i>
-        </div>
-        <div class="col-sm-7">
-                <h6 class="card-title">{{model[to.objectName][field.data.crossSellField]}}</h6>
-        </div>
-        </div>
-            <p class="card-text">{{model[to.objectName][field.data.offerText]}}</p>
-        </div>
-        <div class="card-footer">
-        <div class="row">
-            <div class="col-sm-6">
-                <button type="button" class="btn btn-outline-danger pull-right "
-                (click)="addCrossSell()">Yes</button>
-            </div>
-            <div class="col-sm-6 text-center">
-            <button type="button" class="btn btn-outline-danger pull-left"
-             (click)="declineCrossSell()">No</button>
-        </div>
-        </div>
+  <div *ngIf="model[to.objectName][field.data.crossSellField]" class="">
+	<div class="card cross-sell">
+		<img class="card-img-top img-fluid" src="/assets/images/cross-sell1.jpg" alt="Cross Sell">
+		<div class="card-header">
+			<h6 class="card-title">{{model[to.objectName][field.data.crossSellField]}}</h6>
+		</div>
+		<div class="card-body">
+			<p>{{model[to.objectName][field.data.offerText]}}</p>
+		</div>
+		<div class="card-footer">
+			<ul class="list-inline text-right">
+				<li class="list-inline-item"> <button type="button" class="btn" (click)="addCrossSell()"><i class="fa fa-check" aria-hidden="true"></i> Yes</button>
+				<li class="list-inline-item"> <button type="button" class="btn" (click)="declineCrossSell()"><i class="fa fa-times" aria-hidden="true"></i> No</button>
+			</ul>
+		</div>
+
+
         <div class="overlay" *ngIf="model[to.objectName][to.fieldName]" >
              <i class="fa fa-check" aria-hidden="true"></i>
-                    <h3>ADDED</h3>
-            <a class="btn-remove-addon"
-            *ngIf="model[to.objectName][to.fieldName]" (click)="removeCrossSell()"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-        </div>
+                    <h4>ADDED</h4>
+            <a class="btn-remove-addon" title="Not intrested in this product" *ngIf="model[to.objectName][to.fieldName]" (click)="removeCrossSell()"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+		</div>
+		
         <div class="overlay" *ngIf="getAssginedDeclain()">
-        <i class="fa fa-check" aria-hidden="true"></i>
-            <h3>Not Interested</h3>
+        	<i class="fa fa-times" aria-hidden="true"></i>
+            <h4>NOT INTRESTED</h4>
             <a class="btn-remove-addon"
                     (click)="removeDeclined()"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
          </div>
     </div>
-    </div>
-
+	</div>
     `
 })
 export class DynamicCrossSellComponent extends FieldType {

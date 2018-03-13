@@ -14,7 +14,7 @@
 			"fieldGroup": [
 				{
 					"key": "Application__c.First_Name__c",
-					"type": "dlscan",
+					"type": "alphabet",
 					"className": "material col-xs-12 col-sm-12 col-md-12 col-lg-12",
 					"templateOptions": {
 						"label": "First Name",

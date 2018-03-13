@@ -27,7 +27,7 @@ export class DriverLicesenceScanComponent extends FieldType {
 	}
 
 	uploadAttachment(output: UploadOutput, whichImage: string): void {
-		debugger;
+		//debugger;
 		if (output.file) {
 			this.frontFile = [];
 			this.previewImage(output.file).then((response) => {

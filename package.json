@@ -33,6 +33,7 @@
     "angular-sortablejs": "^2.5.1",
     "angular2-moment": "^1.8.0",
     "core-js": "^2.5.3",
+    "font-awesome": "^4.7.0",
     "ng-drag-drop": "^4.0.0",
     "ngx-mask": "^2.2.2",
     "ngx-simple-modal": "^1.2.1",

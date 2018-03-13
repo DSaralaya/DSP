@@ -1,57 +1,91 @@
-<app-progress *ngIf="pageFlow && prevUrl!=''"></app-progress>
+
+<app-page-header *ngIf="pageFlow"></app-page-header>
 
 <div class="container" *ngIf="model">
   <div class="row" *ngIf="prevUrl!=''">
     <form [formGroup]="form" (ngSubmit)="submit(navigateUrl)">
-      <div class="card">
+      <div class="wrap">
+      <div class="card page-card">
         <div class="card-header">
-          <h5>{{pageTitle}}</h5>
+          <div class="row">
+            <div class="col-sm-12">
+                <h5>  <span class="page-progress number">3<small>/8</small></span> {{pageTitle}}</h5>
+            </div>
+          </div>
+            
+            
         </div>
         <div class="card-block">
           <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">
           </formly-form>
         </div>
         <div class="card-footer">
-          <div class="btn-group mr-4" *ngIf="prevUrl!=''">
-            <a class="btn btn-warning btn-next" href="/#/form/{{prevUrl}}">
-              <i class="fa fa-chevron-left" aria-hidden="true"></i>
-              <span> Previous </span>
-            </a>
-          </div>
-          <div class="btn-group mr-4" *ngIf="prevUrl!=''">
-            <button type="button" class="btn btn-info btn-next" (appSaveforLaterClick)="onClick()">
-              <i class="fa fa-floppy-o" aria-hidden="true"></i>
-              <span> Save For Later</span>
-            </button>
-          </div>
-          <div class="btn-group mr-2 pull-right">
-            <button type="submit" class="btn btn-primary btn-next  submit-button">Submit
-              <i class="fa fa-chevron-right" aria-hidden="true"></i>
-            </button>
-          </div>
-
+            <a class="btn btn-secondary btn-lg pull-left" href="/#/form/{{prevUrl}}">
+              Previous 
+               </a>
+          <ul class="list-inline mb-0 text-right">
+            <li class="list-inline-item">
+                <a class="btn btn-primary btn-lg" href="/#/form/{{prevUrl}}">
+               Previous 
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <button type="button" class="btn btn-primary btn-lg" (appSaveforLaterClick)="onClick()">
+                   Save for Later
+                  </button>
+            </li>
+            <li class="list-inline-item">
+                <button type="submit" class="btn btn-primary btn-lg">
+                  Next 
+                </button>
+            </li>
+          </ul>
         </div>
       </div>
+    </div>
     </form>
   </div>
+</div>
 
+  <!-- Get Started -->
   <div *ngIf="prevUrl==''">
-    
-    <div class="row">
-      <div class="col-sm-6">
-        sdgshdgsgdgshdgshdgh
+
+    <div class="container landing-page">
+
+      <div class="page-background">
+        <video autoplay muted loop>
+          <source src="assets/images/background.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="col-sm-6">
-        <form [formGroup]="form" (ngSubmit)="submit(navigateUrl)">
-          <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">
-          </formly-form>
-          <div class="col-sm-12">
-            <button type="submit" class="btn btn-primary btn-block btn-lg">Submit
-              <i class="fa fa-chevron-right" aria-hidden="true"></i>
-            </button>
-          </div>
-        </form>
+
+      <div class="row">
+        <div class="col-sm-8 left-coloumn">
+          <div class="col-md-8">
+          <h1 class="font-weight-400">Sed ut perspiciatis unde lorem <strong>omnis</strong> iste </h1>
+          <p>Contrary to popular belief, Lorem Ipsum is not simply random text. 
+            It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock.</p>
+              <ul class="list-unstyled">
+                <li>Online Banking</li>
+                <li>24x7 Support</li>
+                <li>Manage your accounts on the go.</li>
+                <li>Mobile Banking</li>
+              </ul>
+        </div>
+      </div>
+        <div class="col-sm-4 right-coloumn">
+          <form [formGroup]="form" (ngSubmit)="submit(navigateUrl)">
+            <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">
+            </formly-form>
+            <div class="row">
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    <a href="" class="text-right text-muted d-block mt-1 already-member">Already Member ?</a>
+                  </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
+
   </div>
-</div>
+

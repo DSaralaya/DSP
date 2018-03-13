@@ -13,6 +13,7 @@ export class ProgressComponent implements OnInit {
 	constructor(private vcRef: ViewContainerRef) {}
 
 	ngOnInit() {
+		//debugger;
 		this.component = this.vcRef['_view']['component'];
 		this.pageFlow = this.component['pageFlow'];
 		this.pageName = this.component['pageName'];

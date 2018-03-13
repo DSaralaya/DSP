@@ -54,7 +54,7 @@ export class UiStartComponent implements OnInit {
 			const params = {};
 			params['subProductCode'] = select;
 			this.service.callExternalMethod('getPageNamesBySubProduct', params).subscribe((result: any[]) => {
-				debugger;
+				//debugger;
 				if (result.length > 0) {
 					result.forEach((element) => {
 						this.pageList.push({ name: element['path'] });

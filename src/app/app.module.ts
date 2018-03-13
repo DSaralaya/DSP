@@ -23,6 +23,9 @@ import { DynamicComponent } from './dynamic/dynamic.component';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 import { SessionExpireComponent } from './session-expire/session-expire.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { PageHeaderComponent } from './shared/components/page-header/page-header.component';
 
 const appRoutes: Routes = [
 	{ path: '', redirectTo: 'form/:id', pathMatch: 'full' },
@@ -35,7 +38,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-	declarations: [ AppComponent, GetStartedComponent, ConfirmationComponent, ProgressComponent, UiFormComponent, UiStartComponent, DynamicComponent, SessionExpireComponent ],
+	declarations: [ AppComponent, GetStartedComponent, ConfirmationComponent, ProgressComponent, UiFormComponent, UiStartComponent, DynamicComponent, SessionExpireComponent, HeaderComponent, FooterComponent, PageHeaderComponent ],
 	imports: [ BrowserModule, RouterModule.forRoot(appRoutes), FormlyControls, HttpModule, BrowserAnimationsModule, NgProgressModule.forRoot(), SortablejsModule, NgDragDropModule.forRoot(), HttpClientModule, NgIdleKeepaliveModule.forRoot() ],
 	providers: [ VfRemoteService, LocalService, { provide: LocationStrategy, useClass: HashLocationStrategy }, { provide: APP_BASE_HREF, useValue: '/' } ],
 	bootstrap: [ AppComponent ]

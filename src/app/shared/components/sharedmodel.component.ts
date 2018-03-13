@@ -26,6 +26,7 @@ export class SharedModel {
 		parms['pageName'] = pagename;
 		this.pageName = pagename;
 		this.service.callExternalMethod('getAppFields', parms).subscribe((result: any[]) => {
+			//debugger;
 			this.fields = typeof result['fields'] === 'object' ? result['fields'] : JSON.parse(result['fields']);
 			this.pageFlow = typeof result['pageflow'] === 'object' ? result['pageflow'] : JSON.parse(result['pageflow']);
 			this.model = result['model'];
@@ -36,7 +37,7 @@ export class SharedModel {
 	}
 
 	submit(url) {
-		debugger;
+		//debugger;
 		this.options.formState.submitted = true;
 		if (this.form.valid) {
 			console.log(this.model);
@@ -48,7 +49,7 @@ export class SharedModel {
 				parms['Employment_Information__c'] = JSON.stringify(this.model['Employment_Information__c']);
 				parms['Application__c'] = JSON.stringify(this.model['Application__c']);
 				parms['About_Account__c'] = JSON.stringify(this.model['About_Account__c']);
-				debugger;
+				//debugger;
 				this.service.callExternalMethod('saveAppFields', parms).subscribe((result) => {
 					this.router.navigateByUrl('/form/' + this.nextUrl);
 				});
