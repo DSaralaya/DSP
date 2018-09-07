@@ -1,4 +1,4 @@
-import { Injectable, transition } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { FormsModule, FormGroup, FormControl, ValidationErrors } from '@angular/forms';
 import * as _ from 'underscore';
 import { FieldType, FormlyFieldConfig } from '@ngx-formly/core';
@@ -84,7 +84,7 @@ export class ValidationService {
 				let value = control.value;
 				value = value.replace(/-/g, '').replace(/_/g, '').replace(/ /g, '');
 				const areaNum = value.substring(0, 3);
-				const groupNum = value.substring(3, 5);
+					const groupNum = value.substring(3, 5);
 				const serialNum = value.substring(5, 9);
 				if (_.indexOf(invalidAreaNumbers, areaNum) !== -1) {
 					valid = false;

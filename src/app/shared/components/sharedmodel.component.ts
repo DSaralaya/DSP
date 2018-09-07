@@ -25,14 +25,17 @@ export class SharedModel {
 		parms['id'] = window['DSP'] ? window['DSP']['id'] : ''; // this.subProdCode;
 		parms['pageName'] = pagename;
 		this.pageName = pagename;
-		this.service.callExternalMethod('getAppFields', parms).subscribe((result: any[]) => {
-			//debugger;
-			this.fields = typeof result['fields'] === 'object' ? result['fields'] : JSON.parse(result['fields']);
-			this.pageFlow = typeof result['pageflow'] === 'object' ? result['pageflow'] : JSON.parse(result['pageflow']);
-			this.model = result['model'];
-			this.nextUrl = AppConfig.NextPage(this.pageFlow, pagename);
-			this.prevUrl = AppConfig.PrevPage(this.pageFlow, pagename);
-			// ValidationService.orgModel = this.model;
+		this.service.callExternalMethod('getAppFields', parms).subscribe((result) => {
+			if(typeof(result.fields)==='string'){
+				this.fields =JSON.parse(result.fields);
+			} else {
+				this.fields =result.fields;
+			}
+			
+			this.model = result;
+			delete this.model.fields;
+			//this.nextUrl = AppConfig.NextPage(this.model);
+			//this.prevUrl = AppConfig.PrevPage(this.model);
 		});
 	}
 
@@ -44,17 +47,12 @@ export class SharedModel {
 			const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
 			if (domain !== 'local') {
 				const parms = {};
-				parms['id'] = window['DSP']['id'];
-				parms['Identity_Information__c'] = JSON.stringify(this.model['Identity_Information__c']);
-				parms['Employment_Information__c'] = JSON.stringify(this.model['Employment_Information__c']);
-				parms['Application__c'] = JSON.stringify(this.model['Application__c']);
-				parms['About_Account__c'] = JSON.stringify(this.model['About_Account__c']);
 				//debugger;
 				this.service.callExternalMethod('saveAppFields', parms).subscribe((result) => {
-					this.router.navigateByUrl('/form/' + this.nextUrl);
+					this.router.navigateByUrl(this.nextUrl);
 				});
 			} else {
-				this.router.navigateByUrl('/form/' + this.nextUrl);
+				this.router.navigateByUrl(this.nextUrl);
 			}
 		}
 	}

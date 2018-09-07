@@ -17,6 +17,7 @@ export class DynamicComponent extends SharedModel implements OnInit {
 
 	ngOnInit() {
 		const page = this.route.snapshot.params['id'];
+		debugger;
 		this.getAppFields(page);
 	}
 }

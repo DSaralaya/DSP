@@ -2,7 +2,7 @@ import { FormlyModule } from '@ngx-formly/core';
 import { NgModule } from '@angular/core';
 import { NgxMaskModule } from 'ngx-mask';
 
-import { FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { InputComponent } from 'modules/controls/input/input';
 import { InputMaskComponent } from 'modules/controls/input/masking';
@@ -20,9 +20,6 @@ import { SsnMaskDirective } from 'modules/directives/ssnDir';
 import { SSNInputComponent } from 'modules/controls/input/ssn';
 import { JointApplicantComponent } from 'modules/controls/button/jointApplicant';
 import { ZipcodeComponent } from 'modules/controls/input/zipcode';
-import { FormGroup } from '@angular/forms/src/model';
-import { NgModel } from '@angular/forms/src/directives/ng_model';
-import { FieldType } from '@ngx-formly/core/src/templates/field.type';
 import { SaveforLaterDirective } from 'modules/directives/saveforlaterDir';
 import { SaveForLaterModalComponent } from 'modules/modal/saveforLaterModal';
 import { SimpleModalModule } from 'ngx-simple-modal';
@@ -36,14 +33,11 @@ import { CurrencyMaskDirective } from 'modules/directives/currencymask';
 import { ConfirmationOfferComponent } from 'modules/controls/button/confirmation-offer';
 import { CardDesginComponent } from 'modules/controls/button/card-design';
 import { DisclousreComponent } from 'modules/controls/checkbox/disclosure';
-import { Component } from '@angular/core/src/metadata/directives';
 import { DisclousureModalComponent } from 'modules/modal/disclosureModal';
 import { NgUploaderModule } from 'ngx-uploader';
 import { DriverLicesenceScanComponent } from './templates/driverScan';
 import { ValidationService } from '../app/shared/services/validation.service';
 import { UiPropertiesModalComponent } from '../app/ui-form/ui-properties.component';
-import { PanelWrapperComponent } from './wrappers/panel';
-
 
 export function showErrorOption(field) {
 	if (field.to.hidden === true) {
@@ -127,7 +121,7 @@ const formyconfig = FormlyModule.forRoot({
 				validators: {
 					invalidDate: (control: FormControl, field: any) => ValidationService.validDate(control, field),
 					minorAge: (control: FormControl, field: any) => ValidationService.minorAge(control, field),
-					futuredate: (control: FormControl, field: any) => ValidationService.fututeDate(control)
+					futuredate: (control: FormControl) => ValidationService.fututeDate(control)
 				}
 			}
 		},
@@ -140,7 +134,7 @@ const formyconfig = FormlyModule.forRoot({
 				},
 				validators: {
 					invalidDate: (control: FormControl, field: any) => ValidationService.validDate(control, field),
-					futuredate: (control: FormControl, field: any) => ValidationService.fututeDate(control)
+					futuredate: (control: FormControl) => ValidationService.fututeDate(control)
 				}
 			}
 		},
@@ -214,23 +208,23 @@ const formyconfig = FormlyModule.forRoot({
 	validationMessages: [
 		{
 			name: 'required',
-			message: (err, field) => (field['data'] && field['data']['validationMessage'] ? `${field['data']['validationMessage']}` : `${field.templateOptions.label.replace('(MM/DD/YYYY)', '')} is required.`)
+			message: (field) => (field['data'] && field['data']['validationMessage'] ? `${field['data']['validationMessage']}` : `${field.templateOptions.label.replace('(MM/DD/YYYY)', '')} is required.`)
 		},
 		{
 			name: 'invalidEmailAddress',
-			message: (err, field) => 'Invalid Email Address'
+			message: () => 'Invalid Email Address'
 		},
 		{
 			name: 'invalidCharater',
-			message: (err, field) => (field['data'] && field['data']['validationMessage'] ? `${field['data']['validationMessage']}` : 'Invalid Character')
+			message: (field) => (field['data'] && field['data']['validationMessage'] ? `${field['data']['validationMessage']}` : 'Invalid Character')
 		},
 		{
 			name: 'invalidCompareFields',
-			message: (err, field) => (field['data'] && field['data']['compareFieldsMessage'] ? `${field['data']['compareFieldsMessage']}` : 'Must not be zero')
+			message: (field) => (field['data'] && field['data']['compareFieldsMessage'] ? `${field['data']['compareFieldsMessage']}` : 'Must not be zero')
 		},
 		{
 			name: 'invalidRegex',
-			message: (err, field) => (field['data'] && field['data']['validationMessage'] ? `${field['data']['compareFieldsMessage']}` : 'is not valid')
+			message: (field) => (field['data'] && field['data']['validationMessage'] ? `${field['data']['compareFieldsMessage']}` : 'is not valid')
 		},
 		{ name: 'minorAge', message: 'Must be be 18 years to apply' },
 		{ name: 'futuredate', message: 'Date cannot be grater than today' },

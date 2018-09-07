@@ -280,9 +280,9 @@ export class UiFormComponent implements OnInit {
 
 	removeClassNames(cls) {
 		const elements = document.querySelectorAll(cls);
-		elements.forEach((ele) => {
-			ele.classList.remove(cls.replace('.', ''));
-		});
+		// elements.forEach((ele) => {
+		// 	ele.classList.remove(cls.replace('.', ''));
+		// });
 	}
 	goBack() {
 		this.router.navigateByUrl('/ui-start/' + this.subProdCode);

@@ -83,6 +83,7 @@ export class FieldLogicList {
 					IsRequired__c: false,
 					Order__c: this.fcount++,
 					RecType__c: 'Section Order',
+					
 					Section_Type__c: item.sectionName
 				};
 				this.fieldLogic.push(sectionOrder);
@@ -97,6 +98,22 @@ export class FieldLogicList {
 					Label__c: child.label,
 					RecType__c: 'Field Logic',
 					Section_Type__c: item.sectionName
+				};
+				this.fieldLogic.push(fieldLogic);
+			});
+
+			item.controls.forEach((child) => {
+				const fieldLogic = {
+					DSP_Field_Name__c: child['dspname'],
+					Device_Type__c: 'All',
+					IsDisplayed__c: true,
+					IsMember__c: false,
+					IsRequired__c: child.required,
+					Label__c: child.label,
+					RecType__c: 'Field Details',
+					Datatype_Form__c:child['type'],
+					expressionProperties_Fields__c:child['expressionProperties'],
+					Data_OptionsTypes__c:child['data']
 				};
 				this.fieldLogic.push(fieldLogic);
 			});

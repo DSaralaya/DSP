@@ -28,7 +28,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { PageHeaderComponent } from './shared/components/page-header/page-header.component';
 
 const appRoutes: Routes = [
-	{ path: '', redirectTo: 'form/:id', pathMatch: 'full' },
+	{ path: '', redirectTo: 'get-started', pathMatch: 'full' },
 	{ path: 'get-started', component: GetStartedComponent },
 	{ path: 'form/:id', component: DynamicComponent },
 	{ path: 'ui-start/:id', component: UiStartComponent },

@@ -2,7 +2,7 @@
 <app-page-header *ngIf="pageFlow"></app-page-header>
 
 <div class="container" *ngIf="model">
-  <div class="row" *ngIf="prevUrl!=''">
+  <div class="row">
     <form [formGroup]="form" (ngSubmit)="submit(navigateUrl)">
       <div class="wrap">
       <div class="card page-card">
@@ -47,45 +47,4 @@
   </div>
 </div>
 
-  <!-- Get Started -->
-  <div *ngIf="prevUrl==''">
-
-    <div class="container landing-page">
-
-      <div class="page-background">
-        <video autoplay muted loop>
-          <source src="assets/images/background.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-8 left-coloumn">
-          <div class="col-md-8">
-          <h1 class="font-weight-400">Sed ut perspiciatis unde lorem <strong>omnis</strong> iste </h1>
-          <p>Contrary to popular belief, Lorem Ipsum is not simply random text. 
-            It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock.</p>
-              <ul class="list-unstyled">
-                <li>Online Banking</li>
-                <li>24x7 Support</li>
-                <li>Manage your accounts on the go.</li>
-                <li>Mobile Banking</li>
-              </ul>
-        </div>
-      </div>
-        <div class="col-sm-4 right-coloumn">
-          <form [formGroup]="form" (ngSubmit)="submit(navigateUrl)">
-            <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">
-            </formly-form>
-            <div class="row">
-                <div class="col-sm-12">
-                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                    <a href="" class="text-right text-muted d-block mt-1 already-member">Already Member ?</a>
-                  </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-  </div>
 
