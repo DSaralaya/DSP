@@ -1,6 +1,4 @@
 
-<app-page-header *ngIf="pageFlow"></app-page-header>
-
 <div class="container" *ngIf="model">
   <div class="row">
     <form [formGroup]="form" (ngSubmit)="submit(navigateUrl)">
@@ -16,19 +14,17 @@
             
         </div>
         <div class="card-block">
+            <div class="productapplied">
+                You are applying for : <b>{{model?.Application__c.Sub_Product__c}}</b>  
+            </div>
           <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">
           </formly-form>
         </div>
         <div class="card-footer">
-            <a class="btn btn-secondary btn-lg pull-left" href="/#/form/{{prevUrl}}">
+            <a class="btn btn-secondary btn-lg pull-left" href="/#/{{prevUrl}}">
               Previous 
                </a>
           <ul class="list-inline mb-0 text-right">
-            <li class="list-inline-item">
-                <a class="btn btn-primary btn-lg" href="/#/form/{{prevUrl}}">
-               Previous 
-                </a>
-            </li>
             <li class="list-inline-item">
                 <button type="button" class="btn btn-primary btn-lg" (appSaveforLaterClick)="onClick()">
                    Save for Later

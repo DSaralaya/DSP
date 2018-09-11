@@ -1,9 +1,11 @@
 
 <div class="container" *ngIf="model">
-
-  <div class="row">
+  <div class="row ">
     <div class="col-md-7">
-      {{model?.Application__c.Sub_Product__c}}
+      <div class="productapplied">
+          You are applying for : <b>{{model?.Application__c.Sub_Product__c}}</b>  
+      </div>
+     
     </div>
     
     <div class="col-md-5">

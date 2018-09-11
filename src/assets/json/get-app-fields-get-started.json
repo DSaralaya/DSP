@@ -420,7 +420,7 @@
 		"channel_esignEmail__c": "Call Center",
 		"channel_esign_button__c": "Branch",
 		"Site_UserID__c": "0056A000000IGPn",
-		"Call_Joint_Docusign__c": false,
+		
 		"Email_on_Additional_Services__c": false
 	},
 	"fields": [
@@ -436,7 +436,7 @@
 			"fieldGroup": [
 				{
 					"key": "Application__c.First_Name__c",
-					"type": "alphabet",
+					"type": "input",
 					"className": "material col-xs-12 col-sm-12 col-md-12 col-lg-12",
 					"templateOptions": {
 						"label": "First Name",
@@ -449,7 +449,7 @@
 				},
 				{
 					"key": "Application__c.Last_Name__c",
-					"type": "alphabet",
+					"type": "input",
 					"className": "material col-xs-12 col-sm-12 col-md-12 col-lg-12",
 
 					"templateOptions": {
@@ -471,14 +471,12 @@
 						"objectName": "Application__c",
 						"fieldName": "Primary_Phone_Number__c",
 						"labelClass": "label-front"
-					},
-					"expressionProperties": {
-						"templateOptions.required": "model['Application__c']['Preferred_Contact_Method__c'] == 'Cell Phone' || model['Application__c']['Application_Page__c'] == 'GetStartedPage' || model['Application__c']['Application_Page__c'] == 'CrossSellPage' "
 					}
+					
 				},
 				{
 					"key": "Application__c.Email_Address__c",
-					"type": "email",
+					"type": "input",
 					"className": "material col-xs-12 col-sm-12 col-md-12 col-lg-12",
 					"templateOptions": {
 						"label": "E-mail Address",

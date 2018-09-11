@@ -1,7 +1,8 @@
 <ng-progress [minimum]="0.15" [maximum]="1" [speed]="200" [ease]="'linear'" [spinner]="true" [spinnerPosition]="'right'"
   [color]="'red'" [trickleSpeed]="250" [thick]="true">
 </ng-progress>
-
-<router-outlet></router-outlet>
-
+<app-header></app-header>
+<div class="container-fluid">
+    <router-outlet></router-outlet>
+</div>
 <app-footer></app-footer>

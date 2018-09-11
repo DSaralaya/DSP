@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { GetStartedComponent } from './get-started/get-started.component';
 
-import { ProgressComponent } from './shared/components/progress.component';
+import { ProgressComponent } from './shared/components/progress-bar/progress.component';
 import { LocalService } from './shared/services/localJson.service';
 import { UiFormComponent } from './ui-form/ui-form.component';
 import { SortablejsModule } from 'angular-sortablejs';

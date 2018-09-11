@@ -4,40 +4,41 @@ import { NgxMaskModule } from 'ngx-mask';
 
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
-import { InputComponent } from 'modules/controls/input/input';
-import { InputMaskComponent } from 'modules/controls/input/masking';
-import { SectionComponent } from 'modules/wrappers/section';
-import { SelectComponent } from 'modules/controls/select/select';
+
+import { InputMaskComponent } from './controls/input/masking';
+import { SectionComponent } from './wrappers/section';
+import { SelectComponent } from './controls/select/select';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 
-import { CheckBoxComponent } from 'modules/controls/checkbox/checkbox';
-import { RadioComponent } from 'modules/controls/radio/radio';
-import { SsnMaskDirective } from 'modules/directives/ssnDir';
-import { SSNInputComponent } from 'modules/controls/input/ssn';
-import { JointApplicantComponent } from 'modules/controls/button/jointApplicant';
-import { ZipcodeComponent } from 'modules/controls/input/zipcode';
-import { SaveforLaterDirective } from 'modules/directives/saveforlaterDir';
-import { SaveForLaterModalComponent } from 'modules/modal/saveforLaterModal';
+import { CheckBoxComponent } from './controls/checkbox/checkbox';
+import { RadioComponent } from './controls/radio/radio';
+import { SsnMaskDirective } from './directives/ssnDir';
+import { SSNInputComponent } from './controls/input/ssn';
+import { JointApplicantComponent } from './controls/button/jointApplicant';
+import { ZipcodeComponent } from './controls/input/zipcode';
+import { SaveforLaterDirective } from './directives/saveforlaterDir';
+import { SaveForLaterModalComponent } from './modal/saveforLaterModal';
 import { SimpleModalModule } from 'ngx-simple-modal';
-import { HiddenInputComponent } from 'modules/controls/input/hidden';
-import { DynamicCrossSellComponent } from 'modules/controls/button/dynamic-cross-sell';
-import { CurrencyComponent } from 'modules/controls/input/currency';
-import { OutputTextComponent } from 'modules/controls/input/output';
-import { ReadOnlyComponent } from 'modules/controls/input/readonly';
-import { EmploymentTemplateComponent } from 'modules/templates/employmentTemplate';
-import { CurrencyMaskDirective } from 'modules/directives/currencymask';
-import { ConfirmationOfferComponent } from 'modules/controls/button/confirmation-offer';
-import { CardDesginComponent } from 'modules/controls/button/card-design';
-import { DisclousreComponent } from 'modules/controls/checkbox/disclosure';
-import { DisclousureModalComponent } from 'modules/modal/disclosureModal';
+import { HiddenInputComponent } from './controls/input/hidden';
+import { DynamicCrossSellComponent } from './controls/button/dynamic-cross-sell';
+import { CurrencyComponent } from './controls/input/currency';
+import { OutputTextComponent } from './controls/input/output';
+import { ReadOnlyComponent } from './controls/input/readonly';
+import { EmploymentTemplateComponent } from './templates/employmentTemplate';
+import { CurrencyMaskDirective } from './directives/currencymask';
+import { ConfirmationOfferComponent } from './controls/button/confirmation-offer';
+import { CardDesginComponent } from './controls/button/card-design';
+import { DisclousreComponent } from './controls/checkbox/disclosure';
+import { DisclousureModalComponent } from './modal/disclosureModal';
 import { NgUploaderModule } from 'ngx-uploader';
 import { DriverLicesenceScanComponent } from './templates/driverScan';
 import { ValidationService } from '../app/shared/services/validation.service';
 import { UiPropertiesModalComponent } from '../app/ui-form/ui-properties.component';
+import { InputComponent } from './controls/input/input';
 
 export function showErrorOption(field) {
 	if (field.to.hidden === true) {
@@ -265,7 +266,7 @@ const formyconfig = FormlyModule.forRoot({
 		DriverLicesenceScanComponent,
 		UiPropertiesModalComponent
 	],
-	imports: [ CommonModule, FormsModule, ReactiveFormsModule, FormlyBootstrapModule, NgxMaskModule.forRoot(), formyconfig, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, SimpleModalModule.forRoot({ container: 'modal-container' }), NgUploaderModule ],
+	imports: [ CommonModule, FormsModule, ReactiveFormsModule, NgxMaskModule.forRoot(), formyconfig, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, SimpleModalModule.forRoot({ container: 'modal-container' }), NgUploaderModule ],
 	entryComponents: [ SaveForLaterModalComponent, DisclousureModalComponent, UiPropertiesModalComponent ],
 	exports: [ ReactiveFormsModule, FormlyBootstrapModule, FormsModule, FormlyModule, SaveforLaterDirective, SimpleModalModule ]
 })

@@ -1,12 +1,12 @@
-import { OnInit } from '@angular/core';
+
 import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions } from '@ngx-formly/core';
 import { Router } from '@angular/router';
 import { LocalService } from '../services/localJson.service';
 import { AppConfig } from '../common/config';
-import { ValidationService } from '../services/validation.service';
 
-export class SharedModel {
+
+export class GlobalEvent {
 	public pageTitle = '';
 	public model: any;
 	public fields: any;
@@ -32,10 +32,13 @@ export class SharedModel {
 				this.fields =result.fields;
 			}
 			
-			this.model = result;
-			delete this.model.fields;
-			//this.nextUrl = AppConfig.NextPage(this.model);
-			//this.prevUrl = AppConfig.PrevPage(this.model);
+			this.model = result.model?result.model:result;
+			if(this.model.fields){
+				delete this.model.fields;
+			}
+			
+			this.nextUrl = AppConfig.NextPage(this.model);
+			this.prevUrl = AppConfig.PrevPage(this.model);
 		});
 	}
 
@@ -47,8 +50,12 @@ export class SharedModel {
 			const domain = document.location.hostname.indexOf('localhost') >= 0 ? 'local' : 'remote';
 			if (domain !== 'local') {
 				const parms = {};
+				var model=this.model;
+				for (var k in model) {
+					model[k]=JSON.stringify(model[k]);
+				}
 				//debugger;
-				this.service.callExternalMethod('saveAppFields', parms).subscribe((result) => {
+				this.service.callExternalMethod('saveAppFields', model).subscribe((result) => {
 					this.router.navigateByUrl(this.nextUrl);
 				});
 			} else {
