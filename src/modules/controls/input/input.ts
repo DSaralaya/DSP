@@ -1,13 +1,13 @@
 import { Component, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { FieldType } from '@ngx-formly/core';
 
+import { FieldType } from '@ngx-formly/material/form-field';
 @Component({
 	selector: 'app-input',
 	template: `
-  <mat-form-field>
+  
     <input matInput [id]="id"  placeholder="{{to.label}}  {{to.required? '*':''}}"  [type]="type" [maxlength]="maxlength" [formControl]="formControl"
       [formlyAttributes]="field" >
-      </mat-form-field>
+     
     `
 })
 export class InputComponent extends FieldType {

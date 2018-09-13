@@ -4,13 +4,13 @@ import { FieldType } from '@ngx-formly/core';
 @Component({
 	selector: 'app-select',
 	template: `
-        <mat-form-field>
+        
         <mat-select placeholder="{{to.label}} {{to.required? '*':''}}" [formControl]="formControl" [formlyAttributes]="field">
           <mat-option *ngFor="let item of items" [value]="item.value">
             {{ item.label }}
           </mat-option>
         </mat-select>
-      </mat-form-field>
+  
     `
 })
 export class SelectComponent extends FieldType implements OnInit {

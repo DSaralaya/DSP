@@ -1,10 +1,22 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import "variable.less";
-@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700');
+@primary : #007bff;
+
+@black : #000;
+@white : #fff;
+
+/* White Shades */
+@white-shade1:#F5F7FA;
+@white-shade2:#eee;
+
+
+/* Grey */
+@grey8 : #888;
+
 
 body{
 	background:@white-shade1;
-	font-size: 1rem;
+	font-family: 'Poppins', sans-serif;
+	font-size: 15px;
 }
 footer{
 	bottom: 0;
@@ -36,6 +48,12 @@ footer p {
 
 .form-control-label {
 	display: none;
+}
+mat-form-field{
+	margin-bottom: 5px;
+}
+formly-group{
+ margin-bottom: 10px;
 }
 
 .navbar {
@@ -184,9 +202,7 @@ footer p {
 		line-height: 1;
 		font-weight: 300;
 	}
-	img{
-		max-width: 200px;
-	}
+	
 }
 
 /* NavBar */
@@ -260,31 +276,7 @@ footer p {
 	}
 }
 
-/* Page Background */
-.page-background{
-		position: fixed;
-		width:100%;
-		height:100vh;
-		//background: url('/assets/images/background.jpg');
-		left:0;
-		top:0;
-	&::after{
-		content:"";
-		position: absolute;
-		top:0;
-		left:0;
-		width: 100%;
-		height: 100%;
-		background: fade(@black,40%);
-	}
-	video{
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		width: 100%; 
-		min-height: 100%;
-	}
-}
+
 
 /* Footer */
 footer {
@@ -297,22 +289,6 @@ footer {
 	}
 }
 
-/* Inner Page Header */
-.page-header {
-	margin: 0 -15px;
-	background: url(/assets/images/page-banner.jpeg);
-	height:200px;
-	background-size: 100%;
-	background-position: 0;
-	position: relative;
-	&:before{
-		content: "";
-		width: 100%;
-		height: 100%;
-		background: rgba(70, 74, 76, 0.8);
-		position: absolute;
-	}
-}
 
 /* Inner Page Body */
 .wrap {
@@ -346,24 +322,6 @@ footer {
 		}
 		.input-group-title {
 			margin-top: 20px;
-			&:first-child{
-				margin-top:0;
-			}
-			.title-bullet {
-				background:@primary;
-				font-family: 'Yanone Kaffeesatz', sans-serif;
-				border-radius: 50%;
-				width: 25px;
-				height: 25px;
-				display: inline-block;
-				text-align: center;
-				font-size: 0.6em;
-				line-height: 2.4;
-				color: #fff;
-				margin-right: 10px;
-				font-weight: 600;
-				vertical-align: middle;
-			}
 		}
 	}
 }

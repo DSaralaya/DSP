@@ -1,6 +1,7 @@
 import { Directive, HostListener, ElementRef, Renderer, Output, EventEmitter, ViewChild } from '@angular/core';
 import { SimpleModalService } from 'ngx-simple-modal';
-import { SaveForLaterModalComponent } from 'modules/modal/saveforLaterModal';
+import { SaveForLaterModalComponent } from '../modal/saveforLaterModal';
+
 
 @Directive({
 	selector: '[appSaveforLaterClick]'

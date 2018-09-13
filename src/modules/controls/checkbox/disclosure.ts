@@ -2,7 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FieldType } from '@ngx-formly/core';
 import { error } from 'selenium-webdriver';
 import { SimpleModalService } from 'ngx-simple-modal';
-import { DisclousureModalComponent } from 'modules/modal/disclosureModal';
+import { DisclousureModalComponent } from '../../modal/disclosureModal';
+
 
 @Component({
 	selector: 'app-disclousrecheckbox',

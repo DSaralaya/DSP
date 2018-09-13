@@ -55,11 +55,11 @@ export class SaveForLaterModalComponent extends SimpleModalComponent<ConfirmMode
 		this.getAppFields();
 	}
 	getAppFields() {
-		// this.service.get('save-for-later').subscribe((result) => {
-		// 	this.fields = result.fields;
-		// 	this.model = result;
-		// 	delete this.model['fields'];
-		// });
+		this.service.callExternalMethod('save-for-later').subscribe((result) => {
+			this.fields = result.fields;
+			this.model = result;
+			delete this.model['fields'];
+		});
 	}
 
 	confirm() {

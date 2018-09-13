@@ -5,9 +5,9 @@ import 'rxjs/add/operator/catch';
 import { NgProgress } from '@ngx-progressbar/core';
 import * as _ from 'underscore';
 import { VfRemoteService } from '../../../modules/vfremote/vf-remote.service';
-import { DOCUMENT } from '@angular/platform-browser';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/fromPromise';
+
+import { from } from 'rxjs';
+
 import { AppConfig } from '../common/config';
 
 @Injectable()
@@ -29,7 +29,7 @@ export class LocalService {
 				return (this._data = data);
 			});
 		} else {
-			return Observable.fromPromise(this.callExternalRemote(method, params));
+			return from(this.callExternalRemote(method, params));
 		}
 	}
 
@@ -73,7 +73,7 @@ export class LocalService {
 		}
 		let str = JSON.stringify(data);
 		str = str.replace(/\"className\":\"row\"/g, '"fieldGroupClassName":"row"');
-		str = str.replace(/\"wrapper\":\"section\"/g, '"wrappers":"section"');
+		str = str.replace(/\"wrapper\":\"section\"/g, '"wrapper":"section"');
 		return JSON.parse(str);
 	}
 }

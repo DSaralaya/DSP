@@ -6,7 +6,7 @@ export class AppConfig {
 	
 	public static NextPage(model) {
 		if (model['pageFlowMap']) {
-			const pageFlow=JSON.parse(model['pageFlowMap']);
+			const pageFlow=typeof(model['pageFlowMap'])==='object'?model['pageFlowMap']: JSON.parse(model['pageFlowMap']);
 			return pageFlow['nextPage'];
 		}
 		return '';
@@ -15,7 +15,7 @@ export class AppConfig {
 	public static PrevPage(model) {
 		if (model['pageFlowMap']) {
 			//const pageFlow = JSON.parse(model['pageFlowMap']['Body'].replace(/&quot;/g, '"'));
-			const pageFlow=JSON.parse(model['pageFlowMap']);
+			const pageFlow=typeof(model['pageFlowMap'])==='object'?model['pageFlowMap']: JSON.parse(model['pageFlowMap']);
 			return pageFlow['prevPage'];
 		}
 		return '';

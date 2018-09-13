@@ -420,7 +420,7 @@
 		"channel_esignEmail__c": "Call Center",
 		"channel_esign_button__c": "Branch",
 		"Site_UserID__c": "0056A000000IGPn",
-		"Call_Joint_Docusign__c": false,
+		
 		"Email_on_Additional_Services__c": false
 	},
 	"fields": [
@@ -431,7 +431,7 @@
 			}
 		},
 		{
-			"wrappers": "section",
+			"wrapper": "section",
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
 				{
@@ -459,7 +459,7 @@
 			}
 		},
 		{
-			"wrappers": "section",
+			"wrapper": "section",
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
 				{

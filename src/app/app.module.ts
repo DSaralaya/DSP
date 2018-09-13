@@ -20,7 +20,7 @@ import { NgDragDropModule } from 'ng-drag-drop';
 import { VfRemoteService } from '../modules/vfremote/vf-remote.service';
 import { UiStartComponent } from './ui-form/ui-start.component';
 import { DynamicComponent } from './dynamic/dynamic.component';
-import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
+
 import { SessionExpireComponent } from './session-expire/session-expire.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './shared/components/header/header.component';
@@ -39,7 +39,7 @@ const appRoutes: Routes = [
 
 @NgModule({
 	declarations: [ AppComponent, GetStartedComponent, ConfirmationComponent, ProgressComponent, UiFormComponent, UiStartComponent, DynamicComponent, SessionExpireComponent, HeaderComponent, FooterComponent, PageHeaderComponent ],
-	imports: [ BrowserModule, RouterModule.forRoot(appRoutes), FormlyControls, HttpModule, BrowserAnimationsModule, NgProgressModule.forRoot(), SortablejsModule, NgDragDropModule.forRoot(), HttpClientModule, NgIdleKeepaliveModule.forRoot() ],
+	imports: [ BrowserModule, RouterModule.forRoot(appRoutes), FormlyControls, HttpModule, BrowserAnimationsModule, NgProgressModule.forRoot(), SortablejsModule, NgDragDropModule.forRoot(), HttpClientModule],
 	providers: [ VfRemoteService, LocalService, { provide: LocationStrategy, useClass: HashLocationStrategy }, { provide: APP_BASE_HREF, useValue: '/' } ],
 	bootstrap: [ AppComponent ]
 })

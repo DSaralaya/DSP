@@ -2,14 +2,14 @@ import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { FormsModule, FormGroup } from '@angular/forms';
 import { FieldType } from '@ngx-formly/core';
 import { NgxMaskModule } from 'ngx-mask';
-import { FormlyFieldInput } from '@ngx-formly/bootstrap/src/types/input';
+
 
 @Component({
 	selector: 'app-masking',
 	template: `
-  <mat-form-field>
-    <input matInput placeholder="{{to.label}} {{to.required? '*':''}}" type="text" [mask]='mask' [dropSpecialCharacters]="dropSpecialCharacters"   [formControl]="formControl" [formlyAttributes]="field"  class="form-control"  />
-    </mat-form-field>
+  
+    <input matInput placeholder="{{to.label}} {{to.required? '*':''}}" type="text" [mask]='mask'    [formControl]="formControl" [formlyAttributes]="field"  class="form-control"  />
+   
     `
 })
 export class InputMaskComponent extends FieldType implements OnInit {

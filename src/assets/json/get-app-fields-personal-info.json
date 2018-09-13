@@ -25,7 +25,7 @@
 		}
 	},
 	"pageFlowMap": {
-		"Body": { "skipPrevPage": "CrossSellPage", "skipNextPage": "AccountDetailsPage", "nextPage": "IdentityPage", "prevPage": "" }
+		"skipPrevPage": "CrossSellPage", "skipNextPage": "AccountDetailsPage", "nextPage": "IdentityPage", "prevPage": "" 
 	},
 	"pageCode": {
 		"Body": "GS"
@@ -383,7 +383,7 @@
 		"Application_Code__c": "static",
 		"Application_Expiration__c": "60",
 		"Application_Version__c": "4.0",
-		"Call_Joint_Docusign__c": false,
+		
 		"Channel_esign_submit_modal__c": "Online",
 		"DSP_Application_Code__c": "EastWestResource",
 		"DSP_Custom_Theme__c": "EastWestResource",
@@ -432,7 +432,7 @@
 			}
 		},
 		{
-			"wrappers": "section",
+			"wrapper": "section",
 			"fieldGroupClassName": "row",
 			"fieldGroup": [
 				{

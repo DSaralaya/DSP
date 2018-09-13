@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { FormsModule, FormGroup, FormControl, ValidationErrors } from '@angular/forms';
+
+import {FormControl } from '@angular/forms';
 import * as _ from 'underscore';
-import { FieldType, FormlyFieldConfig } from '@ngx-formly/core';
+
 
 export class ValidationService {
 	public static orgModel: any;
@@ -73,7 +73,6 @@ export class ValidationService {
 
 	static SSN(control: FormControl, field) {
 		if (control.value) {
-			const regExRules = [ '^([0-7]\\d{2}|8[0-7]\\d|88[0-9]|89[0-9])([ \\-]?)(\\d{2})\\2(\\d{4})$', '^([X]{5})(\\d{4})$' ];
 			const invalidSSNs = [ '111111111', '222222222', '444444444', '555555555', '777777777', '888888888', '999999999', '123456789', '078051120', '219099999', '987654320', '987654321', '987654322', '987654323', '987654324', '987654325', '987654326', '987654327', '987654328', '987654329' ];
 			const invalidAreaNumbers = [ '333', 'XXX' ];
 			const invalidGroupNumbers = [ '00', 'XX' ];
@@ -132,7 +131,7 @@ export class ValidationService {
 			if (10 === value.length) {
 				const NPA = value.substring(0, 3);
 				const N = value.substring(3, 4);
-				const subscriberNum = value.substring(4, 10);
+				
 				if (_.indexOf(invalidNPA, NPA) !== -1) {
 					return false;
 				}

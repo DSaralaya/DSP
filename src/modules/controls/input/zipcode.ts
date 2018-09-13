@@ -2,15 +2,15 @@ import { Component, OnInit, ViewChild, ViewContainerRef, ChangeDetectorRef } fro
 import { FormsModule, FormGroup } from '@angular/forms';
 import { FieldType } from '@ngx-formly/core';
 import { NgxMaskModule } from 'ngx-mask';
-import { FormlyFieldInput } from '@ngx-formly/bootstrap/src/types/input';
+
 
 @Component({
 	selector: 'app-zipcode',
 	template: `
-  <mat-form-field>
+  
     <input type="text" [mask]='mask' matInput placeholder="{{to.label}} {{to.required? '*':''}}"
       [formControl]="formControl" [formlyAttributes]="field"  />
-      </mat-form-field>
+     
     `
 })
 export class ZipcodeComponent extends FieldType implements OnInit {
