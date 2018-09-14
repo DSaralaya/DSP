@@ -19,4 +19,8 @@ export class ConfirmationComponent extends GlobalEvent implements OnInit {
 	ngOnInit() {
 		this.getAppFields('confirmation');
 	}
+	
+	finish() {
+		window.location.href='https://google.com';
+	}
 }

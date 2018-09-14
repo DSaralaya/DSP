@@ -1,6 +1,6 @@
-<app-progress *ngIf="model" ></app-progress>
+
 <div class="container" *ngIf="model">
-  <div class="row">
+  <div class="wrap">
  
       <div class="card">
         <div class="card-header">
@@ -9,143 +9,26 @@
         <div class="card-block">
             <div class="row">
  
-          <div class="col-sm-7" *ngIf="model">
-              <div *ngIf="model['Application__c']['Primary_Product_Status__c'] === 'Approved'">
-                  <h2 class="confirm-title">CONGRATULATIONS!</h2>
-                  <p>{{model['PageLabels']['Confirmation_SampleText']}}</p>
-                </div>
-                <div *ngIf="model['Application__c']['Primary_Product_Status__c'] === 'Declined'">
-                    <p>{{model.PageLabels.Confirmation_Declined}}</p>
-                  </div>
-          
-                  <div *ngIf="!(model['Application__c']['Primary_Product_Status__c'] === 'Declined' || model['Application__c']['Primary_Product_Status__c'] === 'Approved')">
-                    <p>{{model['PageLabels']['Confirmation_ConditionsApply']}}</p>
-                  </div>
-                  <div class="row product-status">
-                      <div class="table-responsive">
-                        <table class="table table-striped">
-                          <thead>
-                            <tr>
-                              <th>Application Number</th>
-                              <th>Product</th>
-                              <th *ngIf="!(model['Application__c']['Product__c'] === 'Savings' ||
-                                           model['Application__c']['Product__c'] === 'Checking' ||
-                                           model['Application__c']['Product__c'] === 'Certificates')">Approved Amount</th>
-                              <th>Application Status</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>
-                                <div *ngIf="!(model['Application__c']['Product__c'] === 'Savings' ||
-                                              model['Application__c']['Product__c'] === 'Checking' ||
-                                              model['Application__c']['Product__c'] === 'Certificates')">{{model['Application__c']['External_App_ID__c']}}</div>
-                                <div *ngIf="model['Application__c']['Product__c'] === 'Savings' ||
-                                              model['Application__c']['Product__c'] === 'Checking' ||
-                                              model['Application__c']['Product__c'] === 'Certificates'">{{model['Application__c']['App_Number__c']}}</div>
-                              </td>
-                              <td>
-                                {{model['Application__c']['Sub_Product_Description__c']}}
-                              </td>
-                              <td *ngIf="!(model['Application__c']['Product__c'] === 'Savings' ||
-                                           model['Application__c']['Product__c'] === 'Checking' ||
-                                           model['Application__c']['Product__c'] === 'Certificates')">
-                                <div *ngIf="model['Application__c']['Primary_Product_Status__c'] === 'Approved'">{{model['Application__c']['Custom_Text10__c']}}</div>
-                              </td>
-                              <td>
-                                <div *ngIf="model['Application__c']['Primary_Product_Status__c']">{{model['Application__c']['Primary_Product_Status__c']}}</div>
-                                <div *ngIf="!model['Application__c']['Primary_Product_Status__c']">
-                                  <!-- <img ng-src="{{appConfig.appConstants.loadingImage}}" alt="loading" class="loading" /> Processing... -->
-                                </div>
-                              </td>
-                            </tr>
-            
-                            <tr *ngIf="model['Application__c']['Primary_Offer__c']" >
-                              <td>
-                                <div *ngIf="!(model['Application__c']['Product__c'] === 'Savings' ||
-                                              model['Application__c']['Product__c'] === 'Checking' ||
-                                              model['Application__c']['Product__c'] === 'Certificates')">{{model.Application__c.External_App_ID__c}}</div>
-                                <div *ngIf="model['Application__c']['Product__c'] === 'Savings' ||
-                                              model['Application__c']['Product__c'] === 'Checking' ||
-                                              model['Application__c']['Product__c'] === 'Certificates'">{{model.Application__c.App_Number__c}}</div>
-                              </td>
-                              <td>
-                                {{model['Application__c']['Primary_Offer__c'].split('-')[1]}}
-                              </td>
-                              <td *ngIf="!(model['Application__c']['Product__c'] === 'Savings' ||
-                                           model['Application__c']['Product__c'] === 'Checking' ||
-                                           model['Application__c']['Product__c'] === 'Certificates')">
-                               
-                              </td>
-                              <td>
-                                <div  *ngIf="model['Application__c']['Primary_Offer_Status__c']">{{model['Application__c']['Primary_Offer_Status__c']}}</div>
-                                <!-- <div  ng-hide="model['Application__c']['Primary_Offer_Status__c']">
-                                  <img ng-src="{{appConfig.appConstants.loadingImage}}" alt="loading" class="loading" /> Processing...
-                                </div> -->
-                              </td>
-                            </tr>
-                            <tr *ngIf="model['Application__c']['Second_Offer__c']" >
-                              <td>
-                                <div *ngIf="!(model['Application__c']['Product__c'] === 'Savings' ||
-                                              model['Application__c']['Product__c'] === 'Checking' ||
-                                              model['Application__c']['Product__c'] === 'Certificates')">{{model.Application__c.External_App_ID__c}}</div>
-                                <div *ngIf="model['Application__c']['Product__c'] === 'Savings' ||
-                                              model['Application__c']['Product__c'] === 'Checking' ||
-                                              model['Application__c']['Product__c'] === 'Certificates'">{{model.Application__c.App_Number__c}}</div>
-                              </td>
-                              <td>
-                                {{model.Application__c.Second_Offer__c.split('-')[1]}}
-                              </td>
-                              <td *ngIf="!(model['Application__c']['Product__c'] === 'Savings' ||
-                                           model['Application__c']['Product__c'] === 'Checking' ||
-                                           model['Application__c']['Product__c'] === 'Certificates')">
-                               
-                              </td>
-                              <td>
-                                <div  *ngIf="model['Application__c']['Second_Offer_Status__c']">{{model['Application__c']['Second_Offer_Status__c']}}</div>
-                                <!-- <div  ng-hide="model['Application__c']['Second_Offer_Status__c']">
-                                  <img ng-src="{{appConfig.appConstants.loadingImage}}" alt="loading" class="loading" /> Processing...
-                                </div> -->
-                              </td>
-                            </tr>
-            
-                            <tr *ngIf="model['Application__c']['Third_Offer__c']" >
-                              <td>
-                                <div *ngIf="(!model['Application__c']['Product__c'] === 'Savings' ||
-                                              model['Application__c']['Product__c'] === 'Checking' ||
-                                              model['Application__c']['Product__c'] === 'Certificates')">{{model.Application__c.External_App_ID__c}}</div>
-                                <div *ngIf="model['Application__c']['Product__c'] === 'Savings' ||
-                                              model['Application__c']['Product__c'] === 'Checking' ||
-                                              model['Application__c']['Product__c'] === 'Certificates'">{{model.Application__c.App_Number__c}}</div>
-                              </td>
-                              <td>
-                                {{model['Application__c']['Third_Offer__c'].split('-')[1]}}
-                              </td>
-                              <td *ngIf="!(model['Application__c']['Product__c'] === 'Savings' ||
-                                           model['Application__c']['Product__c'] === 'Checking' ||
-                                           model['Application__c']['Product__c'] === 'Certificates')">
-                               
-                              </td>
-                              <td>
-                                <div  *ngIf="model['Application__c']['Third_Offer_Status__c']">{{model['Application__c']['Third_Offer_Status__c']}}</div>
-                                <div  *ngIf="!(model['Application__c']['Third_Offer_Status__c'])">
-                                  <!-- <img ng-src="{{appConfig.appConstants.loadingImage}}" alt="loading" class="loading" /> Processing... -->
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
+          <div class="col-sm-12" *ngIf="model">
+            <h2 class="confirm-title">CONGRATULATIONS !!</h2>
+            <div class="row">
+              <div class="col-md-7 col-sm-6 text-left"><strong>Product</strong></div>
+              <div class="col-md-5 col-sm-3 text-left"><strong>Sub product</strong></div>
+            </div>
+            <div class="row ">
+              <div class="col-md-7 col-sm-6 text-left">{{model.Application__c.Product__c}}</div>
+              <div class="col-md-5 col-sm-3 text-left" >{{model.Application__c.Sub_Product__c}}</div>
+             
+            </div>
           </div>
-          <div class="col-sm-5">
+          <!-- <div class="col-sm-5">
               <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">
                 </formly-form>
-          </div>
+          </div> -->
           </div>
         </div>
         <div class="card-footer text-center">
-          <button type="button" class="btn btn-success btn-next  submit-button">Finsih </button>
+          <button type="button" (click)="finish()" class="btn btn-success btn-next  submit-button">Finsih </button>
         </div>
       </div>
     

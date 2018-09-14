@@ -10,6 +10,8 @@ export class GlobalEvent {
 	public pageTitle = '';
 	public model: any;
 	public fields: any;
+	public currentIndex=0;
+	public totalPages=0;
 	pageFlow: any;
 	pageName: any;
 	form = new FormGroup({});
@@ -26,9 +28,9 @@ export class GlobalEvent {
 		parms['pageName'] = pagename;
 		this.pageName = pagename;
 		this.service.callExternalMethod('getAppFields', parms).subscribe((result) => {
-			if(typeof(result.fields)==='string'){
+			if(result.fields!='' && typeof(result.fields)==='string'){
 				this.fields =JSON.parse(result.fields);
-			} else {
+			} else if(result.fields!='') {
 				this.fields =result.fields;
 			}
 			
@@ -36,7 +38,11 @@ export class GlobalEvent {
 			if(this.model.fields){
 				delete this.model.fields;
 			}
-			
+			var currPage = AppConfig.CurrentPage(this.model);
+			if(this.model['pageList']!='') {
+				this.totalPages=this.model['pageList'].split(',').length;
+				this.currentIndex=this.model['pageList'].split(',').indexOf(currPage)+1;
+			}
 			this.nextUrl = AppConfig.NextPage(this.model);
 			this.prevUrl = AppConfig.PrevPage(this.model);
 		});

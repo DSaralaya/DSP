@@ -7,14 +7,14 @@
         <div class="card-header">
           <div class="row">
             <div class="col-sm-12">
-                <h5>  <span class="page-progress number">3<small>/8</small></span> {{pageTitle}}</h5>
+                <h5>  <span class="page-progress number">{{currentIndex}}<small>/{{totalPages}}</small></span> {{pageTitle}}</h5>
             </div>
           </div>
             
             
         </div>
         <div class="card-block">
-            <div class="productapplied">
+            <div class="productapplied-other">
                 You are applying for : <b>{{model?.Application__c.Sub_Product__c}}</b>  
             </div>
           <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">

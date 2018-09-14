@@ -20,4 +20,13 @@ export class AppConfig {
 		}
 		return '';
 	}
+
+	public static CurrentPage(model) {
+		if (model['pageFlowMap']) {
+			//const pageFlow = JSON.parse(model['pageFlowMap']['Body'].replace(/&quot;/g, '"'));
+			const pageFlow=typeof(model['pageFlowMap'])==='object'?model['pageFlowMap']: JSON.parse(model['pageFlowMap']);
+			return pageFlow['currentPage'];
+		}
+		return '';
+	}
 }

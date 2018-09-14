@@ -4,10 +4,10 @@ import { FieldType } from '@ngx-formly/core';
 @Component({
 	selector: 'app-ssn',
 	template: `
-  <mat-form-field>
-    <input matInput placeholder="{{to.label}} {{to.required? '*':''}}"   [type]="type" appSsn  [mask]='mask' [clearIfNotMatch]="clearIfNotMatch" [dropSpecialCharacters]="dropSpecialCharacters"  [formControl]="formControl" class="form-control"
+ 
+    <input matInput placeholder="{{to.label}} {{to.required? '*':''}}"   [type]="type" appSsn  [mask]='mask' [clearIfNotMatch]="clearIfNotMatch"   [formControl]="formControl" class="form-control"
       [formlyAttributes]="field">
-      </mat-form-field>
+     
     `
 })
 export class SSNInputComponent extends FieldType {
