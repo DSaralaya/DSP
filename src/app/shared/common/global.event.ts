@@ -49,7 +49,7 @@ export class GlobalEvent {
 	}
 
 	submit(url) {
-		//debugger;
+		debugger;
 		this.options.formState.submitted = true;
 		if (this.form.valid) {
 			console.log(this.model);

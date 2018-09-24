@@ -1,4 +1,9 @@
 {
+	"items": [
+		{
+		  "simpleString": "This is my simple string",
+		  "simpleBool": true
+		}],
 	"pageCodesMap": {
 		"Body": {
 			"EligibilityPage": "ELG",
@@ -25,7 +30,7 @@
 		}
 	},
 	"pageFlowMap": {
-		"skipPrevPage": "CrossSellPage", "skipNextPage": "AccountDetailsPage", "nextPage": "IdentityPage", "prevPage": "" 
+		"Body": { "skipPrevPage": "CrossSellPage", "skipNextPage": "AccountDetailsPage", "nextPage": "EmploymentPage", "prevPage": "PersonalInfoPage" }
 	},
 	"pageCode": {
 		"Body": "GS"
@@ -383,7 +388,7 @@
 		"Application_Code__c": "static",
 		"Application_Expiration__c": "60",
 		"Application_Version__c": "4.0",
-		
+		"Call_Joint_Docusign__c": false,
 		"Channel_esign_submit_modal__c": "Online",
 		"DSP_Application_Code__c": "EastWestResource",
 		"DSP_Custom_Theme__c": "EastWestResource",
@@ -420,421 +425,32 @@
 		"channel_esignEmail__c": "Call Center",
 		"channel_esign_button__c": "Branch",
 		"Site_UserID__c": "0056A000000IGPn",
-		"Call_Joint_Docusign__c": false,
+		
 		"Email_on_Additional_Services__c": false
 	},
 	"fields": [
-		{
-			"template": "<h5 class=\"input-group-title\"><span class=\"title-bullet\"><i class='fa fa-pencil'></i></span> Name and Address</h5>",
-			"className": "col-xs-8 col-sm-8 col-md-10 col-lg-10 inline-section-header",
-			"data": {
-				"sectionType": "PI-NameAddress_PA"
-			}
-		},
-		{
-			"wrapper": "section",
-			"fieldGroupClassName": "row",
-			"fieldGroup": [
 				{
-					"key": "Application__c.Promo_Code__c",
-					"type": "alphaNum",
-					"className": "col-xs-4 col-sm-4 col-md-2 col-lg-2 inline-section-field",
-					"templateOptions": {
-						"label": "Promo Code",
-						"required": false,
-						"objectName": "Application__c",
-						"fieldName": "Promo_Code__c"
-					}
-				},
-				{
-					"key": "Application__c.First_Name__c",
-					"type": "alphabet",
-					"className": "col-xs-8 col-sm-8 col-md-4 col-lg-4",
-					"templateOptions": {
-						"label": "First Name",
-						"required": true,
-						"objectName": "Application__c",
-						"fieldName": "First_Name__c"
-					},
-					"expressionProperties": {
-						"templateOptions.disabled": "model['Application__c']['Custom_Checkbox4__c'] == true"
-					},
-					"data": {
-						"regExValue": "^[a-zA-Z\\- ]*$"
-					}
-				},
-				{
-					"key": "Application__c.Middle_Name__c",
-					"type": "alphabet",
-					"className": "col-xs-4 col-sm-4 col-md-2 col-lg-2",
-					"templateOptions": {
-						"label": "Middle Name",
-						"required": false,
-						"objectName": "Application__c",
-						"fieldName": "Middle_Name__c"
-					},
-					"expressionProperties": {
-						"templateOptions.disabled": "model['Application__c']['Custom_Checkbox4__c'] == true"
-					},
-					"data": {
-						"regExValue": "^[a-zA-Z\\- ]*$"
-					}
-				},
-				{
-					"key": "Application__c.Last_Name__c",
-					"type": "alphabet",
-					"className": "col-xs-8 col-sm-8 col-md-4 col-lg-4",
-					"templateOptions": {
-						"label": "Last Name",
-						"required": true,
-						"objectName": "Application__c",
-						"fieldName": "Last_Name__c"
-					},
-					"expressionProperties": {
-						"templateOptions.disabled": "model['Application__c']['Custom_Checkbox4__c'] == true"
-					},
-					"data": {
-						"regExValue": "^[a-zA-Z\\- ]*$"
-					}
-				},
-				{
-					"key": "Application__c.Suffix__c",
-					"type": "select",
-					"className": "col-xs-4 col-sm-4 col-md-2 col-lg-2",
-					"templateOptions": {
-						"label": "Suffix",
-						"required": false,
-						"objectName": "Application__c",
-						"fieldName": "Suffix__c",
-						"options": [
-							{
-								"label": "Jr",
-								"value": "Jr"
-							},
-							{
-								"label": "Sr",
-								"value": "Sr"
-							},
-							{
-								"label": "II",
-								"value": "II"
-							},
-							{
-								"label": "III",
-								"value": "III"
-							},
-							{
-								"label": "IV",
-								"value": "IV"
-							},
-							{
-								"label": "V",
-								"value": "V"
-							},
-							{
-								"label": "VI",
-								"value": "VI"
-							}
-						]
-					},
-					"expressionProperties": {
-						"templateOptions.disabled": "model['Application__c']['Custom_Checkbox4__c'] == true"
-					}
-				},
-				{
-					"key": "Application__c.Street_Address_1__c",
-					"type": "alphabet",
-					"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
-					"templateOptions": {
-						"label": "Residential Street Address, No PO Boxes",
-						"required": true,
-						"objectName": "Application__c",
-						"fieldName": "Street_Address_1__c"
-					},
-					"data": {
-						"regExValue": "^[a-zA-Z0-9\\-#/ ]*$"
-					}
-				},
-				{
-					"key": "Application__c.Street_Address_2__c",
-					"type": "alphabet",
-					"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
-					"templateOptions": {
-						"label": "Residential Street Address 2",
-						"required": false,
-						"objectName": "Application__c",
-						"fieldName": "Street_Address_2__c"
-					},
-					"data": {
-						"regExValue": "^[a-zA-Z0-9\\-#/ ]*$"
-					}
-				},
-				{
-					"key": "Application__c.City__c",
-					"type": "alphabet",
+					"key": "items",
+					"type": "repeat-screen",
 					"className": "col-xs-7 col-sm-6 col-md-5 col-lg-5",
 					"templateOptions": {
-						"label": "City",
-						"required": true,
-						"objectName": "Application__c",
-						"fieldName": "City__c"
+						"columns": ["simpleString","actions"]
 					},
-					"data": {
-						"regExValue": "^[a-zA-Z\\- ]*$"
-					}
-				},
-				{
-					"key": "Application__c.State__c",
-					"type": "select",
-					"className": "col-xs-5 col-sm-3 col-md-4 col-lg-4",
-					"templateOptions": {
-						"label": "State",
-						"required": true,
-						"objectName": "Application__c",
-						"fieldName": "State__c",
-						"options": [
+					"fieldArray": {
+						"fieldGroupClassName": "row",
+						"fieldGroup": [
 							{
-								"label": "AA",
-								"value": "AA"
-							},
-							{
-								"label": "AE",
-								"value": "AE"
-							},
-							{
-								"label": "AK",
-								"value": "AK"
-							},
-							{
-								"label": "AL",
-								"value": "AL"
-							},
-							{
-								"label": "AP",
-								"value": "AP"
-							},
-							{
-								"label": "AR",
-								"value": "AR"
-							},
-							{
-								"label": "AS",
-								"value": "AS"
-							},
-							{
-								"label": "AZ",
-								"value": "AZ"
-							},
-							{
-								"label": "CA",
-								"value": "CA"
-							},
-							{
-								"label": "CO",
-								"value": "CO"
-							},
-							{
-								"label": "CT",
-								"value": "CT"
-							},
-							{
-								"label": "DC",
-								"value": "DC"
-							},
-							{
-								"label": "DE",
-								"value": "DE"
-							},
-							{
-								"label": "FL",
-								"value": "FL"
-							},
-							{
-								"label": "GA",
-								"value": "GA"
-							},
-							{
-								"label": "GU",
-								"value": "GU"
-							},
-							{
-								"label": "HI",
-								"value": "HI"
-							},
-							{
-								"label": "IA",
-								"value": "IA"
-							},
-							{
-								"label": "ID",
-								"value": "ID"
-							},
-							{
-								"label": "IL",
-								"value": "IL"
-							},
-							{
-								"label": "IN",
-								"value": "IN"
-							},
-							{
-								"label": "KS",
-								"value": "KS"
-							},
-							{
-								"label": "KY",
-								"value": "KY"
-							},
-							{
-								"label": "LA",
-								"value": "LA"
-							},
-							{
-								"label": "MA",
-								"value": "MA"
-							},
-							{
-								"label": "MD",
-								"value": "MD"
-							},
-							{
-								"label": "ME",
-								"value": "ME"
-							},
-							{
-								"label": "MI",
-								"value": "MI"
-							},
-							{
-								"label": "MN",
-								"value": "MN"
-							},
-							{
-								"label": "MO",
-								"value": "MO"
-							},
-							{
-								"label": "MP",
-								"value": "MP"
-							},
-							{
-								"label": "MS",
-								"value": "MS"
-							},
-							{
-								"label": "MT",
-								"value": "MT"
-							},
-							{
-								"label": "NC",
-								"value": "NC"
-							},
-							{
-								"label": "ND",
-								"value": "ND"
-							},
-							{
-								"label": "NE",
-								"value": "NE"
-							},
-							{
-								"label": "NH",
-								"value": "NH"
-							},
-							{
-								"label": "NJ",
-								"value": "NJ"
-							},
-							{
-								"label": "NM",
-								"value": "NM"
-							},
-							{
-								"label": "NV",
-								"value": "NV"
-							},
-							{
-								"label": "NY",
-								"value": "NY"
-							},
-							{
-								"label": "OH",
-								"value": "OH"
-							},
-							{
-								"label": "OK",
-								"value": "OK"
-							},
-							{
-								"label": "OR",
-								"value": "OR"
-							},
-							{
-								"label": "PA",
-								"value": "PA"
-							},
-							{
-								"label": "PR",
-								"value": "PR"
-							},
-							{
-								"label": "RI",
-								"value": "RI"
-							},
-							{
-								"label": "SC",
-								"value": "SC"
-							},
-							{
-								"label": "SD",
-								"value": "SD"
-							},
-							{
-								"label": "TN",
-								"value": "TN"
-							},
-							{
-								"label": "TX",
-								"value": "TX"
-							},
-							{
-								"label": "UT",
-								"value": "UT"
-							},
-							{
-								"label": "VA",
-								"value": "VA"
-							},
-							{
-								"label": "VI",
-								"value": "VI"
-							},
-							{
-								"label": "VT",
-								"value": "VT"
-							},
-							{
-								"label": "WA",
-								"value": "WA"
-							},
-							{
-								"label": "WI",
-								"value": "WI"
-							},
-							{
-								"label": "WV",
-								"value": "WV"
-							},
-							{
-								"label": "WY",
-								"value": "WY"
-							}
+								"className":"col-sm-4",
+								"type": "input",
+							     "key": "simpleString",
+								"templateOptions": {
+								  "label": "Name of Investment:",
+								  "required": true
+								}
+							  }
 						]
 					}
 				}
-				]
-			
-		}
-		
+
 	]
 }

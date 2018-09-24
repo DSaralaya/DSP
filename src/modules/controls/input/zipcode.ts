@@ -7,13 +7,11 @@ import { NgxMaskModule } from 'ngx-mask';
 @Component({
 	selector: 'app-zipcode',
 	template: `
-  
     <input type="text" [mask]='mask' matInput placeholder="{{to.label}} {{to.required? '*':''}}"
       [formControl]="formControl" [formlyAttributes]="field"  />
-     
     `
 })
-export class ZipcodeComponent extends FieldType implements OnInit {
+export class ZipcodeComponent extends FieldType {
 	constructor(private cd: ChangeDetectorRef) {
 		super();
 	}

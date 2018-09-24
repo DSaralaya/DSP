@@ -12,7 +12,7 @@ import { NgxMaskModule } from 'ngx-mask';
    
     `
 })
-export class InputMaskComponent extends FieldType implements OnInit {
+export class InputMaskComponent extends FieldType  {
 	get mask(): string {
 		return this.field.templateOptions.mask || '';
 	}

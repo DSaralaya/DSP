@@ -28,7 +28,7 @@ import { DisclousureModalComponent } from '../../modal/disclosureModal';
  </div></div>
     `
 })
-export class DisclousreComponent extends FieldType implements OnInit {
+export class DisclousreComponent extends FieldType {
 	constructor(private SimpleModalService: SimpleModalService) {
 		super();
 	}

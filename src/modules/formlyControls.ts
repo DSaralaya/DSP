@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 
 import { CheckBoxComponent } from './controls/checkbox/checkbox';
 import { RadioComponent } from './controls/radio/radio';
@@ -41,6 +42,7 @@ import { UiPropertiesModalComponent } from '../app/ui-form/ui-properties.compone
 import { InputComponent } from './controls/input/input';
 import { FormlyMatFormFieldModule } from '@ngx-formly/material/form-field';
 import { RepeatTypeComponent } from './controls/button/repeat-section';
+import { RepeatScreenComponent } from './controls/other/repeat-screen';
 export function showErrorOption(field) {
 
 	if (field.to.hidden === true) {
@@ -195,9 +197,9 @@ const formyconfig = FormlyModule.forRoot({
 			}
 		},
 		{ name: 'repeat', component: RepeatTypeComponent },
+		{ name: 'repeat-screen', component: RepeatScreenComponent },
 		{ name: 'disclosure-toggle', component: DisclousreComponent },
 		{ name: 'dlscan', component: DriverLicesenceScanComponent }
-		
 	],
 
 	validationMessages: [
@@ -259,9 +261,9 @@ const formyconfig = FormlyModule.forRoot({
 		DisclousureModalComponent,
 		DriverLicesenceScanComponent,
 		UiPropertiesModalComponent,
-		RepeatTypeComponent
+		RepeatTypeComponent,RepeatScreenComponent
 	],
-	imports: [ CommonModule, FormsModule, ReactiveFormsModule, NgxMaskModule.forRoot(),FormlyMatFormFieldModule, formyconfig, MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, SimpleModalModule.forRoot({ container: 'modal-container' }), NgUploaderModule ],
+	imports: [ CommonModule, FormsModule, ReactiveFormsModule, NgxMaskModule.forRoot(),FormlyMatFormFieldModule, formyconfig, MatTableModule,MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, SimpleModalModule.forRoot({ container: 'modal-container' }), NgUploaderModule ],
 	entryComponents: [ SaveForLaterModalComponent, DisclousureModalComponent, UiPropertiesModalComponent ],
 	exports: [ ReactiveFormsModule, FormsModule, FormlyModule, SaveforLaterDirective, SimpleModalModule ]
 })
