@@ -9,6 +9,7 @@ import clone from 'lodash.clonedeep';
 })
 export class RepeatScreenComponent extends FieldArrayType implements OnInit {
   showForm = false;
+  showList=true;
   singleForm = new FormGroup({});
   singleField = [];
   ops: any = {};
@@ -25,28 +26,35 @@ export class RepeatScreenComponent extends FieldArrayType implements OnInit {
 
   addItem(value) {
     this.showForm = true;
+    this.showList=false;
   }
 
   hideForm() {
     this.showForm = false;
+    this.showList=true;
     this.index=-1;
     this.ops.resetModel();
+    this.ops={};
+    
   }
 
   editForm(index) {
-      debugger;
       this.index= index;
       this.mdl = clone(this.model[index]);
       this.showForm = true;
+      this.showList=false;
   }
 
   save(model) {
+    this.ops.formState.submitted = true;
+		if (this.singleForm.valid){
       if(this.index==-1){
         this.add(null, model);
       } else {
         this.formControl.at(this.index).patchValue(model);
       }
       this.hideForm();
+    }
   }
 }
 

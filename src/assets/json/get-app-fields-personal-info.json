@@ -1,9 +1,5 @@
 {
-	"items": [
-		{
-		  "simpleString": "This is my simple string",
-		  "simpleBool": true
-		}],
+	
 	"pageCodesMap": {
 		"Body": {
 			"EligibilityPage": "ELG",
@@ -434,17 +430,52 @@
 					"type": "repeat-screen",
 					"className": "col-xs-7 col-sm-6 col-md-5 col-lg-5",
 					"templateOptions": {
-						"columns": ["simpleString","actions"]
+						"columns": ["First_Name","Last_Name","actions"]
 					},
 					"fieldArray": {
 						"fieldGroupClassName": "row",
 						"fieldGroup": [
-							{
+							 {
 								"className":"col-sm-4",
 								"type": "input",
-							     "key": "simpleString",
+							     "key": "First_Name",
 								"templateOptions": {
-								  "label": "Name of Investment:",
+								  "label": "First Name",
+								  "required": true
+								}
+							  },
+							  {
+								"className":"col-sm-4",
+								"type": "input",
+							     "key": "Last_Name",
+								"templateOptions": {
+								  "label": "Last Name",
+								  "required": true
+								}
+							  },
+							  {
+								"className":"col-sm-4",
+								"type": "input",
+							     "key": "Email_Id",
+								"templateOptions": {
+								  "label": "Email",
+								  "required": true
+								}
+							  }, {
+								"className":"col-sm-4",
+								"type": "input",
+							     "key": "Mobile_No",
+								"templateOptions": {
+								  "label": "Mobile No",
+								  "required": true
+								}
+							  },
+							  {
+								"className":"col-sm-12",
+								"type": "input",
+							     "key": "Address",
+								"templateOptions": {
+								  "label": "Address",
 								  "required": true
 								}
 							  }

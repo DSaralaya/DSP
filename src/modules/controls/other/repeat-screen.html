@@ -1,4 +1,4 @@
-<table mat-table width="100%" [dataSource]="formControl.value" class="mat-elevation-z8" *ngIf="model.length > 0">
+<table mat-table width="100%" [dataSource]="formControl.value"  *ngIf="model.length > 0 && showList">
     <ng-container *ngFor="let field of field.fieldArray.fieldGroup" [matColumnDef]="field.key">
         <th mat-header-cell *matHeaderCellDef>{{ field.templateOptions.label }}</th>
         <td mat-cell *matCellDef="let row"> {{row[field.key]}} </td>
@@ -20,14 +20,16 @@
 </div>
 
 <div *ngIf="showForm" class="subform">
-    <form [formGroup]="singleForm">
-        <formly-form [model]="mdl" [fields]="singleField" [form]="singleForm" [options]="ops">
-            <div fxLayout="row" fxLayoutAlign="left center">
+
+    <form [formGroup]="singleForm" >
+        <formly-form [model]="mdl" class="row" [fields]="singleField" [form]="singleForm" [options]="ops">
+            <div fxLayout="row" fxLayoutAlign="center">
             <button mat-flat-button (click)="hideForm()" *ngIf="showForm">Cancel</button>
                 <button mat-flat-button color="accent" (click)="save(mdl)" type="button">Save</button>
             </div>
         </formly-form>
     </form>
+  
 </div>
 
 <div class="button-container">
