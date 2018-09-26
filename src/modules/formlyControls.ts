@@ -8,6 +8,7 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputMaskComponent } from './controls/input/masking';
 import { SectionComponent } from './wrappers/section';
 import { SelectComponent } from './controls/select/select';
+import { NGXSelectComponent } from './controls/select/ng-select';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -43,6 +44,7 @@ import { InputComponent } from './controls/input/input';
 import { FormlyMatFormFieldModule } from '@ngx-formly/material/form-field';
 import { RepeatTypeComponent } from './controls/button/repeat-section';
 import { RepeatScreenComponent } from './controls/other/repeat-screen';
+import { NgSelectModule } from '@ng-select/ng-select';
 export function showErrorOption(field) {
 
 	if (field.to.hidden === true) {
@@ -59,6 +61,7 @@ const formyconfig = FormlyModule.forRoot({
 	types: [
 		{ name: 'input', component: InputComponent,wrappers: ['form-field'] },
 		{ name: 'select', component: SelectComponent,wrappers: ['form-field'] },
+		{ name: 'ng-select', component: NGXSelectComponent,wrappers: ['form-field'] },
 		{ name: 'checkbox', component: CheckBoxComponent },
 		{ name: 'radio-btn', component: RadioComponent },
 		{
@@ -261,9 +264,9 @@ const formyconfig = FormlyModule.forRoot({
 		DisclousureModalComponent,
 		DriverLicesenceScanComponent,
 		UiPropertiesModalComponent,
-		RepeatTypeComponent,RepeatScreenComponent
+		RepeatTypeComponent,RepeatScreenComponent,NGXSelectComponent
 	],
-	imports: [ CommonModule, FormsModule, ReactiveFormsModule, NgxMaskModule.forRoot(),FormlyMatFormFieldModule, formyconfig, MatTableModule,MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, SimpleModalModule.forRoot({ container: 'modal-container' }), NgUploaderModule ],
+	imports: [ CommonModule, FormsModule, ReactiveFormsModule, NgxMaskModule.forRoot(),FormlyMatFormFieldModule, formyconfig, MatTableModule,MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, SimpleModalModule.forRoot({ container: 'modal-container' }), NgUploaderModule,NgSelectModule ],
 	entryComponents: [ SaveForLaterModalComponent, DisclousureModalComponent, UiPropertiesModalComponent ],
 	exports: [ ReactiveFormsModule, FormsModule, FormlyModule, SaveforLaterDirective, SimpleModalModule ]
 })

@@ -442,7 +442,33 @@
 						"label": "ID Type",
 						"required": true,
 						"objectName": "Identity_Information__c",
-						"fieldName": "ID_Type__c"
+						"fieldName": "ID_Type__c",
+						"options": [
+							{
+							  "value": "",
+							  "name": "Suffix"
+							},
+							{
+							  "value": "Jr.",
+							  "name": "Jr."
+							},
+							{
+							  "value": "Sr.",
+							  "name": "Sr."
+							},
+							{
+							  "value": "I",
+							  "name": "I"
+							},
+							{
+							  "value": "II",
+							  "name": "II"
+							},
+							{
+							  "value": "III",
+							  "name": "III"
+							}
+						  ]
 					},
 					"defaultValue": "Drivers License",
 					"data": {
@@ -481,7 +507,33 @@
 						"label": "State Issued",
 						"required": true,
 						"objectName": "Identity_Information__c",
-						"fieldName": "State_Issued__c"
+						"fieldName": "State_Issued__c",
+						"options": [
+							{
+							  "value": "",
+							  "name": "Suffix"
+							},
+							{
+							  "value": "Jr.",
+							  "name": "Jr."
+							},
+							{
+							  "value": "Sr.",
+							  "name": "Sr."
+							},
+							{
+							  "value": "I",
+							  "name": "I"
+							},
+							{
+							  "value": "II",
+							  "name": "II"
+							},
+							{
+							  "value": "III",
+							  "name": "III"
+							}
+						  ]
 					},
 					"expressionProperties": {
 						"templateOptions.required": "model['Identity_Information__c']['ID_Type__c'] !='Military ID'"
@@ -502,7 +554,7 @@
 				},
 				{
 					"key": "Identity_Information__c.Issue_Date__c",
-					"type": "date",
+					"type": "input",
 					"className": "col-xs-12 col-sm-9 col-md-6 col-lg-6",
 					"templateOptions": {
 						"label": "Issue Date (MM/DD/YYYY)",
@@ -513,7 +565,7 @@
 				},
 				{
 					"key": "Identity_Information__c.Expiry_Date__c",
-					"type": "future_date",
+					"type": "input",
 					"className": "col-xs-12 col-sm-9 col-md-6 col-lg-6",
 					"templateOptions": {
 						"label": "Expiration Date (MM/DD/YYYY)",
