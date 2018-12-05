@@ -4,7 +4,6 @@ import { NgxMaskModule } from 'ngx-mask';
 
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 import { InputMaskComponent } from './controls/input/masking';
 import { SectionComponent } from './wrappers/section';
 import { SelectComponent } from './controls/select/select';
@@ -36,17 +35,16 @@ import { ConfirmationOfferComponent } from './controls/button/confirmation-offer
 import { CardDesginComponent } from './controls/button/card-design';
 import { DisclousreComponent } from './controls/checkbox/disclosure';
 import { DisclousureModalComponent } from './modal/disclosureModal';
-import { NgUploaderModule } from 'ngx-uploader';
+import { NgxUploaderModule } from 'ngx-uploader';
 import { DriverLicesenceScanComponent } from './templates/driverScan';
 import { ValidationService } from '../app/shared/services/validation.service';
-import { UiPropertiesModalComponent } from '../app/ui-form/ui-properties.component';
+
 import { InputComponent } from './controls/input/input';
 import { FormlyMatFormFieldModule } from '@ngx-formly/material/form-field';
 import { RepeatTypeComponent } from './controls/button/repeat-section';
 import { RepeatScreenComponent } from './controls/other/repeat-screen';
 import { NgSelectModule } from '@ng-select/ng-select';
 export function showErrorOption(field) {
-
 	if (field.to.hidden === true) {
 		field.formControl.setValue(null);
 		field.model[field.to['objectName']][field.to['fieldName']] = '';
@@ -59,21 +57,21 @@ export function showErrorOption(field) {
 const formyconfig = FormlyModule.forRoot({
 	extras: { showError: showErrorOption },
 	types: [
-		{ name: 'input', component: InputComponent,wrappers: ['form-field'] },
-		{ name: 'select', component: SelectComponent,wrappers: ['form-field'] },
-		{ name: 'ng-select', component: NGXSelectComponent,wrappers: ['form-field'] },
+		{ name: 'input', component: InputComponent, wrappers: [ 'form-field' ] },
+		{ name: 'select', component: SelectComponent, wrappers: [ 'form-field' ] },
+		{ name: 'ng-select', component: NGXSelectComponent, wrappers: [ 'form-field' ] },
 		{ name: 'checkbox', component: CheckBoxComponent },
 		{ name: 'radio-btn', component: RadioComponent },
 		{
 			name: 'email',
-			extends: 'input' ,
+			extends: 'input',
 			defaultOptions: {
 				validators: {
 					invalidEmailAddress: (control: FormControl) => ValidationService.email(control)
 				}
 			}
 		},
-		{ name: 'masking', component: InputMaskComponent, wrappers: ['form-field']},
+		{ name: 'masking', component: InputMaskComponent, wrappers: [ 'form-field' ] },
 		{
 			name: 'phone',
 			extends: 'masking',
@@ -103,7 +101,7 @@ const formyconfig = FormlyModule.forRoot({
 		{
 			name: 'ssn',
 			component: SSNInputComponent,
-			wrappers: ['form-field'],
+			wrappers: [ 'form-field' ],
 			defaultOptions: {
 				validators: {
 					invalidSSN: (control: FormControl, field: any) => ValidationService.SSN(control, field)
@@ -181,12 +179,12 @@ const formyconfig = FormlyModule.forRoot({
 		},
 		{ name: 'number', extends: 'input' },
 		{ name: 'clear-field' },
-		{ name: 'zipcode', component: ZipcodeComponent, wrappers: ['form-field'] },
+		{ name: 'zipcode', component: ZipcodeComponent, wrappers: [ 'form-field' ] },
 		{ name: 'joint-checkbox', component: JointApplicantComponent },
 		{ name: 'online-cross-sell', component: DynamicCrossSellComponent },
 		{ name: 'dynamic-cross-sell', component: DynamicCrossSellComponent },
-		{ name: 'currency', component: CurrencyComponent, wrappers: ['form-field'] },
-		{ name: 'read-only', component: ReadOnlyComponent, wrappers: ['form-field'] },
+		{ name: 'currency', component: CurrencyComponent, wrappers: [ 'form-field' ] },
+		{ name: 'read-only', component: ReadOnlyComponent, wrappers: [ 'form-field' ] },
 		{ name: 'output', component: OutputTextComponent },
 		{ name: 'template', component: EmploymentTemplateComponent },
 		{ name: 'confirmation-offer', component: ConfirmationOfferComponent },
@@ -208,7 +206,7 @@ const formyconfig = FormlyModule.forRoot({
 	validationMessages: [
 		{
 			name: 'required',
-			message: (error,field) => (field['data'] && field['data']['validationMessage'] ? `${field['data']['validationMessage']}` : `${field.templateOptions.label.replace('(MM/DD/YYYY)', '')} is required.`)
+			message: (error, field) => (field['data'] && field['data']['validationMessage'] ? `${field['data']['validationMessage']}` : `${field.templateOptions.label.replace('(MM/DD/YYYY)', '')} is required.`)
 		},
 		{
 			name: 'invalidEmailAddress',
@@ -263,11 +261,27 @@ const formyconfig = FormlyModule.forRoot({
 		DisclousreComponent,
 		DisclousureModalComponent,
 		DriverLicesenceScanComponent,
-		UiPropertiesModalComponent,
-		RepeatTypeComponent,RepeatScreenComponent,NGXSelectComponent
+		RepeatTypeComponent,
+		RepeatScreenComponent,
+		NGXSelectComponent
 	],
-	imports: [ CommonModule, FormsModule, ReactiveFormsModule, NgxMaskModule.forRoot(),FormlyMatFormFieldModule, formyconfig, MatTableModule,MatInputModule, MatSelectModule, MatCheckboxModule, MatButtonModule, SimpleModalModule.forRoot({ container: 'modal-container' }), NgUploaderModule,NgSelectModule ],
-	entryComponents: [ SaveForLaterModalComponent, DisclousureModalComponent, UiPropertiesModalComponent ],
+	imports: [
+		CommonModule,
+		FormsModule,
+		ReactiveFormsModule,
+		NgxMaskModule.forRoot(),
+		FormlyMatFormFieldModule,
+		formyconfig,
+		MatTableModule,
+		MatInputModule,
+		MatSelectModule,
+		MatCheckboxModule,
+		MatButtonModule,
+		SimpleModalModule.forRoot({ container: 'modal-container' }),
+		NgxUploaderModule,
+		NgSelectModule
+	],
+	entryComponents: [ SaveForLaterModalComponent, DisclousureModalComponent ],
 	exports: [ ReactiveFormsModule, FormsModule, FormlyModule, SaveforLaterDirective, SimpleModalModule ]
 })
 export class FormlyControls {}

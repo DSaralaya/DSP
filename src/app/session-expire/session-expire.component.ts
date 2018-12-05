@@ -8,7 +8,7 @@ import { NgProgress } from '@ngx-progressbar/core';
 })
 export class SessionExpireComponent implements OnInit {
 	constructor(progress: NgProgress) {
-		progress.done();
+		//progress.done();
 	}
 
 	ngOnInit() {}
