@@ -13,7 +13,7 @@ export class GetStartedComponent extends GlobalEvent implements OnInit {
 		super(service, router);
 	}
 	ngOnInit() {
-		debugger;
+		
 		this.getAppFields('get-started');
 	}
 }

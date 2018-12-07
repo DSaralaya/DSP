@@ -12,7 +12,7 @@ import { FieldType } from '@ngx-formly/core';
 })
 export class SSNInputComponent extends FieldType {
 	get mask(): string {
-		return '999-99-9999';
+		return '000-00-0000';
 	}
 	get type(): string {
 		return this.to.type || 'text';

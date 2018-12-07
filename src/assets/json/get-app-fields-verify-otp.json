@@ -1,0 +1,30 @@
+{
+	"pageList": "get-started,verify-otp,personal-info",
+	"pageFlowMap": {
+		"skipPrevPage": "", "skipNextPage": "", "nextPage": "form/personal-info", "prevPage": "form/verify-otp" 
+    },
+	"fields": [{
+
+			"template": "<h5 class=\"input-group-title\">For your security, please verify your contact information. We just sent a one-time verification code to your mobile phone.</h5>",
+			"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header"
+		},
+		{
+			"wrapper": "section",
+			"fieldGroupClassName": "row",
+			"fieldGroup": [{
+
+				"key": "Application__c.OTP__c",
+				"type": "number",
+				"className": " control-center col-xs-12 col-sm-12 col-md-6 col-lg-6",
+				"templateOptions": {
+					"label": "Verify OTP",
+					"required": true,
+					"objectName": "Application__c",
+					"fieldName": "OTP__c",
+					"labelClass": "label-front",
+					"maxlength":5
+				}
+			}]
+		}
+	]
+}

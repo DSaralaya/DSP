@@ -18,7 +18,7 @@ export class DynamicComponent extends GlobalEvent implements OnInit {
 
 	ngOnInit() {
 		const page = this.route.snapshot.params['id'];
-		debugger;
+		
 		this.getAppFields(page);
 	}
 }

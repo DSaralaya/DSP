@@ -14,8 +14,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
-
+import {MatIconModule} from '@angular/material/icon';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { CheckBoxComponent } from './controls/checkbox/checkbox';
+
 import { RadioComponent } from './controls/radio/radio';
 import { SsnMaskDirective } from './directives/ssnDir';
 import { SSNInputComponent } from './controls/input/ssn';
@@ -44,6 +46,9 @@ import { FormlyMatFormFieldModule } from '@ngx-formly/material/form-field';
 import { RepeatTypeComponent } from './controls/button/repeat-section';
 import { RepeatScreenComponent } from './controls/other/repeat-screen';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ToggleComponent } from './controls/radio/toggle';
+import { ProductSelectComponent } from './controls/radio/product-select';
+
 export function showErrorOption(field) {
 	if (field.to.hidden === true) {
 		field.formControl.setValue(null);
@@ -61,6 +66,8 @@ const formyconfig = FormlyModule.forRoot({
 		{ name: 'select', component: SelectComponent, wrappers: [ 'form-field' ] },
 		{ name: 'ng-select', component: NGXSelectComponent, wrappers: [ 'form-field' ] },
 		{ name: 'checkbox', component: CheckBoxComponent },
+		{ name: 'toggle', component: ToggleComponent },
+		{ name:'product-select', component:ProductSelectComponent},
 		{ name: 'radio-btn', component: RadioComponent },
 		{
 			name: 'email',
@@ -77,7 +84,7 @@ const formyconfig = FormlyModule.forRoot({
 			extends: 'masking',
 			defaultOptions: {
 				templateOptions: {
-					mask: '(999) 999-9999'
+					mask: '(000) 000-0000'
 				},
 				validators: {
 					invalidPhone: (control: FormControl) => ValidationService.phone(control)
@@ -122,7 +129,7 @@ const formyconfig = FormlyModule.forRoot({
 			extends: 'masking',
 			defaultOptions: {
 				templateOptions: {
-					mask: '99/99/9999'
+					mask: '00/00/0000'
 				},
 				validators: {
 					invalidDate: (control: FormControl, field: any) => ValidationService.validDate(control, field),
@@ -263,7 +270,7 @@ const formyconfig = FormlyModule.forRoot({
 		DriverLicesenceScanComponent,
 		RepeatTypeComponent,
 		RepeatScreenComponent,
-		NGXSelectComponent
+		NGXSelectComponent,ToggleComponent,ProductSelectComponent
 	],
 	imports: [
 		CommonModule,
@@ -277,6 +284,8 @@ const formyconfig = FormlyModule.forRoot({
 		MatSelectModule,
 		MatCheckboxModule,
 		MatButtonModule,
+		MatIconModule,
+		MatSlideToggleModule,
 		SimpleModalModule.forRoot({ container: 'modal-container' }),
 		NgxUploaderModule,
 		NgSelectModule

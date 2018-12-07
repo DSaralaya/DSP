@@ -2,20 +2,21 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { NgProgress } from '@ngx-progressbar/core';
+import { NgProgress, NgProgressRef } from '@ngx-progressbar/core';
 import * as _ from 'underscore';
 import { VfRemoteService } from '../../../modules/vfremote/vf-remote.service';
 
 import { from } from 'rxjs';
-
 import { AppConfig } from '../common/config';
 
 @Injectable()
 export class LocalService {
 	_data: any;
 	private resourceurl: string;
+	progressRef: NgProgressRef;
 	constructor(private http: Http, private progress: NgProgress, private vfRemote: VfRemoteService) {
 		this.resourceurl = window['Dsp.Resourceurl'] ? window['Dsp.Resourceurl'] : '';
+		this.progressRef = progress.ref();
 	}
 
 	callExternalMethod(method: string, params?: any) {
@@ -23,7 +24,7 @@ export class LocalService {
 		if (domain === 'local') {
 			return this.http.get(this.resourceurl + '/assets/json/get-app-fields-' + params['pageName'] + '.json').map((x) => x.json()).map((data) => {
 				setTimeout(() => {
-					//	this.progress.done();
+						this.progressRef.complete();
 				}, 100);
 				data = this.preProcessData('', data);
 				return (this._data = data);
@@ -39,7 +40,7 @@ export class LocalService {
 				[method](params)
 				.then((result) => {
 					setTimeout(() => {
-						//this.progress.done();
+						this.progressRef.complete();
 					}, 100);
 					if (result.body) {
 						return JSON.parse(result.body.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\\n/g, '').replace(/&#39;/g, "'"));
@@ -53,7 +54,7 @@ export class LocalService {
 				[method]()
 				.then((result) => {
 					setTimeout(() => {
-						//this.progress.done();
+						this.progressRef.complete();
 					}, 100);
 					if (result.body) {
 						return JSON.parse(result.body.replace(/&quot;/g, '"').replace(/&amp;quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\\n/g, '').replace(/&#39;/g, "'"));

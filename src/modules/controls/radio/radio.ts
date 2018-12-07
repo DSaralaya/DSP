@@ -10,7 +10,6 @@ import { FieldType } from '@ngx-formly/core';
   {{ item.value}}
   </label>
 </div>
-
     `
 })
 export class RadioComponent extends FieldType implements OnInit {

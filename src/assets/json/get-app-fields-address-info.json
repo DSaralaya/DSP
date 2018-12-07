@@ -1,0 +1,188 @@
+{
+	"pageList": "get-started,verify-otp,personal-info",
+	"pageFlowMap": {
+		"skipPrevPage": "", "skipNextPage": "", "nextPage": "form/personal-info", "prevPage": "form/personal-info" 
+    },
+	"fields": [{
+
+			"template": "<h5 class=\"input-group-title\">Current Address.</h5>",
+			"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header"
+		},
+		{
+			"wrapper": "section",
+			"fieldGroupClassName": "row",
+			"fieldGroup": [
+				{
+				"key": "Application__c.Street_Address__c",
+				"type": "input",
+				"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
+				"templateOptions": {
+					"label": "Street Address",
+					"required": true,
+					"objectName": "Application__c",
+					"fieldName": "Street_Address__c",
+					"labelClass": "label-front"
+				}
+			  },
+			  {
+				"key": "Application__c.City__c",
+				"type": "input",
+				"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+				"templateOptions": {
+					"label": "City",
+					"required": true,
+					"objectName": "Application__c",
+					"fieldName": "City__c",
+					"labelClass": "label-front"
+				}
+			  },
+			  {
+				"key": "Application__c.State__c",
+				"type": "input",
+				"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+				"templateOptions": {
+					"label": "State",
+					"required": true,
+					"objectName": "Application__c",
+					"fieldName": "State__c",
+					"labelClass": "label-front"
+				}
+			  },
+			  {
+				"key": "Application__c.ZipCode__c",
+				"type": "input",
+				"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+				"templateOptions": {
+					"label": "Zip Code",
+					"required": true,
+					"objectName": "Application__c",
+					"fieldName": "ZipCode__c",
+					"labelClass": "label-front"
+				}
+			  },
+			  {
+				"key": "Application__c.Country__c",
+				"type": "input",
+				"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+				"templateOptions": {
+					"label": "Country",
+					"required": true,
+					"objectName": "Application__c",
+					"fieldName": "Country__c",
+					"labelClass": "label-front"
+				}
+			  },
+			  {
+				"key": "Application__c.Start_Date__c",
+				"type": "input",
+				"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+				"templateOptions": {
+					"label": "Start Date (MM/YYYY)",
+					"required": true,
+					"objectName": "Application__c",
+					"fieldName": "Start_Date__c",
+					"labelClass": "label-front"
+				}
+				},
+				{
+					"key": "Application__c.isMailing_Address__c",
+					"type": "toggle",
+					"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
+					"templateOptions": {
+						"label": "Is your mailing address the same as your current address?",
+						"required": true,
+						"objectName": "Application__c",
+						"fieldName": "isMailing_Address__c",
+						"labelClass": "label-front"
+					}
+				}
+		 ]
+		},
+		{
+
+			"template": "<h5 class=\"input-group-title\">Mailing Address.</h5>",
+			"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header",
+			"hideExpression": "model['Application__c']['isMailing_Address__c']"
+		},
+		{
+			"wrapper": "section",
+			"fieldGroupClassName": "row",
+			"hideExpression": "model['Application__c']['isMailing_Address__c']",
+			"fieldGroup": [
+				{
+				"key": "Application__c.Mailing_Street_Address__c",
+				"type": "input",
+				"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
+				"templateOptions": {
+					"label": "Street Address",
+					"required": true,
+					"objectName": "Application__c",
+					"fieldName": "Mailing_Street_Address__c",
+					"labelClass": "label-front"
+				}
+			  },
+			  {
+				"key": "Application__c.Mailing_City__c",
+				"type": "input",
+				"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+				"templateOptions": {
+					"label": "City",
+					"required": true,
+					"objectName": "Application__c",
+					"fieldName": "Mailing_City__c",
+					"labelClass": "label-front"
+				}
+			  },
+			  {
+				"key": "Application__c.Mailing_State__c",
+				"type": "input",
+				"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+				"templateOptions": {
+					"label": "State",
+					"required": true,
+					"objectName": "Application__c",
+					"fieldName": "Mailing_State__c",
+					"labelClass": "label-front"
+				}
+			  },
+			  {
+				"key": "Application__c.Mailing_ZipCode__c",
+				"type": "input",
+				"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+				"templateOptions": {
+					"label": "Zip Code",
+					"required": true,
+					"objectName": "Application__c",
+					"fieldName": "Mailing_ZipCode__c",
+					"labelClass": "label-front"
+				}
+			  },
+			  {
+				"key": "Application__c.Mailing_Country__c",
+				"type": "input",
+				"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+				"templateOptions": {
+					"label": "Country",
+					"required": true,
+					"objectName": "Application__c",
+					"fieldName": "Mailing_Country__c",
+					"labelClass": "label-front"
+				}
+			  },
+			  {
+				"key": "Application__c.Mailing_Start_Date__c",
+				"type": "input",
+				"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+				"templateOptions": {
+					"label": "Start Date (MM/YYYY)",
+					"required": true,
+					"objectName": "Application__c",
+					"fieldName": "Mailing_Start_Date__c",
+					"labelClass": "label-front"
+				}
+				}
+			
+		 ]
+		}
+	]
+}

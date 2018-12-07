@@ -4,32 +4,22 @@
     <form [formGroup]="form" (ngSubmit)="submit(navigateUrl)">
       <div class="wrap">
       <div class="card page-card">
-        <div class="card-header">
-          <div class="row">
-            <div class="col-sm-12">
-                <h5>  <span class="page-progress number">{{currentIndex}}<small>/{{totalPages}}</small></span> {{pageTitle}}</h5>
-            </div>
-          </div>
-            
-            
-        </div>
+       
         <div class="card-block">
-            <div class="productapplied-other">
-                You are applying for : <b>{{model?.Application__c.Sub_Product__c}}</b>  
-            </div>
+            <a class="pull-left back" href="/#/{{prevUrl}}">
+                 <i class="fa fa-angle-left fa-2x" aria-hidden="true"></i> Back 
+           </a>
           <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">
           </formly-form>
         </div>
-        <div class="card-footer">
-            <a class="btn btn-secondary btn-lg pull-left" href="/#/{{prevUrl}}">
-              Previous 
-               </a>
+        <div class="cfooter">
+           
           <ul class="list-inline mb-0 text-right">
-            <li class="list-inline-item">
+           <!--- <li class="list-inline-item">
                 <button type="button" class="btn btn-primary btn-lg" (appSaveforLaterClick)="onClick()">
                    Save for Later
                   </button>
-            </li>
+            </li>-->
             <li class="list-inline-item">
                 <button type="submit" class="btn btn-primary btn-lg">
                   Next 

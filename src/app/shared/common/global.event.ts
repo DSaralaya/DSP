@@ -39,7 +39,7 @@ export class GlobalEvent {
 				delete this.model.fields;
 			}
 			var currPage = AppConfig.CurrentPage(this.model);
-			if(this.model['pageList']!='') {
+			if(this.model['pageList'] && this.model['pageList']!='') {
 				this.totalPages=this.model['pageList'].split(',').length;
 				this.currentIndex=this.model['pageList'].split(',').indexOf(currPage)+1;
 			}

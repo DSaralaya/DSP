@@ -1,22 +1,25 @@
 
 <div class="container" *ngIf="model">
-  <div class="row ">
-    <div class="col-md-7">
-      <div class="productapplied">
-          You are applying for : <b>{{model?.Application__c.Sub_Product__c}}</b>  
+  <div class="row getstarteddesc">
+  <div class="col-sm-12 text-center">
+     <h3>Let's get started on your loan application.</h3>
+  </div>
+    <div class="col-md-6">
+    <div class="">
+     <h4> Secure</h4>
+     <p>Your data protected with industry standard encryption</p>
+      <h4> Auto Saved</h4>
+      <p>We’ll save your information as you go.</p>
+      <h4>Less paperwork</h4>
+      <p>Import income and asset information directly to your application.</p>
       </div>
-     
     </div>
-    
+    <div class="col-sm-1 divider"></div>
     <div class="col-md-5">
       <form [formGroup]="form" (ngSubmit)="submit('personal-info')">
-        <div class="card">
-          <div class="card-block">
             <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">
               <button type="submit" class="btn btn-primary btn-block submit-button">SUBMIT</button>
             </formly-form>
-          </div>
-        </div>
       </form>
     </div>
   </div>
