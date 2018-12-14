@@ -1,0 +1,554 @@
+{
+  "Application__c":{
+
+  },
+  "Application2__c":{},
+	"pageList": "get-started,verify-otp,personal-info",
+	"pageFlowMap": {
+		"skipPrevPage": "",
+		"skipNextPage": "",
+		"nextPage": "form/personal-info",
+		"prevPage": "form/personal-info"
+	},
+	"fields": [
+    {
+      "template": "<h5 class=\"input-group-title hidden\"></h5>",
+      "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header ",
+      "data": {
+        "sectionType": "DP-impInfo_PA"
+      }
+    },
+    {
+      "wrapper": "section",
+      "className": "row",
+      "fieldGroup": [
+        {
+          "key": "Application2__c.Qa_PrimApp__c",
+          "type": "toggle",
+          "data": {
+            "toggleToolTip": "U.S. citizen is an individual born in the U.S. or its territories, including Puerto Rico, Guam and the U.S. Virgin Islands. This includes individuals that have gained U.S. Citizenship through parent citizenship or through naturalization.",
+            "toggleToolTipTitle": "U.S. CITIZEN:",
+            "recordId": "a0Kc000000I8Rc7EAF"
+          },
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 chk-right",
+          "templateOptions": {
+            "label": "Are you a U.S. citizen?",
+            "required": true,
+            "objectName": "Application2__c",
+            "fieldName": "Qa_PrimApp__c",
+            "options": [
+              {
+                "value": "Yes",
+                "name": "Yes"
+              },
+              {
+                "value": "No",
+                "name": "No"
+              }
+            ]
+          },
+          "defaultValue": "No"
+        },
+        {
+          "key": "Application2__c.Qb_PrimApp__c",
+          "type": "toggle",
+          "hideExpression": "model['Application2__c']['Qa_PrimApp__c']==true",
+          "data": {
+            "toggleToolTip": "A permanent resident alien is an immigrant or alien admitted to the United States as a lawful permanent resident.",
+            "toggleToolTipTitle": "PERMANENT RESIDENT ALIEN:",
+            "recordId": "a0Kc000000I8RcAEAV"
+          },
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 chk-right",
+          "templateOptions": {
+            "label": "Are you a permanent resident alien?",
+            "required": true,
+            "objectName": "Application2__c",
+            "fieldName": "Qb_PrimApp__c",
+            "options": [
+              {
+                "value": "Yes",
+                "name": "Yes"
+              },
+              {
+                "value": "No",
+                "name": "No"
+              }
+            ]
+          },
+          "defaultValue": "No"
+        },
+        {
+          "key": "Application2__c.IsPOA_Used__c",
+          "type": "toggle",
+          "data": {
+            "recordId": "a0Kc000000I8RfOEAV"
+          },
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 chk-right",
+          "templateOptions": {
+            "label": "Is Power of Attorney (POA) being used for this application?",
+            "required": true,
+            "objectName": "Application2__c",
+            "fieldName": "IsPOA_Used__c",
+            "options": [
+              {
+                "value": "Yes",
+                "name": "Yes"
+              },
+              {
+                "value": "No",
+                "name": "No"
+              }
+            ]
+          },
+          "defaultValue": "No"
+        },
+        {
+          "key": "Application2__c.Qc_PrimApp__c",
+          "type": "toggle",
+          "data": {
+            "recordId": "a0Kc000000I8RbqEAF"
+          },
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 chk-right",
+          "templateOptions": {
+            "label": "Are there any outstanding judgments against you?",
+            "required": true,
+            "objectName": "Application2__c",
+            "fieldName": "Qc_PrimApp__c",
+            "options": [
+              {
+                "value": "Yes",
+                "name": "Yes"
+              },
+              {
+                "value": "No",
+                "name": "No"
+              }
+            ]
+          },
+          "defaultValue": "No"
+        },
+        {
+          "key": "Application2__c.Qd_PrimApp__c",
+          "type": "toggle",
+          "data": {
+            "recordId": "a0Kc000000I8RbrEAF"
+          },
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 chk-right",
+          "templateOptions": {
+            "label": "Have you been declared bankrupt in the past 7 years?",
+            "required": true,
+            "objectName": "Application2__c",
+            "fieldName": "Qd_PrimApp__c",
+            "options": [
+              {
+                "value": "Yes",
+                "name": "Yes"
+              },
+              {
+                "value": "No",
+                "name": "No"
+              }
+            ]
+          },
+          "defaultValue": "No"
+        },
+        {
+          "key": "Application2__c.Qe_PrimApp__c",
+          "type": "toggle",
+          "data": {
+            "recordId": "a0Kc000000I8RbtEAF"
+          },
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 chk-right",
+          "templateOptions": {
+            "label": "Have you had property foreclosed upon or given title or deed in lieu thereof in the last 7 years?",
+            "required": true,
+            "objectName": "Application2__c",
+            "fieldName": "Qe_PrimApp__c",
+            "options": [
+              {
+                "value": "Yes",
+                "name": "Yes"
+              },
+              {
+                "value": "No",
+                "name": "No"
+              }
+            ]
+          },
+          "defaultValue": "No"
+        },
+        {
+          "key": "Application2__c.Qf_PrimApp__c",
+          "type": "toggle",
+          "data": {
+            "recordId": "a0Kc000000I8RbwEAF"
+          },
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 chk-right",
+          "templateOptions": {
+            "label": "Are you a party to a lawsuit?",
+            "required": true,
+            "objectName": "Application2__c",
+            "fieldName": "Qf_PrimApp__c",
+            "options": [
+              {
+                "value": "Yes",
+                "name": "Yes"
+              },
+              {
+                "value": "No",
+                "name": "No"
+              }
+            ]
+          },
+          "defaultValue": "No"
+        },
+        {
+          "key": "Application2__c.Qg_PrimApp__c",
+          "type": "toggle",
+          "data": {
+            "recordId": "a0Kc000000I8RbyEAF"
+          },
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 chk-right",
+          "templateOptions": {
+            "label": "Have you directly or indirectly been obligated on any loan which resulted in foreclosure, transfer of title in lieu of foreclosure, or judgment?",
+            "required": true,
+            "objectName": "Application2__c",
+            "fieldName": "Qg_PrimApp__c",
+            "options": [
+              {
+                "value": "Yes",
+                "name": "Yes"
+              },
+              {
+                "value": "No",
+                "name": "No"
+              }
+            ]
+          },
+          "defaultValue": "No"
+        },
+        {
+          "key": "Application2__c.Qh_PrimApp__c",
+          "type": "toggle",
+          "data": {
+            "recordId": "a0Kc000000I8Rc0EAF"
+          },
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 chk-right",
+          "templateOptions": {
+            "label": "Are you presently delinquent or in default on any Federal debt or any other loan, mortgage, financial obligation, bond or loan guarantee?",
+            "required": true,
+            "objectName": "Application2__c",
+            "fieldName": "Qh_PrimApp__c",
+            "options": [
+              {
+                "value": "Yes",
+                "name": "Yes"
+              },
+              {
+                "value": "No",
+                "name": "No"
+              }
+            ]
+          },
+          "defaultValue": "No"
+        },
+        {
+          "key": "Application2__c.Qi_PrimApp__c",
+          "type": "toggle",
+          "data": {
+            "recordId": "a0Kc000000I8Rc1EAF"
+          },
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 chk-right",
+          "templateOptions": {
+            "label": "Are you obligated to pay alimony, child support, or separate maintenance?",
+            "required": false,
+            "objectName": "Application2__c",
+            "fieldName": "Qi_PrimApp__c",
+            "options": [
+              {
+                "value": "Yes",
+                "name": "Yes"
+              },
+              {
+                "value": "No",
+                "name": "No"
+              }
+            ]
+          },
+          "expressionProperties": {
+            "templateOptions.required": "model['Application2__c']['Qh_PrimApp__c']==true"
+          },
+          "defaultValue": "No"
+        },
+        {
+          "key": "Application2__c.Qj_PrimApp__c",
+          "type": "toggle",
+          "data": {
+            "recordId": "a0Kc000000I8Rc4EAF"
+          },
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 chk-right",
+          "templateOptions": {
+            "label": "Is any part of the down payment borrowed?",
+            "required": true,
+            "objectName": "Application2__c",
+            "fieldName": "Qj_PrimApp__c",
+            "options": [
+              {
+                "value": "Yes",
+                "name": "Yes"
+              },
+              {
+                "value": "No",
+                "name": "No"
+              }
+            ]
+          },
+          "defaultValue": "No"
+        },
+        {
+          "key": "Application2__c.Ql_PrimApp__c",
+          "type": "toggle",
+          "data": {
+            "recordId": "a0Kc000000I8Rc5EAF"
+          },
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 chk-right",
+          "templateOptions": {
+            "label": "Are you a co-maker or endorser on a note?",
+            "required": true,
+            "objectName": "Application2__c",
+            "fieldName": "Ql_PrimApp__c",
+            "options": [
+              {
+                "value": "Yes",
+                "name": "Yes"
+              },
+              {
+                "value": "No",
+                "name": "No"
+              }
+            ]
+          },
+          "defaultValue": "No"
+        },
+        {
+          "key": "Application2__c.Qm_PrimApp__c",
+          "type": "toggle",
+          "data": {
+            "recordId": "a0Kc000000I8RcCEAV"
+          },
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 chk-right",
+          "templateOptions": {
+            "label": "Do you intend to occupy the property as your primary residence?",
+            "required": true,
+            "objectName": "Application2__c",
+            "fieldName": "Qm_PrimApp__c",
+            "options": [
+              {
+                "value": "Yes",
+                "name": "Yes"
+              },
+              {
+                "value": "No",
+                "name": "No"
+              }
+            ]
+          },
+          "defaultValue": "No"
+        },
+        {
+          "key": "Application2__c.Qn_PrimApp__c",
+          "type": "toggle",
+          "data": {
+            "recordId": "a0Kc000000I8RcEEAV"
+          },
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 chk-right",
+          "templateOptions": {
+            "label": "Have you had an ownership interest in a property in the last three years?",
+            "required": true,
+            "objectName": "Application2__c",
+            "fieldName": "Qn_PrimApp__c",
+            "options": [
+              {
+                "value": "Yes",
+                "name": "Yes"
+              },
+              {
+                "value": "No",
+                "name": "No"
+              }
+            ]
+          },
+          "defaultValue": "No"
+        },
+        {
+          "key": "Application2__c.Qm_PrimApp_opt1__c",
+          "type": "select",
+          "hideExpression": "(model['Application2__c']['Qn_PrimApp__c']  == \"No\") || (!model['Application2__c']['Qn_PrimApp__c'])",
+        
+          "defaultValue": "",
+          "data": {
+            "recordId": "a0Kc000000I8RfzEAF"
+          },
+          "className": "col-xs-12 col-sm-6 col-md-6 col-lg-6",
+          "templateOptions": {
+            "label": "What type of property  did you own?",
+            "options": [
+              {
+                "value": "",
+                "name": "What type of property  did you own?"
+              },
+              {
+                "value": "Principal Residence",
+                "name": "Principal Residence"
+              },
+              {
+                "value": "Second Home",
+                "name": "Second Home"
+              },
+              {
+                "value": "Investment property",
+                "name": "Investment property"
+              }
+            ],
+            "required": true,
+            "objectName": "Application2__c",
+            "fieldName": "Qm_PrimApp_opt1__c"
+          }
+        },
+        {
+          "key": "Application2__c.Qm_PrimApp_opt2__c",
+          "type": "select",
+          "hideExpression": "(model['Application2__c']['Qn_PrimApp__c'] == \"No\") || (!model['Application2__c']['Qn_PrimApp__c'])",
+          "optionsTypes": [
+            "clear-field"
+          ],
+          "defaultValue": "",
+          "data": {
+            "recordId": "a0Kc000000I8Rg0EAF"
+          },
+          "className": "col-xs-12 col-sm-6 col-md-6 col-lg-6",
+          "templateOptions": {
+            "label": "How did you hold title to the home?",
+            "options": [
+              {
+                "value": "",
+                "name": "How did you hold title to the home?"
+              },
+              {
+                "value": "Solely by yourself",
+                "name": "Solely by yourself"
+              },
+              {
+                "value": "Jointly with your spouse",
+                "name": "Jointly with your spouse"
+              },
+              {
+                "value": "Jointly with another person",
+                "name": "Jointly with another person"
+              }
+            ],
+            "required": true,
+            "objectName": "Application2__c",
+            "fieldName": "Qm_PrimApp_opt2__c"
+          }
+        }
+      ]
+    },
+    {
+      "template": "<h5 class=\"input-group-title\">Please read the important information in this section.</h5>",
+      "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header",
+      "hideExpression": "!(model['Application__c']['Parent_Application__c'] &&  model['Application__c']['Product__c'] =='Home Loan' && model['Application__c']['Trustee_Guarantor_Application__c'])",
+      "data": {
+        "sectionType": "DP-AddQuest_PA"
+      }
+    },
+    {
+      "wrapper": "section",
+      "className": "row",
+      "hideExpression": "!(model['Application__c']['Parent_Application__c'] &&  model['Application__c']['Product__c'] =='Home Loan' && model['Application__c']['Trustee_Guarantor_Application__c'])",
+      "fieldGroup": [
+        {
+          "key": "Application2__c.Custom_Picklist1__c",
+          "type": "toggle",
+          "data": {
+            "recordId": "a0Kc000000I8Rf5EAF"
+          },
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
+          "templateOptions": {
+            "label": "Are there any outstanding judgments, tax liens or collection matters against the entity (Corp, LLC, Partnership or Trust) and/or the Principal(s) who have 20% or more ownership interest?",
+            "required": true,
+            "objectName": "Application2__c",
+            "fieldName": "Custom_Picklist1__c",
+            "options": [
+              {
+                "value": "Yes",
+                "name": "Yes"
+              },
+              {
+                "value": "No",
+                "name": "No"
+              }
+            ]
+          },
+          "defaultValue": ""
+        },
+        {
+          "key": "Application2__c.Custom_Text1__c",
+          "type": "input",
+          "hideExpression": "model['Application2__c']['Custom_Picklist1__c'] != 'Yes'",
+         
+          "className": "col-xs-12 col-sm-12 col-md-4 col-lg-4",
+          "templateOptions": {
+            "label": "Explanation",
+            "required": true,
+            "maxlength": 30,
+            "objectName": "Application2__c",
+            "fieldName": "Custom_Text1__c"
+          }
+        },
+        {
+          "key": "Application2__c.Custom_Picklist2__c",
+          "type": "toggle",
+          "data": {
+            "recordId": "a0Kc000000I8Rf8EAF"
+          },
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
+          "templateOptions": {
+            "label": "Are there any lawsuits pending or concluded in the last 5 years by or against the entity (Corp, LLC, Partnership or Trust) and/or the Principal(s) who have 20% or more ownership interest?",
+            "required": true,
+            "objectName": "Application2__c",
+            "fieldName": "Custom_Picklist2__c",
+            "options": [
+              {
+                "value": "Yes",
+                "name": "Yes"
+              },
+              {
+                "value": "No",
+                "name": "No"
+              }
+            ]
+          },
+          "defaultValue": ""
+        },
+        {
+          "key": "Application2__c.Custom_Text2__c",
+          "type": "input",
+          "hideExpression": "model['Application2__c']['Custom_Picklist2__c'] != 'Yes'",
+         
+          "data": {
+            "recordId": "a0Kc000000I8RfCEAV"
+          },
+          "className": "col-xs-12 col-sm-12 col-md-4 col-lg-4",
+          "templateOptions": {
+            "label": "Explanation",
+            "required": true,
+            "maxlength": 30,
+            "objectName": "Application2__c",
+            "fieldName": "Custom_Text2__c"
+          }
+        }
+      ]
+    }
+  ]
+}

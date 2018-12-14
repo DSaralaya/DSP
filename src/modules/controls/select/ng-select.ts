@@ -18,6 +18,7 @@ export class NGXSelectComponent extends FieldType implements OnInit {
 	public items: any;
 
 	ngOnInit() {
-		this.items = this.to.options;
+    this.items = this.to.options;
+    this.to.appearance= 'outline';
 	}
 }

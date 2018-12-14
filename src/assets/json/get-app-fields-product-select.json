@@ -18,17 +18,34 @@
 				"key": "Application__c.Product__c",
 				"type": "product-select",
 				"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
-				"data":{
-           "list":[
-						 {
-							 "label":"BRIDGE TO HOME LOANS:",
-							 "list":["1/1 ARM","3/1 ARM","5/1 ARM","30 year fixed"]
-						 },
-						 {
-							"label":"CONFORMING AND HIGH BALANCE HOME LOANS",
-							"list":["Confirming 15 year fixed","Confirmaing 30 year fixed"]
+				"data": {
+					"list": [{
+							"label": "BRIDGE TO HOME LOANS:",
+							"list": [{
+								"value": "1/1 ARM",
+								"img": "/assets/images/arm0.svg"
+							}, {
+								"value": "3/1 ARM",
+								"img": "/assets/images/arm1.svg"
+							}, {
+								"value": "5/1 ARM",
+								"img": "/assets/images/arm2.svg"
+							}, {
+								"value": "30 year fixed",
+								"img": "/assets/images/arm3.svg"
+							}]
+						},
+						{
+							"label": "CONFORMING AND HIGH BALANCE HOME LOANS",
+							"list": [{
+								"value": "Confirming 15 year fixed",
+								"img": "/assets/images/armOther0.svg"
+							}, {
+								"value": "Confirmaing 30 year fixed",
+								"img": "/assets/images/armOther1.svg"
+							}]
 						}
-					 ]
+					]
 				},
 				"templateOptions": {
 					"label": "Product",
@@ -37,8 +54,7 @@
 					"fieldName": "Street_Address__c",
 					"labelClass": "label-front"
 				}
-			}
-		]
+			}]
 
 		}
 	]

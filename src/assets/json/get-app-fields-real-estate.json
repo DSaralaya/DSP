@@ -1,0 +1,160 @@
+{
+	"pageList": "get-started,verify-otp,personal-info,asset-detials,real-estate",
+	"pageFlowMap": {
+		"skipPrevPage": "",
+		"skipNextPage": "",
+		"nextPage": "form/real-estate",
+		"prevPage": "form/real-estate"
+	},
+	"RealEstate_Details_PA__c": [],
+	"fields": [{
+		"type": "repeat-screen",
+		"key": "RealEstate_Details_PA__c",
+		"className": "row",
+		"templateOptions": {
+			"key": "RealEstate_Details_PA__c"
+		},
+		"data": {
+			"header": ["City", "State", "ZipCode"],
+			"coloums": ["City__c", "State__c", "ZipCode__c"],
+			"btnStart": "Start",
+			"btnNo": "No Real Estate to Report",
+			"btnaddNew": "Add Additional Real Estate",
+			"btnaddNo": "Continue",
+			"btnaddrepeat": "Add another financial institution",
+			"btnreview": "Review Real Estate",
+			"introHeader":"Tell us about your real estate.",
+			"introLabel":"We all collect information about your real estate assets."
+		},
+		"fieldArray": {
+			"fieldGroup": [{
+				"type": "repeat",
+				"key": "form",
+				"fieldArray": {
+					"fieldGroupClassName": "container-fluid row",
+					"templateOptions": {
+						"btnText": "Add another Real Estate"
+					},
+					"fieldGroup": [{
+							"key": "Street_Address__c",
+							"type": "input",
+							"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
+							"templateOptions": {
+								"label": "Street Address",
+								"required": true,
+								"key": "Street_Address__c"
+							}
+						},
+						{
+							"key": "City__c",
+							"type": "input",
+							"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+							"templateOptions": {
+								"label": "City",
+								"required": true,
+								"key": "City__c"
+							}
+						},
+						{
+							"key": "State__c",
+							"type": "input",
+							"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+							"templateOptions": {
+								"label": "State",
+								"required": true,
+								"key": "State__c"
+							}
+						},
+						{
+							"key": "ZipCode__c",
+							"type": "input",
+							"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+							"templateOptions": {
+								"label": "Zip Code",
+								"required": true,
+								"key": "ZipCode__c"
+							}
+						},
+						{
+							"key": "Property__c",
+							"type": "select",
+							"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
+							"templateOptions": {
+								"label": "Property Use",
+								"required": true,
+								"key": "Property__c",
+								"options":[
+									{ "value":"Primary Residence", "name":"Primary Residence"},
+									{ "value":"Second / Vacation Home", "name":"Second / Vacation Home"},
+									{ "value":"Investment/Rental Property", "name":"Investment/Rental Property"}
+								]
+							}
+						},
+						{
+							"key": "Property_Status__c",
+							"type": "select",
+							"className": "col-xs-12 col-sm-6 col-md-6 col-lg-6",
+							"templateOptions": {
+								"label": "Property Status",
+								"required": true,
+								"key": "Property_Status__c",
+								"options":[
+									{ "value":"Sold", "name":"Sold"},
+									{ "value":"Pending Sale", "name":"Pending Sale"},
+									{ "value":"Rental", "name":"Rental"}
+								]
+							}
+						},
+						{
+							"key": "Property_Type__c",
+							"type": "select",
+							"className": "col-xs-12 col-sm-6 col-md-6 col-lg-6",
+							"templateOptions": {
+								"label": "Property Type",
+								"required": true,
+								"key": "Property_Type__c",
+								"options":[
+									{ "value":"Single Family", "name":"Single Family"},
+									{ "value":"Condominium", "name":"Condominium"},
+									{ "value":"Townhouse", "name":"Townhouse"},
+									{ "value":"2-4 Units", "name":"2-4 Units"}
+								]
+							}
+						},
+						{
+							"key": "Property_Value__c",
+							"type": "input",
+							"className": "col-xs-12 col-sm-6 col-md-6 col-lg-6",
+							"templateOptions": {
+								"label": "Property Type",
+								"required": true,
+								"key": "Property_Value__c"
+							}
+						},
+						{
+							"key": "Annual_Rental_Income__c",
+							"type": "currency",
+							"className": "col-xs-12 col-sm-6 col-md-6 col-lg-6",
+							"templateOptions": {
+								"label": "Annual Rental Income",
+								"required": true,
+								"key": "Annual_Rental_Income__c"
+							}
+						},
+						{
+							"key": "Number_of_Mortgage__c",
+							"type": "currency",
+							"className": "col-xs-12 col-sm-6 col-md-6 col-lg-6",
+							"templateOptions": {
+								"label": "Number of Mortgages",
+								"required": true,
+								"key": "Number_of_Mortgage__c"
+							}
+						}
+					]
+
+				}
+			}]
+		}
+	}]
+}

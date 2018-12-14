@@ -48,11 +48,18 @@ import { RepeatScreenComponent } from './controls/other/repeat-screen';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ToggleComponent } from './controls/radio/toggle';
 import { ProductSelectComponent } from './controls/radio/product-select';
+import { ImageRadioComponent } from './controls/radio/img-radio';
 
 export function showErrorOption(field) {
 	if (field.to.hidden === true) {
+		
 		field.formControl.setValue(null);
-		field.model[field.to['objectName']][field.to['fieldName']] = '';
+		if(!field.to['key']){
+			field.model[field.to['objectName']][field.to['fieldName']] = '';
+		} else {
+			field.model[field.to['key']]='';
+		}
+	
 		field.formControl.markAsUntouched();
 	}
 
@@ -68,6 +75,8 @@ const formyconfig = FormlyModule.forRoot({
 		{ name: 'checkbox', component: CheckBoxComponent },
 		{ name: 'toggle', component: ToggleComponent },
 		{ name:'product-select', component:ProductSelectComponent},
+		{ name:'img-radio', component:ImageRadioComponent},
+		
 		{ name: 'radio-btn', component: RadioComponent },
 		{
 			name: 'email',
@@ -270,7 +279,7 @@ const formyconfig = FormlyModule.forRoot({
 		DriverLicesenceScanComponent,
 		RepeatTypeComponent,
 		RepeatScreenComponent,
-		NGXSelectComponent,ToggleComponent,ProductSelectComponent
+		NGXSelectComponent,ToggleComponent,ProductSelectComponent,ImageRadioComponent
 	],
 	imports: [
 		CommonModule,

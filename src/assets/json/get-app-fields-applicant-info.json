@@ -1,0 +1,40 @@
+{
+	"pageList": "get-started,verify-otp,personal-info,product-select,applicant-info",
+	"pageFlowMap": {
+		"skipPrevPage": "",
+		"skipNextPage": "",
+		"nextPage": "form/personal-info",
+		"prevPage": "form/product-select"
+	},
+	"fields": [{
+
+			"template": "<h5 class=\"input-group-title\">See a description of the applicant types</h5>",
+			"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header"
+		},
+		{
+			"wrapper": "section",
+			"fieldGroupClassName": "row",
+			"fieldGroup": [{
+				"key": "Application__c.Product__c",
+				"type": "product-select",
+				"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
+				"data": {
+					"list": [{
+							"label": "",
+							"list": ["Single Applicant", "Joint Applicant"]
+						}
+
+					]
+				},
+				"templateOptions": {
+					"label": "Product",
+					"required": true,
+					"objectName": "Application__c",
+					"fieldName": "Street_Address__c",
+					"labelClass": "label-front"
+				}
+			}]
+
+		}
+	]
+}

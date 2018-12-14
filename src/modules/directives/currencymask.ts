@@ -23,7 +23,13 @@ export class CurrencyMaskDirective implements OnInit {
 	}
 
 	format() {
-		const value = this.model[this.field.templateOptions['objectName']][this.field.templateOptions['fieldName']];
+		let value ='';
+		if(this.model[this.field.templateOptions['key']]){
+			value=this.model[this.field.templateOptions['key']];
+		}else {
+			value=this.model[this.field.templateOptions['objectName']][this.field.templateOptions['fieldName']];
+		}
+	
 		if (value && value.toString().length > 0) {
 			const v = '$ ' + parseFloat(value).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 			this.cmodel.valueAccessor.writeValue(v);
@@ -38,7 +44,12 @@ export class CurrencyMaskDirective implements OnInit {
 			const v = '$ ' + parseFloat(nvalue).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 			this.viewValue = v;
 			this.cmodel.valueAccessor.writeValue(this.viewValue);
-			this.model[this.field.templateOptions['objectName']][this.field.templateOptions['fieldName']] = nvalue;
+			if(this.model[this.field.templateOptions['key']]){
+				this.model[this.field.templateOptions['key']]=nvalue;
+			} else {
+				this.model[this.field.templateOptions['objectName']][this.field.templateOptions['fieldName']] = nvalue;
+			}
+			
 		}
 	}
 

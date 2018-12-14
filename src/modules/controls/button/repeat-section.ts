@@ -1,27 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FieldArrayType, FormlyFormBuilder } from '@ngx-formly/core';
 
 @Component({
   selector: 'repeat-section',
   template: `
+
   <div *ngFor="let field of field.fieldGroup; let i = index;">
+  <div class="deletebtn">
+        <button class="btn" type="button" (click)="remove(i)">Remove</button>
+   </div>
   <formly-group
-    [model]="model[i]"
     [field]="field"
     [options]="options"
     [form]="formControl">
-    <div class="col-sm-2 d-flex align-items-center">
-      <button class="btn btn-danger" type="button" (click)="remove(i)">Remove</button>
-    </div>
   </formly-group>
 </div>
-<div style="margin:30px 0;">
-  <button class="btn btn-primary" type="button" (click)="add()">Add More Investments</button>
+
+<div >
+  <button class="add-panel-btn" *ngIf="isEdit()" type="button" (click)="(!this.model['form']?this.formState.submitted=false:'');add();"><i class="fa fa-plus-circle"></i> {{ this.field.parent.fieldGroup.length>1 ? ('Add Another ' + this.formState.model[this.field.parent.fieldGroup[0].key]):field.fieldArray.templateOptions.btnText }}</button>
 </div>
   `,
 })
-export class RepeatTypeComponent extends FieldArrayType {
+export class RepeatTypeComponent extends FieldArrayType implements OnInit  {
   constructor(builder: FormlyFormBuilder) {
     super(builder);
   }
+  ngOnInit(){
+    debugger;
+  }
+ 
+  isEdit(){
+    if(this.formState && this.formState['curIndex']!=-1){
+      return false;
+    }
+     return true;
+  }
+  
+
+
+
 }

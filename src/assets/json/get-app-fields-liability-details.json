@@ -1,0 +1,136 @@
+{
+	"pageList": "get-started,verify-otp,personal-info",
+	"pageFlowMap": {
+		"skipPrevPage": "",
+		"skipNextPage": "",
+		"nextPage": "form/personal-info",
+		"prevPage": "form/personal-info"
+	},
+	"Liability_Details_PA__c": [{
+		"Liabilities_Select__c": "Other",
+		"Name_of_Creditor_c": "ddd",
+		"Monthly_Payment__c": "123",
+		"Monthly_Pledge_c": "33",
+		"Paid_Off_c": true
+	}],
+	"fields": [{
+		"type": "repeat-screen",
+		"key": "Liability_Details_PA__c",
+		"className": "row",
+		"templateOptions": {
+			"key": "Liability_Details_PA__c",
+			"firstScreen": "Liabilities_Select__c"
+		},
+		"data": {
+			"header": ["Liabilitie", "Creditor", "Pledge"],
+			"coloums": ["Liabilities_Select__c", "Name_of_Creditor_c", "Monthly_Pledge_c"],
+			"btnStart": "Start",
+			"btnNo": "No Liabilites to Report",
+			"btnaddNew": "YES, add another account",
+			"btnaddNo": "NO, I’m all done",
+			"btnaddrepeat": "Add another financial institution",
+			"btnreview": "Review Assets",
+			"introHeader": "Tell us about your liabilities.",
+			"introLabel": "We'll gather details on your debts and liabilities."
+		},
+		"fieldArray": {
+			"fieldGroup": [{
+					"className": "col-xs-12",
+					"type": "img-radio",
+					"key": "Liabilities_Select__c",
+					"hideExpression": "!model || model['Liabilities_Select__c']",
+					"data": {
+						"options": [{
+								"value": "Automobile Loans",
+								"name": "Automobile Loans",
+								"img": "/assets/images/AutomobileLoans.svg"
+							},
+							{
+								"value": "Credit Card Debt",
+								"name": "Credit Card Debt",
+								"img": "/assets/images/CreditCardDebt.svg"
+							},
+							{
+								"value": "Real Estate Loan",
+								"name": "Real Estate Loan",
+								"img": "/assets/images/RealEstateLoan.svg"
+							},
+							{
+								"value": "Alimony/ChildSupport",
+								"name": "Alimony/Child Support",
+								"img": "/assets/images/AlimonyChildSupport.svg"
+							},
+							{
+								"value": "Student Loans",
+								"name": "Student Loans",
+								"img": "/assets/images/StudentLoans.svg"
+							},
+							{
+								"value": "Taxes",
+								"name": "Taxes",
+								"img": "/assets/images/Taxes.svg"
+							},
+							{
+								"value": "Stock Pledges",
+								"name": "Stock Pledges",
+								"img": "/assets/images/Other.svg"
+							},
+							{
+								"value": "Other",
+								"name": "Other",
+								"img": "/assets/images/Other.svg"
+							}
+						]
+					},
+					"templateOptions": {
+						"label": "product:",
+						"required": true,
+						"key": "Liabilities_Select__c"
+					}
+				},
+				{
+					"type": "repeat",
+					"key": "form",
+					"hideExpression": "!formState.model || !formState.model['Liabilities_Select__c']",
+					"fieldArray": {
+						"fieldGroupClassName": "container-fluid row",
+						"templateOptions": {
+							"btnText": "Add Additional Liabilities"
+						},
+						"fieldGroup": [{
+								"className": "col-xs-12 col-lg-12 col-md-12",
+								"type": "input",
+								"key": "Name_of_Creditor_c",
+								"templateOptions": {
+									"label": "Name of Creditor",
+									"required": true,
+									"key": "Name_of_Creditor_c"
+								}
+							}, {
+								"className": "col-sm-6",
+								"type": "currency",
+								"key": "Monthly_Pledge_c",
+								"templateOptions": {
+									"label": "Outstanding Balance",
+									"required": true,
+									"key": "Monthly_Pledge_c"
+								}
+							},
+							{
+								"className": "col-sm-6",
+								"type": "currency",
+								"key": "Monthly_Payment__c",
+								"templateOptions": {
+									"label": "Monthly Payment",
+									"required": true,
+									"key": "Monthly_Payment__c"
+								}
+							}
+						]
+
+					}
+				}
+			]
+		}
+	}]
+}

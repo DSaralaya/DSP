@@ -1,0 +1,150 @@
+{
+	"pageList": "get-started,verify-otp,personal-info",
+	"pageFlowMap": {
+		"skipPrevPage": "",
+		"skipNextPage": "",
+		"nextPage": "form/personal-info",
+		"prevPage": "form/personal-info"
+	},
+	"fields": [{
+
+			"template": "<h5 class=\"input-group-title\">See a description of property types.</h5>",
+			"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header"
+		},
+		{
+			"wrapper": "section",
+			"fieldGroupClassName": "row",
+			"fieldGroup": [{
+					"key": "Application__c.Property_Type__c",
+					"type": "img-radio",
+					"data": {
+						"options": [{
+								"value": "Single Family Residence",
+								"name": "Single Family Residence",
+								"img": "/assets/images/property0.svg"
+							},
+							{
+								"value": "Multi Family Residence",
+								"name": "Multi Family Residence",
+								"img": "/assets/images/property1.svg"
+							},
+							{
+								"value": "Condo",
+								"name": "Condo",
+								"img": "/assets/images/property2.svg"
+							}
+						]
+					},
+
+					"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
+					"templateOptions": {
+						"label": "Property Type",
+						"required": true,
+						"objectName": "Application__c",
+						"fieldName": "Property_Type__c"
+
+					}
+				},
+				{
+					"key": "Application__c.Occupancy__c",
+					"type": "select",
+					"className": "col-xs-8 col-sm-12 col-md-4 col-lg-4",
+					"templateOptions": {
+						"label": "Property Use",
+						"required": true,
+						"maxlength": 15,
+						"objectName": "Application__c",
+						"fieldName": "Occupancy__c",
+						"options": [{
+								"value": "Primary Residence",
+								"name": "Primary Residence"
+							},
+							{
+								"value": "Secondary Residence",
+								"name": "Secondary Residence"
+							},
+							{
+								"value": "Investment",
+								"name": "Investment"
+							}
+						]
+					}
+				},
+				{
+					"key": "Application__c.Number_of_Units__c",
+					"type": "number",
+          "className": "col-xs-4 col-sm-12 col-md-2 col-lg-2",
+          "hideExpression":"!model['Application__c']['Property_Type__c'] || model['Application__c']['Property_Type__c']=='Single Family Residence'",
+					"templateOptions": {
+						"label": "Number of Units",
+						"required": false,
+						"maxlength": 20,
+						"objectName": "Application__c",
+						"fieldName": "Number_of_Units__c"
+					}
+				},
+				{
+					"key": "Application__c.Mailing_Street_Address__c",
+					"type": "input",
+					"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
+					"templateOptions": {
+						"label": "Street Address",
+						"required": true,
+						"objectName": "Application__c",
+						"fieldName": "Mailing_Street_Address__c",
+						"labelClass": "label-front"
+					}
+				},
+				{
+					"key": "Application__c.Mailing_City__c",
+					"type": "input",
+					"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+					"templateOptions": {
+						"label": "City",
+						"required": true,
+						"objectName": "Application__c",
+						"fieldName": "Mailing_City__c",
+						"labelClass": "label-front"
+					}
+				},
+				{
+					"key": "Application__c.Mailing_State__c",
+					"type": "input",
+					"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+					"templateOptions": {
+						"label": "State",
+						"required": true,
+						"objectName": "Application__c",
+						"fieldName": "Mailing_State__c",
+						"labelClass": "label-front"
+					}
+				},
+				{
+					"key": "Application__c.Mailing_ZipCode__c",
+					"type": "input",
+					"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+					"templateOptions": {
+						"label": "Zip Code",
+						"required": true,
+						"objectName": "Application__c",
+						"fieldName": "Mailing_ZipCode__c",
+						"labelClass": "label-front"
+					}
+				},
+				{
+					"key": "Application__c.Mailing_Country__c",
+					"type": "input",
+					"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+					"templateOptions": {
+						"label": "Country",
+						"required": true,
+						"objectName": "Application__c",
+						"fieldName": "Mailing_Country__c",
+						"labelClass": "label-front"
+					}
+				}
+			]
+		}
+
+	]
+}

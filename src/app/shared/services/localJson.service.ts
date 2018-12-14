@@ -75,6 +75,7 @@ export class LocalService {
 		let str = JSON.stringify(data);
 		str = str.replace(/\"className\":\"row\"/g, '"fieldGroupClassName":"row"');
 		str = str.replace(/\"wrapper\":\"section\"/g, '"wrapper":"section"');
+		str = str.replace(/\"label\"/g, '"appearance":"outline","label"');
 		return JSON.parse(str);
 	}
 }
