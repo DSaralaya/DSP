@@ -3,8 +3,8 @@
 	"pageFlowMap": {
 		"skipPrevPage": "",
 		"skipNextPage": "",
-		"nextPage": "form/purchase-details",
-		"prevPage": "form/basic-review"
+		"nextPage": "form/asset-details",
+		"prevPage": "form/purchase-details"
 	},
 	"fields": [{
 
@@ -16,7 +16,7 @@
 			"fieldGroupClassName": "row",
 			"fieldGroup": [{
 					"key": "Application__c.Property_Type__c",
-					"type": "img-radio",
+					"type": "output",
 					"data": {
 						"options": [{
 								"value": "Single Family Residence",
@@ -39,7 +39,7 @@
 					"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
 					"templateOptions": {
 						"label": "Property Type",
-						"required": true,
+						"required": false,
 						"objectName": "Application__c",
 						"fieldName": "Property_Type__c"
 
@@ -47,11 +47,11 @@
 				},
 				{
 					"key": "Application__c.Occupancy__c",
-					"type": "select",
+					"type": "output",
 					"className": "col-xs-8 col-sm-12 col-md-4 col-lg-4",
 					"templateOptions": {
 						"label": "Property Use",
-						"required": true,
+						"required": false,
 						"maxlength": 15,
 						"objectName": "Application__c",
 						"fieldName": "Occupancy__c",
@@ -72,9 +72,9 @@
 				},
 				{
 					"key": "Application__c.Number_of_Units__c",
-					"type": "number",
-          "className": "col-xs-4 col-sm-12 col-md-2 col-lg-2",
-          "hideExpression":"!model['Application__c']['Property_Type__c'] || model['Application__c']['Property_Type__c']=='Single Family Residence'",
+					"type": "output",
+					"className": "col-xs-4 col-sm-12 col-md-2 col-lg-2",
+					"hideExpression": "!model['Application__c']['Property_Type__c'] || model['Application__c']['Property_Type__c']=='Single Family Residence'",
 					"templateOptions": {
 						"label": "Number of Units",
 						"required": false,
@@ -85,11 +85,11 @@
 				},
 				{
 					"key": "Application__c.Mailing_Street_Address__c",
-					"type": "input",
+					"type": "output",
 					"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
 					"templateOptions": {
 						"label": "Street Address",
-						"required": true,
+						"required": false,
 						"objectName": "Application__c",
 						"fieldName": "Mailing_Street_Address__c",
 						"labelClass": "label-front"
@@ -97,11 +97,11 @@
 				},
 				{
 					"key": "Application__c.Mailing_City__c",
-					"type": "input",
+					"type": "output",
 					"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
 					"templateOptions": {
 						"label": "City",
-						"required": true,
+						"required": false,
 						"objectName": "Application__c",
 						"fieldName": "Mailing_City__c",
 						"labelClass": "label-front"
@@ -109,11 +109,11 @@
 				},
 				{
 					"key": "Application__c.Mailing_State__c",
-					"type": "input",
+					"type": "output",
 					"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
 					"templateOptions": {
 						"label": "State",
-						"required": true,
+						"required": false,
 						"objectName": "Application__c",
 						"fieldName": "Mailing_State__c",
 						"labelClass": "label-front"
@@ -121,11 +121,11 @@
 				},
 				{
 					"key": "Application__c.Mailing_ZipCode__c",
-					"type": "input",
+					"type": "output",
 					"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
 					"templateOptions": {
 						"label": "Zip Code",
-						"required": true,
+						"required": false,
 						"objectName": "Application__c",
 						"fieldName": "Mailing_ZipCode__c",
 						"labelClass": "label-front"
@@ -133,11 +133,11 @@
 				},
 				{
 					"key": "Application__c.Mailing_Country__c",
-					"type": "input",
+					"type": "output",
 					"className": "col-xs-12 col-sm-4 col-md-4 col-lg-4",
 					"templateOptions": {
 						"label": "Country",
-						"required": true,
+						"required": false,
 						"objectName": "Application__c",
 						"fieldName": "Mailing_Country__c",
 						"labelClass": "label-front"

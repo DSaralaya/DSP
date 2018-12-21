@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import clone from 'lodash.clonedeep';
 
 
+
 @Component({
   selector: 'repeat-screen',
   templateUrl: 'repeat-screen.html'
@@ -18,21 +19,25 @@ export class RepeatScreenComponent extends FieldArrayType implements OnInit {
     ops: any = {
         formState: {
           model: this.mdl,
-          curIndex:-1,
+          curIndex:-1
         }
     };
   
     curIndex=-1;
     constructor(builder: FormlyFormBuilder) {
       super(builder);
+     
     }
     
     ngOnInit() {
+      debugger;
       this.singleField = clone(this.field.fieldArray.fieldGroup);
+      this.field.parent.model['isNext']=false;
+  
+     
     }
 
     addOrUpdate(){
-      debugger;
       if(this.mdl['form'] && this.mdl['form'].length>0){
         this.ops.formState.submitted = true;
         if (this.singleForm.valid) {

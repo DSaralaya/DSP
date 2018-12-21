@@ -17,7 +17,8 @@ import { FieldArrayType, FormlyFormBuilder } from '@ngx-formly/core';
 </div>
 
 <div >
-  <button class="add-panel-btn" *ngIf="isEdit()" type="button" (click)="(!this.model['form']?this.formState.submitted=false:'');add();"><i class="fa fa-plus-circle"></i> {{ this.field.parent.fieldGroup.length>1 ? ('Add Another ' + this.formState.model[this.field.parent.fieldGroup[0].key]):field.fieldArray.templateOptions.btnText }}</button>
+
+  <button class="add-panel-btn" *ngIf="isEdit()" type="button" (click)="(!this.model['form']?this.formState.submitted=false:'');add();"><i class="fa fa-plus-circle"></i> {{ this.field.parent.fieldGroup && this.field.parent.fieldGroup.length>1 ? ('Add Another ' + this.formState.model[this.field.parent.fieldGroup[0].key]):field.fieldArray.templateOptions.btnText }}</button>
 </div>
   `,
 })
@@ -30,7 +31,7 @@ export class RepeatTypeComponent extends FieldArrayType implements OnInit  {
   }
  
   isEdit(){
-    if(this.formState && this.formState['curIndex']!=-1){
+    if(this.formState && this.formState['curIndex']!=-1 && !this.field['data']){
       return false;
     }
      return true;

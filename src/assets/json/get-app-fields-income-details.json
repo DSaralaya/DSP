@@ -1,13 +1,13 @@
 {
-	"pageList": "get-started,verify-otp,personal-info",
+	"pageList": "get-started,verify-otp,personal-info,real-estate,liability-details",
 	"pageFlowMap": {
 		"skipPrevPage": "",
 		"skipNextPage": "",
-		"nextPage": "form/personal-info",
-		"prevPage": "form/personal-info"
+		"nextPage": "form/liability-details",
+		"prevPage": "form/real-estate"
 	},
-	"Assets_Details_PA__c": [{
-		"Assets_Select__c": "Other",
+	"Income_Details_PA__c": [{
+		"Income_Select__c": "Other",
 		"Name_of_Creditor_c": "ddd",
 		"Monthly_Payment__c": "123",
 		"Monthly_Pledge_c": "33",
@@ -15,11 +15,11 @@
 	}],
 	"fields": [{
 		"type": "repeat-screen",
-		"key": "Assets_Select__c",
-		"className": "row",
+		"key": "Income_Select__c",
+		"className": "col-sm-12 mt-sm-5",
 		"templateOptions": {
-			"key": "Assets_Details_PA__c",
-			"firstScreen": "Assets_Select__c"
+			"key": "Income_Details_PA__c",
+			"firstScreen": "Income_Select__c"
 		},
 		"data": {
 			"header": ["Asset", "Creditor", "Pledge"],
@@ -37,8 +37,8 @@
 			"fieldGroup": [{
 					"className": "col-xs-12",
 					"type": "img-radio",
-					"key": "Assets_Select__c",
-					"hideExpression": "!model || model['Assets_Select__c']",
+					"key": "Income_Select__c",
+					"hideExpression": "!model || model['Income_Select__c']",
 					"data": {
 						"options": [{
 								"value": "East West",
@@ -65,17 +65,17 @@
 					"templateOptions": {
 						"label": "product:",
 						"required": true,
-						"key": "Assets_Select__c"
+						"key": "Income_Select__c"
 					}
 				},
 				{
 					"type": "repeat",
 					"key": "form",
-					"hideExpression": "!formState.model || !formState.model['Assets_Select__c']",
+					"hideExpression": "!formState.model || !formState.model['Income_Select__c']",
 					"fieldArray": {
 						"fieldGroupClassName": "container-fluid row",
 						"templateOptions": {
-							"btnText": "Add Additional Asset"
+							"btnText": "Add Additional Income"
 						},
 						"fieldGroup": [{
 								"className": "col-xs-12 col-lg-12 col-md-12",

@@ -1,98 +1,10 @@
 {
-	"pageCodesMap": {
-		"Body": {
-			"EligibilityPage": "ELG",
-			"EmploymentPage": "EP",
-			"StatusPortalPage": "SPP",
-			"SessionExpiredPage": "SEP",
-			"SchedulePage": "SP",
-			"SaveForLaterPage": "SFL",
-			"ReviewSubmitPage": "RS",
-			"PurchaseDetailsPage": "PUD",
-			"PropertyDetailsPage": "PRD",
-			"PersonalInfoPage": "PI",
-			"IndexPage": "Index",
-			"IdentityPage": "IP",
-			"GetStartedPage": "GS",
-			"DeclarationsPage": "DP",
-			"CrossSellPage": "CSP",
-			"ConfirmationPage": "CP",
-			"AppStatusPage": "AS",
-			"AppRetrievalPage": "AR",
-			"AccountDetailsPage": "AD",
-			"DynamicPagesPage": "DPP",
-			"VerifyIdentityPage": "VI"
-		}
-	},
+	"pageList": "get-started,verify-otp,personal-info,applicant-info,address-info,dependent-details",
 	"pageFlowMap": {
-		 "skipPrevPage": "CrossSellPage", "skipNextPage": "AccountDetailsPage", "nextPage": "form/address-info", "prevPage": "form/verify-otp" 
-	},
-	"pageCode": {
-		"Body": "GS"
-	},
-	"Application__c": {
-	
-	},
-
-	"Employment_Information__c": {
-		"Application__c": "a046A000009xEMvQAM",
-		"CreatedById": "0056A000000IGPnQAO",
-		"CreatedDate": 1515945312000,
-		"Custom_Checkbox1__c": false,
-		"Custom_Checkbox2__c": false,
-		"Custom_Checkbox3__c": false,
-		"Custom_Checkbox4__c": false,
-		"Custom_Checkbox5__c": false,
-		"IsDeleted": false,
-		"Name": "Emp-0007063",
-		"LastModifiedById": "0056A000000IGPnQAO",
-		"LastModifiedDate": 1515945312000,
-		"Id": "a0I6A000002up47UAA",
-		"SystemModstamp": 1515945312000
-	},
-	"Identity_Information__c": {
-		"Custom_Checkbox11__c": false,
-		"Application__c": "a046A000009xEMvQAM",
-		"CreatedById": "0056A000000IGPnQAO",
-		"CreatedDate": 1515945312000,
-		"Custom_Checkbox1__c": false,
-		"Custom_Checkbox2__c": false,
-		"Custom_Checkbox3__c": false,
-		"Custom_Checkbox4__c": false,
-		"Custom_Checkbox5__c": false,
-		"IsDeleted": false,
-		"Name": "Iden-0006887",
-		"LastModifiedById": "0056A000000IGPnQAO",
-		"LastModifiedDate": 1515945312000,
-		"Id": "a0O6A0000002yUnUAI",
-		"SystemModstamp": 1515945312000
-	},
-	"About_Account__c": {
-		
-	},
-	"Cross_Sell_Logic__c": {
-		"Id": "a086A000000DzHcQAK",
-		"Primary_Offer_TextArea2__c": "Easily manage your money anytime, anywhere from any device with FREE Online Banking, FREE BillPay and our FREE mobile app for iOS, Android or Windows phones with Mobile Deposit.",
-		"Primary_Offer_TextArea3__c": "Instantly withdraw cash surcharge-free at over 6,800 branch locations and 300,000 ATM locations nationwide.",
-		"Primary_Offer_TextArea__c": "Keep more money in your pocket with a high dividend rate, no min. balance requirements and no monthly account maintenance fees.",
-		"Primary_Offer_Text__c": "Earn a high dividend rate",
-		"Primary_Offer__c": "Business Checking - Silver",
-		"Products__c": "Business CDs",
-		"Secondary_Offer_TextArea2__c": "Easily build positive credit history by securing the card against the memberÃ??s share account funds.",
-		"Secondary_Offer_TextArea3__c": "Keep more of your money with no annual, balance transfer, cash advance or foreign transaction fees.",
-		"Secondary_Offer_TextArea__c": "Quickly and easily make purchases anytime, anywhere with the global purchasing power of a Visa card.",
-		"Secondary_Offer_Text__c": "Build your credit history",
-		"Secondary_Offer__c": "Business Credit Cards - Platinum",
-		"Sub_Products__c": "Business CDs - Basic",
-		"Third_Offer_TextArea2__c": "Save time and energy with real-time, loan application email alerts. No more wondering about the status of your loan&#39;s progress.",
-		"Third_Offer_TextArea3__c": "Keep your stress in check because we service every home loan that we make. You&#39;ll never have to worry about who to call or where to send your payment.",
-		"Third_Offer_TextArea__c": "Take the uncertainty out of how much home you can afford with instant, online pre-approvals.",
-		"Third_Offer_Text__c": "Effortlessly find the right home loan",
-		"Third_Offer__c": "Business Loans - SBA"
-	},
-	"Application_Activity__c": {},
-	"Application_Configuration__c": {
-
+		"skipPrevPage": "",
+		"skipNextPage": "",
+		"nextPage": "form/address-info",
+		"prevPage": ""
 	},
 	"fields": [
 		{

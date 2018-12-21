@@ -1,0 +1,51 @@
+{
+  "pageList": "get-started,verify-otp,personal-info,asset-detials,real-estate",
+	"pageFlowMap": {
+		"skipPrevPage": "",
+		"skipNextPage": "",
+		"nextPage": "form/ethnicity-details",
+		"prevPage": "form/declarations"
+	},
+	"fields": [
+    {
+      "template": "<h5 class=\"input-group-title\">DEMOGRAPHIC INFORMATION </h5>",
+      "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header",
+      "data": {
+        "sectionType": "AD-Beneficiary"
+      }
+    },
+    {
+      "wrapper": "section",
+      "fieldGroupClassName": "row",
+      "fieldGroup": [
+        {
+          "key": "About_Account__c.Custom_Checkbox1__c",
+          "type": "demographic",
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
+          "templateOptions": {
+            "label": "First Beneficiary",
+            "required": true,
+            "objectName": "About_Account__c",
+            "fieldName": "Custom_Checkbox1__c"
+          },
+          "data":{
+            "options":[
+              {
+                "name":"Female" ,"value":"Female"
+              },
+              {
+                "name":"Male" ,"value":"Male"
+              },
+              {
+                "name":"I do not wish to provide this information  " ,"value":"I do not wish to provide this information  "
+              }
+            ]
+          }
+         
+        }
+        
+      ]
+    }
+   
+  ]
+}

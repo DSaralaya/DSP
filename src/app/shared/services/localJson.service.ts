@@ -8,13 +8,14 @@ import { VfRemoteService } from '../../../modules/vfremote/vf-remote.service';
 
 import { from } from 'rxjs';
 import { AppConfig } from '../common/config';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class LocalService {
 	_data: any;
 	private resourceurl: string;
 	progressRef: NgProgressRef;
-	constructor(private http: Http, private progress: NgProgress, private vfRemote: VfRemoteService) {
+	constructor(private http: Http, private progress: NgProgress, private vfRemote: VfRemoteService,public router: Router) {
 		this.resourceurl = window['Dsp.Resourceurl'] ? window['Dsp.Resourceurl'] : '';
 		this.progressRef = progress.ref();
 	}
@@ -75,7 +76,10 @@ export class LocalService {
 		let str = JSON.stringify(data);
 		str = str.replace(/\"className\":\"row\"/g, '"fieldGroupClassName":"row"');
 		str = str.replace(/\"wrapper\":\"section\"/g, '"wrapper":"section"');
-		str = str.replace(/\"label\"/g, '"appearance":"outline","label"');
+		if(this.router.url.indexOf('get-started') <1 && this.router.url.indexOf('verify-otp')<1){
+			str = str.replace(/\"label\"/g, '"appearance":"outline","label"');
+		}
+		
 		return JSON.parse(str);
 	}
 }

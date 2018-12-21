@@ -14,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import {MatRadioModule} from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { CheckBoxComponent } from './controls/checkbox/checkbox';
@@ -49,6 +50,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { ToggleComponent } from './controls/radio/toggle';
 import { ProductSelectComponent } from './controls/radio/product-select';
 import { ImageRadioComponent } from './controls/radio/img-radio';
+import { DemographicComponent } from './controls/radio/demographic';
+import { ConfirmButtonComponent } from './controls/button/confirm-button';
 
 export function showErrorOption(field) {
 	if (field.to.hidden === true) {
@@ -76,6 +79,9 @@ const formyconfig = FormlyModule.forRoot({
 		{ name: 'toggle', component: ToggleComponent },
 		{ name:'product-select', component:ProductSelectComponent},
 		{ name:'img-radio', component:ImageRadioComponent},
+		{ name:'demographic', component:DemographicComponent},
+		{ name:'confirmbtn', component:ConfirmButtonComponent},
+		
 		
 		{ name: 'radio-btn', component: RadioComponent },
 		{
@@ -279,7 +285,7 @@ const formyconfig = FormlyModule.forRoot({
 		DriverLicesenceScanComponent,
 		RepeatTypeComponent,
 		RepeatScreenComponent,
-		NGXSelectComponent,ToggleComponent,ProductSelectComponent,ImageRadioComponent
+		NGXSelectComponent,ToggleComponent,ProductSelectComponent,ImageRadioComponent,DemographicComponent,ConfirmButtonComponent
 	],
 	imports: [
 		CommonModule,
@@ -293,7 +299,7 @@ const formyconfig = FormlyModule.forRoot({
 		MatSelectModule,
 		MatCheckboxModule,
 		MatButtonModule,
-		MatIconModule,
+		MatIconModule,MatRadioModule,
 		MatSlideToggleModule,
 		SimpleModalModule.forRoot({ container: 'modal-container' }),
 		NgxUploaderModule,

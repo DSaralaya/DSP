@@ -3,14 +3,14 @@
 	"pageFlowMap": {
 		"skipPrevPage": "",
 		"skipNextPage": "",
-		"nextPage": "form/real-estate",
-		"prevPage": "form/real-estate"
+		"nextPage": "form/income-details",
+		"prevPage": "form/asset-details"
 	},
 	"RealEstate_Details_PA__c": [],
 	"fields": [{
 		"type": "repeat-screen",
 		"key": "RealEstate_Details_PA__c",
-		"className": "row",
+		"className": "col-sm-12 mt-sm-5",
 		"templateOptions": {
 			"key": "RealEstate_Details_PA__c"
 		},

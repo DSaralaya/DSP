@@ -3,7 +3,7 @@
         <p>{{field.data.introLabel}} </p>
         <div class="pull-right btn-review ">
             <button class="btn btn-primary" (click)="addNew()">{{field.data.btnStart}} </button>  
-           <button class="btn btn-primary">{{field.data.btnNo}} </button> 
+           <button  type="submit" class="btn btn-primary">{{field.data.btnNo}} </button> 
         </div>
  
     </div>
@@ -29,7 +29,7 @@
     </table>
       <p class="AddNewButton pull-right" *ngIf="showList && field.parent.model[to.key].length>0" >
         <button type="button" class="btn btn-primary" (click)="addNew()" >{{field.data.btnaddNew}}</button>
-          <button type="button" class="btn btn-primary">{{field.data.btnaddNo}}</button>
+          <button type="submit" class="btn btn-primary">{{field.data.btnaddNo}}</button>
     </p>
 
 <div *ngIf="showForm">

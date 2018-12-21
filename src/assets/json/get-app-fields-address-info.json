@@ -1,7 +1,7 @@
 {
 	"pageList": "get-started,verify-otp,personal-info",
 	"pageFlowMap": {
-		"skipPrevPage": "", "skipNextPage": "", "nextPage": "form/personal-info", "prevPage": "form/personal-info" 
+		"skipPrevPage": "", "skipNextPage": "", "nextPage": "form/product-select", "prevPage": "form/personal-info" 
     },
 	"fields": [{
 
@@ -90,7 +90,6 @@
 					"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
 					"templateOptions": {
 						"label": "Is your mailing address the same as your current address?",
-						"required": true,
 						"objectName": "Application__c",
 						"fieldName": "isMailing_Address__c",
 						"labelClass": "label-front"

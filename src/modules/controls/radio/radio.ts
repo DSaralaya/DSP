@@ -3,13 +3,17 @@ import { FieldType } from '@ngx-formly/core';
 
 @Component({
 	selector: 'app-radio',
-	template: `
+  template: `
+  <mat-radio-group
+  [formControl]="formControl"
+  [formlyAttributes]="field">
   <div class="form-check form-check-inline" *ngFor="let item of items;let i=index;">
-  <label class="form-check-label" >
-  <input class="form-check-input"  type="radio" [value]="item.value" [formControl]="formControl"  [formlyAttributes]="field">
+  <label class="form-check-label">
+      <mat-radio-button [value]="item.value" ></mat-radio-button>
   {{ item.value}}
   </label>
 </div>
+</mat-radio-group>
     `
 })
 export class RadioComponent extends FieldType implements OnInit {

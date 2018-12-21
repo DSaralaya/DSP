@@ -8,7 +8,7 @@ import { NgxMaskModule } from 'ngx-mask';
 	selector: 'app-masking',
 	template: `
 	<mat-icon *ngIf="field.data && field.data.addon" class="fa {{field.data.addon}}"></mat-icon>
-    <input matInput placeholder="{{to.label}} {{to.required? '*':''}}" autocomplete="nope"   type="text" mask='{{mask}}'    [formControl]="formControl" [formlyAttributes]="field"  class="form-control"  />
+    <input matInput placeholder="{{to.label}} {{to.required? '*':''}}" [dropSpecialCharacters]="false" autocomplete="nope"   type="text" mask='{{mask}}'    [formControl]="formControl" [formlyAttributes]="field"  class="form-control"  />
    
     `
 })

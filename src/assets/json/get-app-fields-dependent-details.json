@@ -1,0 +1,154 @@
+{
+	"pageList": "get-started,verify-otp,personal-info,product-select,applicant-info",
+	"pageFlowMap": {
+		"skipPrevPage": "",
+		"skipNextPage": "",
+		"nextPage": "form/personal-info",
+		"prevPage": "form/product-select"
+	},
+	"fields": [{
+			"template": "<h5 class=\"input-group-title\">Please provide details about your spouse or domestic partner..</h5>",
+			"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header"
+		},
+		{
+			"wrapper": "section",
+			"fieldGroupClassName": "row",
+			"hideExpression": "model['Application__c']['isJoint__c']",
+			"fieldGroup": [{
+				"key": "Application__c.isJoint__c",
+				"type": "confirmbtn",
+				"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
+				"data": {
+					"confirmText": "Is the co-borrower your Spouse or Registered Domestic Partner and do you have permission to complete the loan application on behalf of your Spouse or Registered Domestic Partner?"
+				},
+				"templateOptions": {
+					"label": "isJoint",
+					"objectName": "Application__c",
+					"fieldName": "isJoint__c"
+				}
+			}]
+		},
+		{
+			"wrapper": "section",
+			"fieldGroupClassName": "row",
+			"hideExpression": "!model['Application__c']['isJoint__c']",
+			"fieldGroup": [{
+					"key": "Application__c.First_Name__c",
+					"type": "alphabet",
+					"optionsTypes": [
+						"clear-field"
+					],
+					"className": "col-xs-8 col-sm-12 col-md-4 col-lg-4",
+					"templateOptions": {
+						"focus": true,
+						"label": "First Name",
+						"required": true,
+						"maxlength": 15,
+						"objectName": "Application__c",
+						"fieldName": "First_Name__c"
+					}
+				},
+				{
+					"key": "Application__c.Middle_Name__c",
+					"type": "alphabet",
+					"className": "col-xs-4 col-sm-12 col-md-2 col-lg-2",
+					"templateOptions": {
+						"label": "Middle Name",
+						"required": false,
+						"maxlength": 20,
+						"objectName": "Application__c",
+						"fieldName": "Middle_Name__c"
+					}
+				},
+				{
+					"key": "Application__c.Last_Name__c",
+					"type": "alphabet",
+					"className": "col-xs-8 col-sm-12 col-md-4 col-lg-4",
+					"templateOptions": {
+						"label": "Last Name",
+						"required": true,
+						"maxlength": 20,
+						"objectName": "Application__c",
+						"fieldName": "Last_Name__c"
+					}
+				},
+				{
+					"key": "Application__c.Suffix__c",
+					"type": "select",
+					"defaultValue": "",
+					"className": "col-xs-4 col-sm-12 col-md-2 col-lg-2",
+					"templateOptions": {
+						"label": "Suffix",
+						"options": [{
+								"value": "",
+								"name": "Suffix"
+							},
+							{
+								"value": "Jr.",
+								"name": "Jr."
+							},
+							{
+								"value": "Sr.",
+								"name": "Sr."
+							},
+							{
+								"value": "I",
+								"name": "I"
+							},
+							{
+								"value": "II",
+								"name": "II"
+							},
+							{
+								"value": "III",
+								"name": "III"
+							}
+						],
+						"required": false,
+						"objectName": "Application__c",
+						"fieldName": "Suffix__c"
+					}
+				},
+				{
+					"key": "Application__c.DOB__c",
+					"type": "dob",
+					"className": "col-xs-8 col-sm-12 col-md-4 col-lg-4",
+					"templateOptions": {
+						"label": "Date of Birth",
+						"required": true,
+						"maxlength": 20,
+						"objectName": "Application__c",
+						"fieldName": "DOB__c"
+					}
+				},
+
+				{
+					"key": "Application__c.SSN_Prime__c",
+					"type": "ssn",
+					"className": "col-xs-8 col-sm-12 col-md-6 col-lg-6 clearfix",
+					"templateOptions": {
+						"label": "SSN",
+						"required": true,
+						"maxlength": 20,
+						"objectName": "Application__c",
+						"fieldName": "SSN_Prime__c"
+					}
+				},
+				{
+					"key": "Application__c.Tax_ID__c",
+					"type": "input",
+					"className": "col-xs-8 col-sm-12 col-md-6 col-lg-6",
+					"templateOptions": {
+						"label": "Taxpayer ID Number",
+						"required": true,
+						"maxlength": 20,
+						"objectName": "Application__c",
+						"fieldName": "Tax_ID__c"
+					}
+				}
+
+			]
+		}
+
+	]
+}

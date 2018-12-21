@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="60px" viewBox="0 0 80 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>single copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Style-Guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iCons" transform="translate(-169.000000, -525.000000)">
+            <g id="single-copy" transform="translate(169.000000, 525.000000)">
+                <rect id="Rectangle" stroke="#CE1B0E" fill="#CE1B0E" x="0.5" y="0.5" width="79" height="59" rx="4"></rect>
+                <circle id="Oval" stroke="#FFFFFF" fill="#FFFFFF" fill-rule="nonzero" cx="40.2531462" cy="21.2702974" r="7.27029736"></circle>
+                <path d="M40.2531462,32.1757434 C32.9754574,32.1757434 27.0757323,38.0754685 27.0757323,45.3531574 L53.4305602,45.3531574 C53.4305602,38.0754685 47.5308351,32.1757434 40.2531462,32.1757434 Z" id="Shape" stroke="#FFFFFF" fill="#FFFFFF" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

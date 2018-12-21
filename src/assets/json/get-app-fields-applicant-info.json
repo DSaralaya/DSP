@@ -3,7 +3,7 @@
 	"pageFlowMap": {
 		"skipPrevPage": "",
 		"skipNextPage": "",
-		"nextPage": "form/personal-info",
+		"nextPage": "form/basic-review",
 		"prevPage": "form/product-select"
 	},
 	"fields": [{
@@ -15,23 +15,26 @@
 			"wrapper": "section",
 			"fieldGroupClassName": "row",
 			"fieldGroup": [{
-				"key": "Application__c.Product__c",
-				"type": "product-select",
+				"key": "Application__c.isJoint",
+				"type": "img-radio",
 				"className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
 				"data": {
-					"list": [{
-							"label": "",
-							"list": ["Single Applicant", "Joint Applicant"]
-						}
-
-					]
+					"options": [{
+							"value": "Single Applicant",
+							"name": "Single Applicant",
+							"img": "/assets/images/Applicant_0.svg"
+						},
+						{
+						"value": "Joint Applicant",
+						"name": "Joint Applicant",
+						"img": "/assets/images/Applicant_1.svg"
+					}]
 				},
 				"templateOptions": {
-					"label": "Product",
+					"label": "joint",
 					"required": true,
 					"objectName": "Application__c",
-					"fieldName": "Street_Address__c",
-					"labelClass": "label-front"
+					"fieldName": "isJoint"
 				}
 			}]
 

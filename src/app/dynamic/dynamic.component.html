@@ -6,6 +6,7 @@
       <div class="card page-card">
        
         <div class="card-block">
+      
             <a class="pull-left back" href="/#/{{prevUrl}}">
                  <i class="fa fa-angle-left fa-2x" aria-hidden="true"></i> Back 
            </a>
@@ -20,7 +21,8 @@
                    Save for Later
                   </button>
             </li>-->
-            <li class="list-inline-item">
+            
+            <li class="list-inline-item" *ngIf="model.isNext">
                 <button type="submit" class="btn btn-primary btn-lg">
                   Next 
                 </button>

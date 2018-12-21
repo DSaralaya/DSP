@@ -3,12 +3,12 @@
 
   },
   "Application2__c":{},
-	"pageList": "get-started,verify-otp,personal-info",
+	"pageList": "get-started,verify-otp,personal-info,gender-details,declarations",
 	"pageFlowMap": {
 		"skipPrevPage": "",
 		"skipNextPage": "",
-		"nextPage": "form/personal-info",
-		"prevPage": "form/personal-info"
+		"nextPage": "form/gender-details",
+		"prevPage": "form/liability-details"
 	},
 	"fields": [
     {

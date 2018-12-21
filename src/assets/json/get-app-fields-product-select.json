@@ -1,10 +1,10 @@
 {
-	"pageList": "get-started,verify-otp,personal-info",
+	"pageList": "get-started,verify-otp,personal-info,applicant-info",
 	"pageFlowMap": {
 		"skipPrevPage": "",
 		"skipNextPage": "",
-		"nextPage": "form/personal-info",
-		"prevPage": "form/personal-info"
+		"nextPage": "form/applicant-info",
+		"prevPage": "form/address-info"
 	},
 	"fields": [{
 

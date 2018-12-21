@@ -1,0 +1,138 @@
+{
+  "pageList": "get-started,verify-otp,personal-info,asset-detials,real-estate,employment",
+	"pageFlowMap": {
+		"skipPrevPage": "",
+		"skipNextPage": "",
+		"nextPage": "form/employment",
+		"prevPage": "form/ethnicity-details"
+	},
+	"fields": [
+    {
+      "template": "<h5 class=\"input-group-title\">DEMOGRAPHIC INFORMATION </h5>",
+      "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header",
+      "data": {
+        "sectionType": "AD-Beneficiary"
+      }
+    },
+    {
+      "wrapper": "section",
+      "fieldGroupClassName": "row",
+      "fieldGroup": [
+        {
+          "key": "About_Account__c.Custom_Checkbox1__c",
+          "type": "demographic",
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
+          "templateOptions": {
+            "label": "First Beneficiary",
+            "required": true,
+            "objectName": "About_Account__c",
+            "fieldName": "Custom_Checkbox1__c"
+          },
+          "data":{
+            "options":[
+              {
+                "name":"American Indian or Alaska Native" ,"value":"American Indian or Alaska Native"
+               
+              },
+              {
+                "name":"Asian" ,"value":"Asian",
+                "fieldGroup":[ 
+                  {
+                    "key": "About_Account__c.Custom_Checkbox3__c",
+                    "type": "radio-btn",
+                    "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
+                    "expressionProperties":{
+                      "templateOptions.required": "model['About_Account__c']['Custom_Checkbox1__c'] ==='American Indian or Alaska Native'"
+                    },
+                    "templateOptions": {
+                      "label": "First Beneficiary",
+                      "objectName": "About_Account__c",
+                      "fieldName": "Custom_Checkbox3__c",
+                      "options":[ 
+                        { "name":"Asian Indian" ,"value":"Asian Indian"},
+                        { "name":"Chinese" ,"value":"Chinese"},
+                        { "name":"Filipino" ,"value":"Filipino"},
+                        { "name":"Japanese" ,"value":"Japanese"},
+                        { "name":"Korean" ,"value":"Korean"},
+                        { "name":"Vietnamese" ,"value":"Vietnamese"},
+                        { "name":"Other Asian" ,"value":"Other Asian"}
+                      ]
+                    }
+                  },
+                  {
+                    "key": "About_Account__c.Custom_Input3__c",
+                    "type": "input",
+                    "className": "col-xs-12 col-sm-6 col-md-6 col-lg-6",
+                    "hideExpression": "model['About_Account__c']['Custom_Checkbox3__c']!='Other Asian'",
+                    "expressionProperties":{
+                      "templateOptions.required": "model['About_Account__c']['Custom_Checkbox3__c'] ==='Other Asian'"
+                    },
+                    "templateOptions": {
+                      "label": "Type Race",
+                      "required": false,
+                      "objectName": "About_Account__c",
+                      "fieldName": "Custom_Input3__c"
+                    }
+                   
+                  }
+                ]
+              },
+              {
+                "name":"Black or African American" ,"value":"Black or African American"
+              },
+              {
+                "name":"Native Hawaiian or Other Pacific Islander" ,"value":"Native Hawaiian or Other Pacific Islander",
+                "fieldGroup":[ 
+                  {
+                    "key": "About_Account__c.Custom_Checkbox6__c",
+                    "type": "radio-btn",
+                    "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
+                    "expressionProperties":{
+                      "templateOptions.required": "model['About_Account__c']['Custom_Checkbox3__c'] ==='Other Asian'"
+                    },
+                    "templateOptions": {
+                      "label": "First Beneficiary",
+                      "required": false,
+                      "objectName": "About_Account__c",
+                      "fieldName": "Custom_Checkbox6__c",
+                      "options":[ 
+                        { "name":"Native Hawaiian" ,"value":"Native Hawaiian"},
+                        { "name":"Guamanian or Chamorro" ,"value":"Guamanian or Chamorro"},
+                        { "name":"Samoan" ,"value":"Samoan"},
+                        { "name":"Japanese" ,"value":"Japanese"},
+                        { "name":"Other Pacific Islander" ,"value":"Other Pacific Islander"}
+                      ]
+                    }
+                  },
+                  {
+                    "key": "About_Account__c.Custom_Input9__c",
+                    "type": "input",
+                    "className": "col-xs-12 col-sm-6 col-md-6 col-lg-6",
+                    "hideExpression": "model['About_Account__c']['Custom_Checkbox6__c']!='Other Pacific Islander'",
+                    "templateOptions": {
+                      "label": "Type Race",
+                      "required": true,
+                      "objectName": "About_Account__c",
+                      "fieldName": "Custom_Input9__c"
+                    }
+                   
+                  }
+                ]
+              },
+              {
+                "name":"White" ,"value":"White"
+              },
+              {
+                "name":"I do not wish to provide this information" ,"value":"I do not wish to provide this information"
+              }
+             
+            ]
+          }
+         
+        }
+        
+      ]
+    }
+   
+  ]
+}

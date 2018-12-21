@@ -17,7 +17,8 @@ export class GlobalEvent {
 	form = new FormGroup({});
 	public nextUrl = '';
 	public prevUrl = '';
-	options: FormlyFormOptions = { formState: { submitted: false } };
+	public isNext=true;
+	options: FormlyFormOptions = { formState: { submitted: false, isNext:true } };
 
 	constructor(public service: LocalService, public router: Router) {}
 
@@ -45,6 +46,7 @@ export class GlobalEvent {
 			}
 			this.nextUrl = AppConfig.NextPage(this.model);
 			this.prevUrl = AppConfig.PrevPage(this.model);
+			this.model.isNext=true;
 		});
 	}
 

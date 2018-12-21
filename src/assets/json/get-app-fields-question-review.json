@@ -3,8 +3,8 @@
 	"pageFlowMap": {
 		"skipPrevPage": "",
 		"skipNextPage": "",
-		"nextPage": "form/purchase-details",
-		"prevPage": "form/basic-review"
+		"nextPage": "form/review-submit",
+		"prevPage": "form/employment"
 	},
 	"fields": [{
 
@@ -16,7 +16,7 @@
 			"fieldGroupClassName": "row",
 			"fieldGroup": [{
 					"key": "Application__c.Property_Type__c",
-					"type": "img-radio",
+					"type": "output",
 					"data": {
 						"options": [{
 								"value": "Single Family Residence",
@@ -47,7 +47,7 @@
 				},
 				{
 					"key": "Application__c.Occupancy__c",
-					"type": "select",
+					"type": "output",
 					"className": "col-xs-8 col-sm-12 col-md-4 col-lg-4",
 					"templateOptions": {
 						"label": "Property Use",

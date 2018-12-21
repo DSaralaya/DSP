@@ -1,0 +1,83 @@
+{
+  "pageList": "get-started,verify-otp,personal-info,asset-detials,real-estate,race-details,gender-details",
+	"pageFlowMap": {
+		"skipPrevPage": "",
+		"skipNextPage": "",
+		"nextPage": "form/property-details",
+		"prevPage": "form/gender-details"
+	},
+	"fields": [
+    {
+      "template": "<h5 class=\"input-group-title\">DEMOGRAPHIC INFORMATION </h5>",
+      "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12 inline-section-header",
+      "data": {
+        "sectionType": "AD-Beneficiary"
+      }
+    },
+    {
+      "wrapper": "section",
+      "fieldGroupClassName": "row",
+      "fieldGroup": [
+        {
+          "key": "About_Account__c.Custom_Checkbox1__c",
+          "type": "demographic",
+          "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
+          "templateOptions": {
+            "label": "First Beneficiary",
+            "required": true,
+            "objectName": "About_Account__c",
+            "fieldName": "Custom_Checkbox1__c"
+          },
+          "data":{
+            "options":[
+              {
+                "name":"Hispanic or Latino" ,"value":"Hispanic or Latino",
+                "fieldGroup":[ 
+                  {
+                    "key": "About_Account__c.Custom_Checkbox2__c",
+                    "type": "radio-btn",
+                    "className": "col-xs-12 col-sm-12 col-md-12 col-lg-12",
+                    "templateOptions": {
+                      "label": "First Beneficiary",
+                      "required": true,
+                      "objectName": "About_Account__c",
+                      "fieldName": "Custom_Checkbox2__c",
+                      "options":[   { "name":"Mexican" ,"value":"Mexican"},
+                        { "name":"Puerto Rican" ,"value":"Puerto Rican"},
+                        { "name":"Cuban" ,"value":"Cuban"},
+                        { "name":"Other Hispanic or Latino" ,"value":"Other Hispanic or Latino"}]
+                    }
+                   
+                  },
+                  {
+                    "key": "About_Account__c.Custom_Input3__c",
+                    "type": "input",
+                    "className": "col-xs-12 col-sm-6 col-md-6 col-lg-6",
+                    "hideExpression": "model['About_Account__c']['Custom_Checkbox2__c']!='Other Hispanic or Latino'",
+                    "templateOptions": {
+                      "label": "Type Origin",
+                      "required": true,
+                      "objectName": "About_Account__c",
+                      "fieldName": "Custom_Checkbox2__c"
+                    }
+                   
+                  }
+                ]
+              },
+              {
+                "name":"Not Hispanic or  Latino" ,"value":"Not Hispanic or  Latino"
+              },
+              {
+                "name":"I do not wish to  provide this information" ,"value":"I do not wish to  provide this information"
+              }
+             
+            ]
+          }
+         
+        }
+        
+      ]
+    }
+   
+  ]
+}

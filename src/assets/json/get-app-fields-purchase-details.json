@@ -3,8 +3,8 @@
 	"pageFlowMap": {
 		"skipPrevPage": "",
 		"skipNextPage": "",
-		"nextPage": "form/purchase-details",
-		"prevPage": "form/basic-review"
+		"nextPage": "form/property-review",
+		"prevPage": "form/property-details"
 	},
 	"fields": [{
 
